@@ -1,0 +1,166 @@
+[gd_scene format=3 uid="uid://byciyheqruofd"]
+
+[ext_resource type="Script" uid="uid://vn31b1aqtjil" path="res://scripts/integrityUI.gd" id="1_le0mg"]
+[ext_resource type="FontFile" uid="uid://dc52606rwa2qd" path="res://assets/PixelOperator.ttf" id="2_4j5t6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_le0mg"]
+content_margin_left = 3.0
+content_margin_top = 3.0
+content_margin_right = 3.0
+content_margin_bottom = 3.0
+bg_color = Color(0.13682574, 0.13682574, 0.13682568, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4j5t6"]
+bg_color = Color(0, 0.60038817, 0, 1)
+border_color = Color(0, 0, 0, 1)
+corner_detail = 1
+
+[sub_resource type="Animation" id="Animation_le0mg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DamageFlash:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WarningText:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("WarningText:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_4j5t6"]
+resource_name = "integrity_hit"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DamageFlash:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 0, 0, 0), Color(1, 0, 0, 0.3), Color(1, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WarningText:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("WarningText:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.05, 1.05), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_72plh"]
+_data = {
+&"RESET": SubResource("Animation_le0mg"),
+&"integrity_hit": SubResource("Animation_4j5t6")
+}
+
+[node name="IntegrityUI" type="Control" unique_id=1043091255]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_le0mg")
+
+[node name="SystemIntegrityLabel" type="Label" parent="." unique_id=1429689797]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 465.0
+offset_right = 507.0
+offset_bottom = 556.0
+theme_override_fonts/font = ExtResource("2_4j5t6")
+theme_override_font_sizes/font_size = 48
+text = "System Integrity:"
+
+[node name="IntegrityBar" type="ProgressBar" parent="." unique_id=1855588939]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 540.0
+offset_right = 656.0
+offset_bottom = 634.0
+theme_override_fonts/font = ExtResource("2_4j5t6")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/background = SubResource("StyleBoxFlat_le0mg")
+theme_override_styles/fill = SubResource("StyleBoxFlat_4j5t6")
+step = 1.0
+value = 100.0
+
+[node name="DamageFlash" type="ColorRect" parent="." unique_id=297492583]
+visible = false
+layout_mode = 0
+offset_left = -22.0
+offset_top = -23.0
+offset_right = 1191.0
+offset_bottom = 671.0
+color = Color(1, 0, 0, 0)
+
+[node name="WarningText" type="Label" parent="." unique_id=1706333433]
+visible = false
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = -1.0
+offset_top = -5.0
+offset_right = 1156.0
+offset_bottom = 658.0
+theme_override_font_sizes/font_size = 32
+text = "SECURITY BREACH DETECTED"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=642456854]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_72plh")

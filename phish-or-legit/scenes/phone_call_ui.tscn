@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://dykhd5n8kuira"]
+
+[ext_resource type="Script" uid="uid://2jre7og67epp" path="res://scripts/PhoneCallUI.gd" id="1_yu7yp"]
+
+[node name="phonecallUI" type="Control" unique_id=1717077673]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_yu7yp")
+
+[node name="Panel" type="Panel" parent="." unique_id=14081841]
+layout_mode = 0
+offset_right = 280.0
+offset_bottom = 110.0
+
+[node name="CallerLabel" type="Label" parent="Panel" unique_id=539825535]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 2.0
+offset_right = 50.0
+offset_bottom = 25.0
+text = "Caller:"
+
+[node name="DialogueLabel" type="Label" parent="Panel" unique_id=1619797633]
+layout_mode = 0
+offset_top = 26.0
+offset_right = 276.0
+offset_bottom = 75.0
+text = "Incoming call..."
+
+[node name="ButtonContainer" type="HBoxContainer" parent="Panel" unique_id=901927601]
+layout_mode = 0
+offset_top = 79.0
+offset_right = 280.0
+offset_bottom = 110.0
+alignment = 1
+
+[node name="OptionButton1" type="Button" parent="Panel/ButtonContainer" unique_id=200903112]
+layout_mode = 2
+text = "Option 1"
+
+[node name="OptionButton2" type="Button" parent="Panel/ButtonContainer" unique_id=712884959]
+layout_mode = 2
+text = "Option 2"
+
+[node name="OptionButton3" type="Button" parent="Panel/ButtonContainer" unique_id=812146070]
+layout_mode = 2
+text = "Option 3"

@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://ufnn1sih1man"]
+
+[ext_resource type="Script" uid="uid://c2pgohvh4l45i" path="res://scripts/phone.gd" id="1_08mii"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h0hps"]
+
+[node name="Phone" type="Node2D" unique_id=485570780]
+script = ExtResource("1_08mii")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1205935191]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1281893029]
+shape = SubResource("RectangleShape2D_h0hps")
+
+[node name="InteractionLabel" type="Label" parent="Area2D" unique_id=1358734473]
+offset_right = 136.0
+offset_bottom = 49.0
+text = "Incoming Call
+Press E to answer"
+
+[node name="RingSound" type="AudioStreamPlayer2D" parent="Area2D" unique_id=2143363658]

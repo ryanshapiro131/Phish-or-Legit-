@@ -1,0 +1,145 @@
+[gd_scene format=3 uid="uid://cncx68pe42f55"]
+
+[ext_resource type="Script" uid="uid://cspgc87iumu8h" path="res://scripts/EmailSystem.gd" id="1_dwfkx"]
+[ext_resource type="Texture2D" uid="uid://brfw0w15jsxpc" path="res://assets/download (1).png" id="2_85euw"]
+[ext_resource type="Texture2D" uid="uid://xdbpkq46nusk" path="res://assets/itchio-pxl-retro-computer-icons-set-110/itchio-pxl-retro-computer-icons-set-110.jpg" id="3_1l5w1"]
+[ext_resource type="Script" uid="uid://dker31g6pk3dy" path="res://scripts/texture_button.gd" id="4_72j2e"]
+[ext_resource type="PackedScene" uid="uid://byciyheqruofd" path="res://scenes/integrityUI.tscn" id="5_72j2e"]
+[ext_resource type="Script" uid="uid://187fbfhtt3cc" path="res://scripts/email_button.gd" id="6_d5cbr"]
+[ext_resource type="Script" uid="uid://gb5vporxst6l" path="res://scripts/shop_button.gd" id="7_f8h04"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_wrqkr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_70sxr"]
+atlas = ExtResource("3_1l5w1")
+region = Rect2(1536.5383, 1183.6702, 153.80432, 117.85022)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1pmli"]
+atlas = ExtResource("3_1l5w1")
+region = Rect2(69.37549, 249.8263, 137.8247, 123.84253)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pu7xw"]
+atlas = ExtResource("3_1l5w1")
+region = Rect2(75.67096, 64.35982, 123.451294, 130.62871)
+
+[node name="Email" type="Control" unique_id=1904626014]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_dwfkx")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1990076057]
+
+[node name="Background" type="ColorRect" parent="." unique_id=1727191017]
+layout_mode = 0
+offset_left = -959.0
+offset_top = -537.0
+offset_right = 963.0
+offset_bottom = 559.0
+color = Color(0.1085661, 0.0636876, 0.6086408, 0.7921569)
+
+[node name="emailListPanel" type="PanelContainer" parent="." unique_id=526382843]
+material = SubResource("CanvasItemMaterial_wrqkr")
+layout_mode = 0
+offset_left = -627.0
+offset_top = -308.0
+offset_right = 31.0
+offset_bottom = 373.0
+
+[node name="emailList" type="VBoxContainer" parent="emailListPanel" unique_id=1646827832]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="emailListPanel/emailList" unique_id=290629073]
+layout_mode = 2
+text = "						FBI.GOV"
+horizontal_alignment = 1
+
+[node name="emailViewerPanel" type="PanelContainer" parent="." unique_id=2092471391]
+layout_mode = 0
+offset_left = 36.0
+offset_top = -309.0
+offset_right = 636.0
+offset_bottom = 355.0
+
+[node name="ViewerVBox" type="VBoxContainer" parent="emailViewerPanel" unique_id=881023378]
+layout_mode = 2
+
+[node name="SenderLabel" type="Label" parent="emailViewerPanel/ViewerVBox" unique_id=1034169270]
+layout_mode = 2
+
+[node name="SubjectLabel" type="Label" parent="emailViewerPanel/ViewerVBox" unique_id=95727476]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+autowrap_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="emailViewerPanel/ViewerVBox" unique_id=1871414216]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="emailViewerPanel/ViewerVBox" unique_id=24935774]
+layout_mode = 2
+alignment = 2
+
+[node name="AcceptButton" type="Button" parent="emailViewerPanel/ViewerVBox/HBoxContainer" unique_id=2037038779]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Accept"
+
+[node name="DenyButton" type="Button" parent="emailViewerPanel/ViewerVBox/HBoxContainer" unique_id=1274862498]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Deny"
+
+[node name="IgnoreButton" type="Button" parent="emailViewerPanel/ViewerVBox/HBoxContainer" unique_id=1729786495]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Ignore"
+
+[node name="IntegrityLevel" type="Label" parent="." unique_id=521285328]
+layout_mode = 0
+offset_left = -436.0
+offset_top = 196.0
+offset_right = -305.0
+offset_bottom = 219.0
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1724889514]
+layout_mode = 0
+offset_left = -611.0
+offset_top = -308.0
+offset_right = -521.0
+offset_bottom = -226.0
+texture = ExtResource("2_85euw")
+expand_mode = 1
+
+[node name="IntegrityUI" parent="." unique_id=1043091255 instance=ExtResource("5_72j2e")]
+layout_mode = 1
+offset_left = -979.0
+offset_top = -125.0
+offset_right = -507.0
+offset_bottom = 213.0
+
+[node name="TaskBar" type="HBoxContainer" parent="." unique_id=2015893251]
+layout_mode = 0
+offset_left = -913.0
+offset_top = 404.0
+offset_right = 1095.0
+offset_bottom = 534.0
+alignment = 1
+
+[node name="EmailButton" type="TextureButton" parent="TaskBar" unique_id=2123724840]
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_70sxr")
+script = ExtResource("6_d5cbr")
+
+[node name="ShopButton" type="TextureButton" parent="TaskBar" unique_id=1990198866]
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_1pmli")
+script = ExtResource("7_f8h04")
+
+[node name="HomeButton" type="TextureButton" parent="TaskBar" unique_id=2101603933]
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_pu7xw")
+script = ExtResource("4_72j2e")
+
+[connection signal="pressed" from="TaskBar/EmailButton" to="TaskBar/EmailButton" method="_on_pressed"]
+[connection signal="pressed" from="TaskBar/ShopButton" to="TaskBar/ShopButton" method="_on_pressed"]
+[connection signal="pressed" from="TaskBar/HomeButton" to="TaskBar/HomeButton" method="_on_pressed"]
