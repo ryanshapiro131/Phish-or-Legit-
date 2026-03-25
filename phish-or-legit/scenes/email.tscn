@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://byciyheqruofd" path="res://scenes/integrityUI.tscn" id="5_72j2e"]
 [ext_resource type="Script" uid="uid://187fbfhtt3cc" path="res://scripts/email_button.gd" id="6_d5cbr"]
 [ext_resource type="Script" uid="uid://gb5vporxst6l" path="res://scripts/shop_button.gd" id="7_f8h04"]
+[ext_resource type="AudioStream" uid="uid://bfy0ku1ybo2hm" path="res://assets/kakaist-glitch-sfx-312910.mp3" id="8_f8h04"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_wrqkr"]
 
@@ -139,6 +140,12 @@ script = ExtResource("7_f8h04")
 layout_mode = 2
 texture_normal = SubResource("AtlasTexture_pu7xw")
 script = ExtResource("4_72j2e")
+
+[node name="SpawnTimer" type="Timer" parent="." unique_id=141228082]
+
+[node name="HitSound" type="AudioStreamPlayer2D" parent="." unique_id=1180899977]
+stream = ExtResource("8_f8h04")
+volume_db = -8.537
 
 [connection signal="pressed" from="TaskBar/EmailButton" to="TaskBar/EmailButton" method="_on_pressed"]
 [connection signal="pressed" from="TaskBar/ShopButton" to="TaskBar/ShopButton" method="_on_pressed"]
