@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://delr3h13ecgfi"]
+
+[ext_resource type="FontFile" uid="uid://dc52606rwa2qd" path="res://assets/PixelOperator.ttf" id="1_2g6gp"]
+[ext_resource type="Script" uid="uid://c0hy1rnkdl0b8" path="res://scripts/text_box.gd" id="1_jxvgk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3fk4r"]
+bg_color = Color(0, 0, 0, 0.6784314)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2g6gp"]
+bg_color = Color(0.47058824, 0.47058824, 0.47058824, 0.2509804)
+
+[node name="Textbox" type="CanvasLayer" unique_id=1298141367]
+script = ExtResource("1_jxvgk")
+
+[node name="TextboxContainer" type="MarginContainer" parent="." unique_id=1961087648]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -454.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_left = 3
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_right = 3
+theme_override_constants/margin_bottom = 2
+
+[node name="Panel" type="Panel" parent="TextboxContainer" unique_id=1694226738]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_3fk4r")
+
+[node name="MarginContainer" type="MarginContainer" parent="TextboxContainer" unique_id=1970329156]
+layout_mode = 2
+theme_override_constants/margin_left = 64
+theme_override_constants/margin_top = 64
+theme_override_constants/margin_right = 64
+theme_override_constants/margin_bottom = 64
+
+[node name="Panel" type="Panel" parent="TextboxContainer/MarginContainer" unique_id=801311038]
+visible = false
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_2g6gp")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TextboxContainer/MarginContainer" unique_id=473407571]
+layout_mode = 2
+
+[node name="Start" type="Label" parent="TextboxContainer/MarginContainer/HBoxContainer" unique_id=1493750656]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_fonts/font = ExtResource("1_2g6gp")
+theme_override_font_sizes/font_size = 128
+text = "*"
+
+[node name="Label" type="Label" parent="TextboxContainer/MarginContainer/HBoxContainer" unique_id=445864253]
+custom_minimum_size = Vector2(1608, 321)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("1_2g6gp")
+theme_override_font_sizes/font_size = 128
+text = "The quick brown fox jumps over the lazy dog. "
+autowrap_mode = 2
+
+[node name="End" type="Label" parent="TextboxContainer/MarginContainer/HBoxContainer" unique_id=1145610868]
+custom_minimum_size = Vector2(56, 128)
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_fonts/font = ExtResource("1_2g6gp")
+theme_override_font_sizes/font_size = 128
+text = "↓"
+horizontal_alignment = 2
