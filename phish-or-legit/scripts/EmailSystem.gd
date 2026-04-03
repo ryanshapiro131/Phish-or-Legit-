@@ -31,7 +31,7 @@ var email_buttons: Dictionary = {}
 @onready var accept_button        = $emailViewerPanel/ViewerVBox/HBoxContainer/AcceptButton
 @onready var deny_button          = $emailViewerPanel/ViewerVBox/HBoxContainer/DenyButton
 @onready var ignore_button        = $emailViewerPanel/ViewerVBox/HBoxContainer/IgnoreButton
-@onready var integrity_ui: Control = $IntegrityUI
+@onready var integrity_ui = $IntegrityUI
 @onready var spawn_timer: Timer   = $SpawnTimer
 @onready var hit_sound = $HitSound
 
@@ -47,6 +47,17 @@ func _ready():
 	spawn_timer.wait_time = EMAIL_SPAWN_INTERVAL
 	spawn_timer.timeout.connect(_on_spawn_timer)
 	spawn_timer.start()
+
+	if not GameManager.email_intro_shown:
+		GameManager.email_intro_shown = true
+		await get_tree().process_frame
+		Assistant.show_messages([
+			"This is your inbox.",
+			"Click an email on the left to inspect it.",
+			"Press Accept if you believe the email is legitimate and safe.",
+			"Press Deny if you believe the email is phishing or suspicious.",
+			"You can also Ignore an email if you want to come back to it later."
+		])
 
 
 # -----------------------------------------
@@ -168,8 +179,7 @@ func _on_spawn_timer():
 		return
 
 	var pool = _get_email_pool()
-	var integrity = integrity_ui.integrity
-
+	var integrity = GameManager.system_integrity
 	var phishing_chance: float
 	if integrity > 60:
 		phishing_chance = PHISHING_RATIO_HIGH
@@ -238,27 +248,56 @@ func connect_buttons():
 # -----------------------------------------
 # DECISION LOGIC
 # -----------------------------------------
+func show_email_feedback(was_correct: bool):
+	if current_email == null:
+		return
+
+	if was_correct:
+		if current_email.is_phishing:
+			if "immediately" in current_email.body.to_lower() or "suspended" in current_email.body.to_lower():
+				Assistant.show_message("Correct. This was phishing because it used urgent language to pressure you.")
+			elif ".com" in current_email.sender or ".net" in current_email.sender:
+				Assistant.show_message("Correct. This sender address was suspicious and did not match a trusted FBI domain.")
+			else:
+				Assistant.show_message("Correct. You identified a phishing email.")
+		else:
+			Assistant.show_message("Correct. This email was legitimate and safe to accept.")
+	else:
+		if current_email.is_phishing:
+			if "immediately" in current_email.body.to_lower() or "suspended" in current_email.body.to_lower():
+				Assistant.show_message("Incorrect. This was phishing because it used urgent language to make you panic.")
+			elif ".com" in current_email.sender or ".net" in current_email.sender:
+				Assistant.show_message("Incorrect. This sender address was suspicious and should not have been trusted.")
+			else:
+				Assistant.show_message("Incorrect. That email showed signs of phishing.")
+		else:
+			Assistant.show_message("Incorrect. This email was actually legitimate, so it should not have been denied.")
 func on_accept_pressed():
 	if current_email == null:
 		return
+
 	if current_email.is_phishing:
 		integrity_ui.lose_integrity(current_email.damage)
 		hit_sound.play()
+		show_email_feedback(false)
 	else:
-		print("Correct decision!")
+		show_email_feedback(true)
+
 	remove_current_email()
 
 
 func on_deny_pressed():
 	if current_email == null:
 		return
+
 	if not current_email.is_phishing:
 		integrity_ui.lose_integrity(8)
 		hit_sound.play()
+		show_email_feedback(false)
 	else:
-		print("Threat prevented!")
-	remove_current_email()
+		show_email_feedback(true)
 
+	remove_current_email()
 
 func on_ignore_pressed():
 	if current_email == null:

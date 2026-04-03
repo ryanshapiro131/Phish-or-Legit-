@@ -1,24 +1,15 @@
 [gd_scene format=3 uid="uid://c6ibv0b34mdfs"]
 
-[node name="AssistantUi" type="Node2D" unique_id=1326128462]
+[ext_resource type="PackedScene" uid="uid://delr3h13ecgfi" path="res://scenes/TextBox.tscn" id="1_ed6cf"]
+[ext_resource type="Script" uid="uid://duu7qvg5tpy3" path="res://scripts/assistant_ui.gd" id="1_qwc8j"]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1285581985]
+[node name="CanvasLayer" type="CanvasLayer" unique_id=1285581985]
+script = ExtResource("1_qwc8j")
 
-[node name="Control" type="Control" parent="CanvasLayer" unique_id=191845427]
+[node name="TextBox" parent="." unique_id=1298141367 instance=ExtResource("1_ed6cf")]
+
+[node name="Control" type="Control" parent="." unique_id=191845427]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer" unique_id=2139750423]
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Panel" type="Panel" parent="CanvasLayer" unique_id=188225506]
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Label" type="Label" parent="CanvasLayer/Panel" unique_id=1106186312]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
