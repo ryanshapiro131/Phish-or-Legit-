@@ -18,7 +18,6 @@ func _ready() -> void:
 
 	if not GameManager.office_intro_shown:
 		GameManager.office_intro_shown = true
-		await get_tree().create_timer(3.0).timeout
 		Assistant.show_messages([
 			"Welcome to your first day on the job as an FBI Security Analyst.",
 			"Please head over to your desk to get started."
