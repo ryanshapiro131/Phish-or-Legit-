@@ -7,6 +7,8 @@
 [ext_resource type="Script" uid="uid://gb5vporxst6l" path="res://scripts/shop_button.gd" id="4_mh5ev"]
 [ext_resource type="Script" uid="uid://kx3i47gpnelv" path="res://log_off_button.gd" id="5_xwj8n"]
 [ext_resource type="PackedScene" uid="uid://delr3h13ecgfi" path="res://scenes/TextBox.tscn" id="7_u1ss0"]
+[ext_resource type="FontFile" uid="uid://dc52606rwa2qd" path="res://assets/PixelOperator.ttf" id="8_oeder"]
+[ext_resource type="Script" uid="uid://msc1p48uhiut" path="res://scenes/salary.gd" id="9_gg51s"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bqwoi"]
 atlas = ExtResource("2_n7i4q")
@@ -112,6 +114,28 @@ text = "Log Off"
 offset = Vector2(450, 450)
 scale = Vector2(0.67, 0.67)
 transform = Transform2D(0.67, 0, 0, 0.67, 450, 450)
+
+[node name="Salary Header" type="Label" parent="." unique_id=1378452711]
+layout_mode = 0
+offset_left = 759.0
+offset_top = -536.0
+offset_right = 923.0
+offset_bottom = -475.0
+theme_override_fonts/font = ExtResource("8_oeder")
+theme_override_font_sizes/font_size = 60
+text = "Salary"
+metadata/_edit_use_anchors_ = true
+
+[node name="Salary" type="Label" parent="." unique_id=1618406163]
+layout_mode = 0
+offset_left = 805.0
+offset_top = -483.0
+offset_right = 878.0
+offset_bottom = -422.0
+theme_override_fonts/font = ExtResource("8_oeder")
+theme_override_font_sizes/font_size = 60
+script = ExtResource("9_gg51s")
+metadata/_edit_use_anchors_ = true
 
 [connection signal="pressed" from="VBoxContainer/EmailButton" to="VBoxContainer/EmailButton" method="_on_pressed"]
 [connection signal="pressed" from="VBoxContainer/EmailButton" to="VBoxContainer/ShopButton" method="_on_email_button_pressed"]

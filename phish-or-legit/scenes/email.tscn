@@ -8,6 +8,8 @@
 [ext_resource type="Script" uid="uid://187fbfhtt3cc" path="res://scripts/email_button.gd" id="6_d5cbr"]
 [ext_resource type="Script" uid="uid://gb5vporxst6l" path="res://scripts/shop_button.gd" id="7_f8h04"]
 [ext_resource type="AudioStream" uid="uid://bfy0ku1ybo2hm" path="res://assets/kakaist-glitch-sfx-312910.mp3" id="8_f8h04"]
+[ext_resource type="FontFile" uid="uid://dc52606rwa2qd" path="res://assets/PixelOperator.ttf" id="9_1pmli"]
+[ext_resource type="Script" uid="uid://msc1p48uhiut" path="res://scenes/salary.gd" id="10_dkcua"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_wrqkr"]
 
@@ -146,6 +148,28 @@ script = ExtResource("4_72j2e")
 [node name="HitSound" type="AudioStreamPlayer2D" parent="." unique_id=1180899977]
 stream = ExtResource("8_f8h04")
 volume_db = -8.537
+
+[node name="Salary Header" type="Label" parent="." unique_id=1323831308]
+layout_mode = 0
+offset_left = 759.0
+offset_top = -536.0
+offset_right = 923.0
+offset_bottom = -475.0
+theme_override_fonts/font = ExtResource("9_1pmli")
+theme_override_font_sizes/font_size = 60
+text = "Salary"
+metadata/_edit_use_anchors_ = true
+
+[node name="Salary" type="Label" parent="." unique_id=1239324578]
+layout_mode = 0
+offset_left = 805.0
+offset_top = -483.0
+offset_right = 878.0
+offset_bottom = -422.0
+theme_override_fonts/font = ExtResource("9_1pmli")
+theme_override_font_sizes/font_size = 60
+script = ExtResource("10_dkcua")
+metadata/_edit_use_anchors_ = true
 
 [connection signal="pressed" from="TaskBar/EmailButton" to="TaskBar/EmailButton" method="_on_pressed"]
 [connection signal="pressed" from="TaskBar/ShopButton" to="TaskBar/ShopButton" method="_on_pressed"]

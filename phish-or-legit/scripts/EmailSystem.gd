@@ -62,35 +62,35 @@ func _get_email_pool() -> Array:
 	l1.sender = "boss@fbi.com"
 	l1.subject = "Team Meeting"
 	l1.body = "Reminder: we have our weekly 3PM team meeting today in conference room B. Please bring your status update."
-	l1.is_phishing = false; l1.damage = 0; l1.reward = 15; l1.difficulty = 1
+	l1.is_phishing = false; l1.damage = 0; l1.reward = 75; l1.difficulty = 1
 	pool.append(l1)
 
 	var l2 = EmailData.new()
 	l2.sender = "hr@fbi.gov"
 	l2.subject = "Updated Holiday Schedule"
 	l2.body = "Please find the updated holiday schedule for Q2 attached. No action required."
-	l2.is_phishing = false; l2.damage = 0; l2.reward = 15; l2.difficulty = 1
+	l2.is_phishing = false; l2.damage = 0; l2.reward = 75; l2.difficulty = 1
 	pool.append(l2)
 
 	var l3 = EmailData.new()
 	l3.sender = "it@fbi.gov"
 	l3.subject = "Scheduled Maintenance Tonight"
 	l3.body = "Systems will be down from 11PM to 1AM for routine maintenance. No action required."
-	l3.is_phishing = false; l3.damage = 0; l3.reward = 15; l3.difficulty = 1
+	l3.is_phishing = false; l3.damage = 0; l3.reward = 75; l3.difficulty = 1
 	pool.append(l3)
 
 	var l4 = EmailData.new()
 	l4.sender = "newsletter@techdigest.com"
 	l4.subject = "Your Weekly Tech Digest"
 	l4.body = "This week in tech: AI developments, new hardware releases, and cybersecurity updates."
-	l4.is_phishing = false; l4.damage = 0; l4.reward = 10; l4.difficulty = 1
+	l4.is_phishing = false; l4.damage = 0; l4.reward = 50; l4.difficulty = 1
 	pool.append(l4)
 
 	var l5 = EmailData.new()
 	l5.sender = "payroll@fbi.gov"
 	l5.subject = "Your Pay Stub is Ready"
 	l5.body = "Your latest pay stub is available in the employee portal at portal.fbi.gov. Log in to view it."
-	l5.is_phishing = false; l5.damage = 0; l5.reward = 10; l5.difficulty = 2
+	l5.is_phishing = false; l5.damage = 0; l5.reward = 50; l5.difficulty = 2
 	pool.append(l5)
 
 	# --- PHISHING (difficulty 1 - obvious) ---
@@ -98,21 +98,21 @@ func _get_email_pool() -> Array:
 	p1.sender = "admin-secure@fb1.com"
 	p1.subject = "Account Suspended"
 	p1.body = "Your account has been SUSPENDED. Click immediately to restore access or lose your data forever!!!"
-	p1.is_phishing = true; p1.damage = 25; p1.reward = 0; p1.difficulty = 1
+	p1.is_phishing = true; p1.damage = 25; p1.reward = 50; p1.difficulty = 1
 	pool.append(p1)
 
 	var p2 = EmailData.new()
 	p2.sender = "support@paypai.com"
 	p2.subject = "Unusual Activity Detected"
 	p2.body = "We have locked your account due to suspicious login. Verify your identity IMMEDIATELY or lose access permanently."
-	p2.is_phishing = true; p2.damage = 25; p2.reward = 0; p2.difficulty = 1
+	p2.is_phishing = true; p2.damage = 25; p2.reward = 50; p2.difficulty = 1
 	pool.append(p2)
 
 	var p3 = EmailData.new()
 	p3.sender = "noreply@amaz0n-support.com"
 	p3.subject = "Your Order Has Been Cancelled"
 	p3.body = "Your recent order was flagged for fraud. Click here NOW to confirm your payment details and avoid account closure."
-	p3.is_phishing = true; p3.damage = 20; p3.reward = 0; p3.difficulty = 1
+	p3.is_phishing = true; p3.damage = 20; p3.reward = 50; p3.difficulty = 1
 	pool.append(p3)
 
 	# --- PHISHING (difficulty 2 - subtle) ---
@@ -120,14 +120,14 @@ func _get_email_pool() -> Array:
 	p4.sender = "security@micros0ft-alert.com"
 	p4.subject = "Your Password Expires Today"
 	p4.body = "Your Microsoft account password expires today. Please reset it using the link below to maintain access."
-	p4.is_phishing = true; p4.damage = 20; p4.reward = 0; p4.difficulty = 2
+	p4.is_phishing = true; p4.damage = 20; p4.reward = 75; p4.difficulty = 2
 	pool.append(p4)
 
 	var p5 = EmailData.new()
 	p5.sender = "it-helpdesk@fbi-support.net"
 	p5.subject = "Action Required: VPN Certificate Renewal"
 	p5.body = "Your VPN certificate is expiring. Please download and install the attached renewal file before Friday."
-	p5.is_phishing = true; p5.damage = 20; p5.reward = 0; p5.difficulty = 2
+	p5.is_phishing = true; p5.damage = 20; p5.reward = 75; p5.difficulty = 2
 	pool.append(p5)
 
 	# --- PHISHING (difficulty 3 - very subtle) ---
@@ -135,14 +135,14 @@ func _get_email_pool() -> Array:
 	p6.sender = "hr@fbi.gov.hr-portal.com"
 	p6.subject = "Open Enrollment Reminder"
 	p6.body = "This is your reminder to complete benefits open enrollment by end of week. Log in at the HR portal link below."
-	p6.is_phishing = true; p6.damage = 30; p6.reward = 0; p6.difficulty = 3
+	p6.is_phishing = true; p6.damage = 30; p6.reward = 100; p6.difficulty = 3
 	pool.append(p6)
 
 	var p7 = EmailData.new()
 	p7.sender = "payroll@fbi.gov.payroll-update.com"
 	p7.subject = "Direct Deposit Update Required"
 	p7.body = "Please verify your direct deposit information for the upcoming pay period. No changes will result in a delayed payment."
-	p7.is_phishing = true; p7.damage = 30; p7.reward = 0; p7.difficulty = 3
+	p7.is_phishing = true; p7.damage = 30; p7.reward = 100; p7.difficulty = 3
 	pool.append(p7)
 
 	return pool
@@ -245,6 +245,7 @@ func on_accept_pressed():
 		integrity_ui.lose_integrity(current_email.damage)
 		hit_sound.play()
 	else:
+		GameManager.add_salary(current_email.reward)
 		print("Correct decision!")
 	remove_current_email()
 
@@ -256,6 +257,7 @@ func on_deny_pressed():
 		integrity_ui.lose_integrity(8)
 		hit_sound.play()
 	else:
+		GameManager.add_salary(current_email.reward)
 		print("Threat prevented!")
 	remove_current_email()
 

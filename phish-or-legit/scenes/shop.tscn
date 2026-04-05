@@ -2,18 +2,39 @@
 
 [ext_resource type="Texture2D" uid="uid://cpirvpqq3d3ij" path="res://assets/GodotBackground.jpg" id="1_e7rdd"]
 [ext_resource type="Texture2D" uid="uid://did4w0iaeeaes" path="res://assets/GodotYellow.jpg" id="3_blqjs"]
+[ext_resource type="Script" uid="uid://msc1p48uhiut" path="res://scenes/salary.gd" id="3_m4ofw"]
 [ext_resource type="Texture2D" uid="uid://xo3mwe7163b0" path="res://assets/GodotGreenjpg.jpg" id="4_6lah5"]
 [ext_resource type="FontFile" uid="uid://dc52606rwa2qd" path="res://assets/PixelOperator.ttf" id="4_fgaav"]
+[ext_resource type="Texture2D" uid="uid://xdbpkq46nusk" path="res://assets/itchio-pxl-retro-computer-icons-set-110/itchio-pxl-retro-computer-icons-set-110.jpg" id="5_8r1wq"]
+[ext_resource type="Script" uid="uid://187fbfhtt3cc" path="res://scripts/email_button.gd" id="6_ajxib"]
+[ext_resource type="Script" uid="uid://bbivlppt3s2lp" path="res://scenes/hyperlink_button.gd" id="6_gobkm"]
+[ext_resource type="Script" uid="uid://dker31g6pk3dy" path="res://scripts/texture_button.gd" id="7_ajxib"]
+[ext_resource type="Script" uid="uid://bl7e6kjjb6ssn" path="res://scenes/ai_firewall_button.gd" id="7_j14q8"]
+[ext_resource type="Script" uid="uid://cg1uqfibtr1mj" path="res://scenes/encrypted_storage_button.gd" id="8_5u241"]
+[ext_resource type="PackedScene" uid="uid://byciyheqruofd" path="res://scenes/integrityUI.tscn" id="8_y6sft"]
+[ext_resource type="Script" uid="uid://b3si73742sdu4" path="res://scenes/grant_button.gd" id="9_pqync"]
+[ext_resource type="Script" uid="uid://cgnqi0chmllmc" path="res://scenes/spam_filter_button.gd" id="10_yuijs"]
+[ext_resource type="Script" uid="uid://dkpep63leqmox" path="res://scenes/encrypted_backup_button.gd" id="11_aa4hd"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gmb2m"]
 texture = ExtResource("4_6lah5")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y6sft"]
+atlas = ExtResource("5_8r1wq")
+region = Rect2(1536.5383, 1183.6702, 153.80432, 117.85022)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m4ofw"]
+atlas = ExtResource("5_8r1wq")
+region = Rect2(75.67096, 64.35982, 123.451294, 130.62871)
 
 [node name="shop" type="Node2D" unique_id=570370118]
 position = Vector2(968, 560)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1207481262]
+zoom = Vector2(1.5, 1.5)
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=61121232]
+[node name="Background" type="TextureRect" parent="." unique_id=61121232]
+modulate = Color(0.10980392, 0.0627451, 0.60784316, 0.7921569)
 offset_left = -979.0
 offset_top = -559.0
 offset_right = 975.0
@@ -22,11 +43,11 @@ texture = ExtResource("1_e7rdd")
 expand_mode = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="." unique_id=2126347830]
-offset_left = -914.0
-offset_top = -513.0
-offset_right = 99.0
-offset_bottom = -392.0
+[node name="Hyper-Link" type="Label" parent="." unique_id=2126347830]
+offset_left = -939.0
+offset_top = -527.0
+offset_right = 74.0
+offset_bottom = -406.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_fgaav")
@@ -36,11 +57,11 @@ text = "Hyper-Link Analyzer: A tool that automatically highlights mismatched URL
 autowrap_mode = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="Label2" type="Label" parent="." unique_id=1382340360]
-offset_left = -926.0
-offset_top = -358.0
-offset_right = -8.0
-offset_bottom = -225.0
+[node name="AI Firewall" type="Label" parent="." unique_id=1382340360]
+offset_left = -937.0
+offset_top = -387.0
+offset_right = -19.0
+offset_bottom = -254.0
 theme_override_fonts/font = ExtResource("4_fgaav")
 theme_override_font_sizes/font_size = 37
 text = "AI Firewall: A one-time shield that prevents the health bar from dropping in a phishing email is opened
@@ -48,11 +69,11 @@ text = "AI Firewall: A one-time shield that prevents the health bar from droppin
 autowrap_mode = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="Label3" type="Label" parent="." unique_id=682511079]
-offset_left = -923.0
-offset_top = -221.0
-offset_right = -149.0
-offset_bottom = -108.0
+[node name="Encrypted Storage" type="Label" parent="." unique_id=682511079]
+offset_left = -942.0
+offset_top = -242.0
+offset_right = -168.0
+offset_bottom = -122.0
 theme_override_fonts/font = ExtResource("4_fgaav")
 theme_override_font_sizes/font_size = 37
 text = "Encrypted Storage: Increase the maximum health bar, allowing players to withstand more data breaches
@@ -60,11 +81,11 @@ text = "Encrypted Storage: Increase the maximum health bar, allowing players to 
 autowrap_mode = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="Label4" type="Label" parent="." unique_id=1412036193]
-offset_left = -927.0
-offset_top = -96.0
-offset_right = -6.0
-offset_bottom = 75.0
+[node name="Grant" type="Label" parent="." unique_id=1412036193]
+offset_left = -943.0
+offset_top = -115.0
+offset_right = -22.0
+offset_bottom = 56.0
 theme_override_fonts/font = ExtResource("4_fgaav")
 theme_override_font_sizes/font_size = 37
 text = "Grant:  If the player consumes this power, a streak will start, for each attack the player gets right in a row the more bonus money they will receive with each increasing correct answer
@@ -72,10 +93,11 @@ text = "Grant:  If the player consumes this power, a streak will start, for each
 autowrap_mode = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="Label5" type="Label" parent="." unique_id=528956136]
-offset_left = -939.0
-offset_top = 70.0
-offset_bottom = 237.0
+[node name="Spam Filter" type="Label" parent="." unique_id=528956136]
+offset_left = -947.0
+offset_top = 30.0
+offset_right = -8.0
+offset_bottom = 197.0
 theme_override_fonts/font = ExtResource("4_fgaav")
 theme_override_font_sizes/font_size = 37
 text = "Spam Filter: Passively highlights common phishing keywords (Urgent, Account suspended) in a distinct color making them easier to spot at a glance
@@ -83,11 +105,11 @@ text = "Spam Filter: Passively highlights common phishing keywords (Urgent, Acco
 autowrap_mode = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="Label6" type="Label" parent="." unique_id=964982087]
-offset_left = -940.0
-offset_top = 207.0
-offset_right = -218.0
-offset_bottom = 409.0
+[node name="Encrypted Back up" type="Label" parent="." unique_id=964982087]
+offset_left = -947.0
+offset_top = 164.0
+offset_right = -225.0
+offset_bottom = 366.0
 theme_override_fonts/font = ExtResource("4_fgaav")
 theme_override_font_sizes/font_size = 37
 text = "Encrypted Back-up (Extra Life): Once per playthrough if the players health hits 0 they can “restore from backup) with 25 or 50% of their health to avoid game over
@@ -95,246 +117,234 @@ text = "Encrypted Back-up (Extra Life): Once per playthrough if the players heal
 autowrap_mode = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="Label7" type="Label" parent="." unique_id=1752884520]
-offset_left = -930.0
-offset_top = 392.0
-offset_right = -139.0
-offset_bottom = 534.0
-theme_override_fonts/font = ExtResource("4_fgaav")
-theme_override_font_sizes/font_size = 37
-text = "Sandboxed Environment: Reduces the damage taken from successful data breaches by 25% by isolating the virus from the main server
-"
-autowrap_mode = 2
-metadata/_edit_use_anchors_ = true
-
-[node name="Label8" type="Label" parent="." unique_id=88182033]
+[node name="Cost1" type="Label" parent="." unique_id=88182033]
 offset_left = 329.0
-offset_top = -498.0
+offset_top = -520.0
 offset_right = 465.0
-offset_bottom = -422.0
+offset_bottom = -444.0
 theme_override_fonts/font = ExtResource("4_fgaav")
 theme_override_font_sizes/font_size = 75
 text = "$50"
 metadata/_edit_use_anchors_ = true
 
-[node name="Label9" type="Label" parent="." unique_id=624300609]
-offset_left = 325.0
-offset_top = -338.0
-offset_right = 518.0
-offset_bottom = -262.0
+[node name="Cost2" type="Label" parent="." unique_id=624300609]
+offset_left = 320.0
+offset_top = -364.0
+offset_right = 513.0
+offset_bottom = -288.0
 theme_override_fonts/font = ExtResource("4_fgaav")
 theme_override_font_sizes/font_size = 75
 text = "$150"
 metadata/_edit_use_anchors_ = true
 
-[node name="Label10" type="Label" parent="." unique_id=115310510]
-offset_left = 336.0
-offset_top = -200.0
-offset_right = 529.0
-offset_bottom = -124.0
+[node name="Cost3" type="Label" parent="." unique_id=115310510]
+offset_left = 310.0
+offset_top = -221.0
+offset_right = 503.0
+offset_bottom = -145.0
 theme_override_fonts/font = ExtResource("4_fgaav")
 theme_override_font_sizes/font_size = 75
 text = "$100"
 metadata/_edit_use_anchors_ = true
 
-[node name="Label11" type="Label" parent="." unique_id=576246810]
-offset_left = 353.0
-offset_top = -59.0
-offset_right = 497.0
-offset_bottom = 17.0
+[node name="Cost4" type="Label" parent="." unique_id=576246810]
+offset_left = 338.0
+offset_top = -101.0
+offset_right = 482.0
+offset_bottom = -25.0
 theme_override_fonts/font = ExtResource("4_fgaav")
 theme_override_font_sizes/font_size = 75
 text = "$50"
 metadata/_edit_use_anchors_ = true
 
-[node name="Label12" type="Label" parent="." unique_id=418958362]
-offset_left = 325.0
-offset_top = 95.0
-offset_right = 518.0
-offset_bottom = 171.0
+[node name="Cost5" type="Label" parent="." unique_id=418958362]
+offset_left = 312.0
+offset_top = 59.0
+offset_right = 505.0
+offset_bottom = 135.0
 theme_override_fonts/font = ExtResource("4_fgaav")
 theme_override_font_sizes/font_size = 75
 text = "$100"
 metadata/_edit_use_anchors_ = true
 
-[node name="Label13" type="Label" parent="." unique_id=1347499873]
-offset_left = 331.0
-offset_top = 251.0
-offset_right = 524.0
-offset_bottom = 327.0
+[node name="Cost6" type="Label" parent="." unique_id=1347499873]
+offset_left = 316.0
+offset_top = 212.0
+offset_right = 509.0
+offset_bottom = 288.0
 theme_override_fonts/font = ExtResource("4_fgaav")
 theme_override_font_sizes/font_size = 75
 text = "$200"
 metadata/_edit_use_anchors_ = true
 
-[node name="Label14" type="Label" parent="." unique_id=396013849]
-offset_left = 344.0
-offset_top = 438.0
-offset_right = 488.0
-offset_bottom = 514.0
-theme_override_fonts/font = ExtResource("4_fgaav")
-theme_override_font_sizes/font_size = 75
-text = "$75"
-metadata/_edit_use_anchors_ = true
-
-[node name="Label15" type="Label" parent="." unique_id=238442979]
-offset_left = 786.0
-offset_top = -531.0
-offset_right = 950.0
-offset_bottom = -470.0
+[node name="Salary Header" type="Label" parent="." unique_id=238442979]
+offset_left = 759.0
+offset_top = -536.0
+offset_right = 923.0
+offset_bottom = -475.0
 theme_override_fonts/font = ExtResource("4_fgaav")
 theme_override_font_sizes/font_size = 60
 text = "Salary"
 metadata/_edit_use_anchors_ = true
 
-[node name="Label16" type="Label" parent="." unique_id=418897973]
-offset_left = 826.0
+[node name="Salary" type="Label" parent="." unique_id=418897973]
+offset_left = 805.0
 offset_top = -483.0
-offset_right = 899.0
+offset_right = 878.0
 offset_bottom = -422.0
 theme_override_fonts/font = ExtResource("4_fgaav")
 theme_override_font_sizes/font_size = 60
-text = "$0"
+script = ExtResource("3_m4ofw")
 metadata/_edit_use_anchors_ = true
 
-[node name="TextureRect2" type="TextureRect" parent="." unique_id=1075418634]
+[node name="Divider1" type="TextureRect" parent="." unique_id=1075418634]
+custom_minimum_size = Vector2(1, 1)
 offset_left = -996.0
 offset_top = -414.0
-offset_right = 1002.0
+offset_right = 1001.0
 offset_bottom = -398.0
 texture = ExtResource("3_blqjs")
 expand_mode = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="TextureRect3" type="TextureRect" parent="." unique_id=1710429558]
-offset_left = -993.0
-offset_top = -247.0
-offset_right = 1005.0
-offset_bottom = -231.0
+[node name="Divider2" type="TextureRect" parent="." unique_id=1710429558]
+offset_left = -992.0
+offset_top = -276.0
+offset_right = 1006.0
+offset_bottom = -260.0
 texture = ExtResource("3_blqjs")
 expand_mode = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="TextureRect4" type="TextureRect" parent="." unique_id=1562169636]
-offset_left = -990.0
-offset_top = -119.0
-offset_right = 1008.0
-offset_bottom = -103.0
+[node name="Divider3" type="TextureRect" parent="." unique_id=1562169636]
+offset_left = -1006.0
+offset_top = -139.0
+offset_right = 992.0
+offset_bottom = -123.0
 texture = ExtResource("3_blqjs")
 expand_mode = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="TextureRect5" type="TextureRect" parent="." unique_id=685991283]
-offset_left = -990.0
-offset_top = 50.0
-offset_right = 1008.0
-offset_bottom = 66.0
+[node name="Divider4" type="TextureRect" parent="." unique_id=685991283]
+offset_left = -1001.0
+offset_top = 11.0
+offset_right = 997.0
+offset_bottom = 27.0
 texture = ExtResource("3_blqjs")
 expand_mode = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="TextureRect6" type="TextureRect" parent="." unique_id=640229087]
-offset_left = -993.0
-offset_top = 190.0
-offset_right = 1005.0
-offset_bottom = 206.0
+[node name="Divider5" type="TextureRect" parent="." unique_id=640229087]
+offset_left = -997.0
+offset_top = 153.0
+offset_right = 1001.0
+offset_bottom = 169.0
 texture = ExtResource("3_blqjs")
 expand_mode = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="TextureRect7" type="TextureRect" parent="." unique_id=255924487]
-offset_left = -996.0
-offset_top = 367.0
-offset_right = 1002.0
-offset_bottom = 383.0
+[node name="Divider6" type="TextureRect" parent="." unique_id=255924487]
+offset_left = -989.0
+offset_top = 325.0
+offset_right = 1009.0
+offset_bottom = 341.0
 texture = ExtResource("3_blqjs")
 expand_mode = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Button" type="Button" parent="." unique_id=1976164975]
-offset_left = 471.0
-offset_top = -521.0
-offset_right = 661.0
-offset_bottom = -419.0
+[node name="Hyperlink Button" type="Button" parent="." unique_id=1976164975]
+offset_left = 470.0
+offset_top = -537.0
+offset_right = 660.0
+offset_bottom = -435.0
 theme_override_fonts/font = ExtResource("4_fgaav")
 theme_override_font_sizes/font_size = 55
 theme_override_styles/normal = SubResource("StyleBoxTexture_gmb2m")
 text = "Buy"
+script = ExtResource("6_gobkm")
 metadata/_edit_use_anchors_ = true
 
-[node name="Button2" type="Button" parent="." unique_id=986160770]
-offset_left = 471.0
-offset_top = -358.0
-offset_right = 661.0
-offset_bottom = -256.0
-theme_override_fonts/font = ExtResource("4_fgaav")
-theme_override_font_sizes/font_size = 55
-theme_override_styles/normal = SubResource("StyleBoxTexture_gmb2m")
-text = "Buy"
-metadata/_edit_use_anchors_ = true
-
-[node name="Button3" type="Button" parent="." unique_id=900867650]
-offset_left = 471.0
-offset_top = -222.0
-offset_right = 661.0
-offset_bottom = -120.0
-theme_override_fonts/font = ExtResource("4_fgaav")
-theme_override_font_sizes/font_size = 55
-theme_override_styles/normal = SubResource("StyleBoxTexture_gmb2m")
-text = "Buy"
-metadata/_edit_use_anchors_ = true
-
-[node name="Button4" type="Button" parent="." unique_id=929528521]
-offset_left = 479.0
-offset_top = -82.0
-offset_right = 669.0
-offset_bottom = 20.0
-theme_override_fonts/font = ExtResource("4_fgaav")
-theme_override_font_sizes/font_size = 55
-theme_override_styles/normal = SubResource("StyleBoxTexture_gmb2m")
-text = "Buy"
-metadata/_edit_use_anchors_ = true
-
-[node name="Button5" type="Button" parent="." unique_id=1493282361]
+[node name="AI Firewall Button" type="Button" parent="." unique_id=986160770]
 offset_left = 473.0
-offset_top = 81.0
+offset_top = -387.0
 offset_right = 663.0
-offset_bottom = 183.0
+offset_bottom = -285.0
 theme_override_fonts/font = ExtResource("4_fgaav")
 theme_override_font_sizes/font_size = 55
 theme_override_styles/normal = SubResource("StyleBoxTexture_gmb2m")
 text = "Buy"
+script = ExtResource("7_j14q8")
 metadata/_edit_use_anchors_ = true
 
-[node name="Button6" type="Button" parent="." unique_id=1202216429]
-offset_left = 469.0
-offset_top = 235.0
-offset_right = 659.0
-offset_bottom = 337.0
+[node name="Encrypted Storage Button" type="Button" parent="." unique_id=900867650]
+offset_left = 476.0
+offset_top = -248.0
+offset_right = 666.0
+offset_bottom = -146.0
 theme_override_fonts/font = ExtResource("4_fgaav")
 theme_override_font_sizes/font_size = 55
 theme_override_styles/normal = SubResource("StyleBoxTexture_gmb2m")
 text = "Buy"
+script = ExtResource("8_5u241")
 metadata/_edit_use_anchors_ = true
 
-[node name="Button7" type="Button" parent="." unique_id=712381700]
-offset_left = 469.0
-offset_top = 421.0
-offset_right = 659.0
-offset_bottom = 523.0
+[node name="Grant Button" type="Button" parent="." unique_id=929528521]
+offset_left = 480.0
+offset_top = -112.0
+offset_right = 670.0
+offset_bottom = -10.0
 theme_override_fonts/font = ExtResource("4_fgaav")
 theme_override_font_sizes/font_size = 55
 theme_override_styles/normal = SubResource("StyleBoxTexture_gmb2m")
 text = "Buy"
+script = ExtResource("9_pqync")
 metadata/_edit_use_anchors_ = true
 
-[node name="Button8" type="Button" parent="." unique_id=817092548]
-offset_left = 684.0
-offset_top = 393.0
-offset_right = 974.0
-offset_bottom = 539.0
+[node name="Spam Filter Button" type="Button" parent="." unique_id=1493282361]
+offset_left = 477.0
+offset_top = 40.0
+offset_right = 667.0
+offset_bottom = 142.0
 theme_override_fonts/font = ExtResource("4_fgaav")
 theme_override_font_sizes/font_size = 55
 theme_override_styles/normal = SubResource("StyleBoxTexture_gmb2m")
-text = "Play"
+text = "Buy"
+script = ExtResource("10_yuijs")
 metadata/_edit_use_anchors_ = true
+
+[node name="Encrypted Backup Button" type="Button" parent="." unique_id=1202216429]
+offset_left = 480.0
+offset_top = 195.0
+offset_right = 670.0
+offset_bottom = 297.0
+theme_override_fonts/font = ExtResource("4_fgaav")
+theme_override_font_sizes/font_size = 55
+theme_override_styles/normal = SubResource("StyleBoxTexture_gmb2m")
+text = "Buy"
+script = ExtResource("11_aa4hd")
+metadata/_edit_use_anchors_ = true
+
+[node name="EmailButton" type="TextureButton" parent="." unique_id=78432841]
+offset_left = -164.0
+offset_top = 397.0
+offset_right = -11.0
+offset_bottom = 514.0
+texture_normal = SubResource("AtlasTexture_y6sft")
+script = ExtResource("6_ajxib")
+
+[node name="HomeButton" type="TextureButton" parent="." unique_id=867887452]
+offset_left = 17.0
+offset_top = 391.0
+offset_right = 140.0
+offset_bottom = 521.0
+texture_normal = SubResource("AtlasTexture_m4ofw")
+script = ExtResource("7_ajxib")
+
+[node name="IntegrityUI" parent="." unique_id=1043091255 instance=ExtResource("8_y6sft")]
+offset_left = -972.0
+offset_top = -125.0
+offset_right = -500.0
+offset_bottom = 213.0
+
+[connection signal="pressed" from="EmailButton" to="EmailButton" method="_on_pressed"]
+[connection signal="pressed" from="HomeButton" to="HomeButton" method="_on_pressed"]
