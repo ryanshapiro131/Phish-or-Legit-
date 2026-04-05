@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://u75ol7xyr26"]
+
+[ext_resource type="Script" uid="uid://bxt3x0mpald7o" path="res://scripts/GameManager.gd" id="1_qppyr"]
+[ext_resource type="AudioStream" uid="uid://cpp8isdv7glje" path="res://assets/time_for_adventure.mp3" id="1_u05yr"]
+
+[node name="GameManager" type="Node" unique_id=27876761]
+script = ExtResource("1_qppyr")
+
+[node name="BGMusic" type="AudioStreamPlayer2D" parent="." unique_id=676263933]
+stream = ExtResource("1_u05yr")
+autoplay = true

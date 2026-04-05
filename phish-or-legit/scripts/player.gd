@@ -44,3 +44,4 @@ func update_animation(dir : Vector2) -> void:
 	else:
 		anim.play("idle_up")
 		anim.flip_h = false
+		
