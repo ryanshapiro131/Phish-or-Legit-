@@ -4,11 +4,8 @@ extends Control
 # CONSTANTS
 # -----------------------------------------
 const MAX_INBOX = 8
-const EMAIL_SPAWN_INTERVAL = 30.0
+const EMAIL_SPAWN_INTERVAL = 15.0
 const IGNORE_RETURN_DELAY = 60.0
-
-# Phishing ratio by integrity bracket
-# integrity > 60: 30% phishing, > 30: 50%, <= 30: 70%
 const PHISHING_RATIO_HIGH   = 0.3
 const PHISHING_RATIO_MEDIUM = 0.5
 const PHISHING_RATIO_LOW    = 0.7
@@ -17,23 +14,29 @@ const PHISHING_RATIO_LOW    = 0.7
 # STATE
 # -----------------------------------------
 var emails: Array = []
-var ignored_emails: Array = []
 var current_email: EmailData = null
 var email_buttons: Dictionary = {}
+var email_pool: Array = []   # full pool loaded from JSON
+var level_quota: int = 5
 
 # -----------------------------------------
 # NODE REFS
 # -----------------------------------------
-@onready var email_list_container = $emailListPanel/emailList
-@onready var sender_label         = $emailViewerPanel/ViewerVBox/SenderLabel
-@onready var subject_label        = $emailViewerPanel/ViewerVBox/SubjectLabel
-@onready var body_text            = $emailViewerPanel/ViewerVBox/RichTextLabel
-@onready var accept_button        = $emailViewerPanel/ViewerVBox/HBoxContainer/AcceptButton
-@onready var deny_button          = $emailViewerPanel/ViewerVBox/HBoxContainer/DenyButton
-@onready var ignore_button        = $emailViewerPanel/ViewerVBox/HBoxContainer/IgnoreButton
-@onready var integrity_ui: Control = $IntegrityUI
-@onready var spawn_timer: Timer   = $SpawnTimer
-@onready var hit_sound = $HitSound
+@onready var email_list_container = $MainVBox/Content/EmailListSectionPanel/EmailListSectionMargin/EmailList/EmailListVBox
+@onready var sender_label         = $MainVBox/Content/EmailViewerPanel/ViewerVBox/SenderBar/SenderBarMargin/SenderBarHBox/SenderInfoVBox/SenderLabel
+@onready var subject_label        = $MainVBox/Content/EmailViewerPanel/ViewerVBox/SubjectBar/SubjectMargin/SubjectLabel
+@onready var body_text            = $MainVBox/Content/EmailViewerPanel/ViewerVBox/BodyArea/BodyMargin/BodyText
+@onready var accept_button        = $MainVBox/Content/EmailViewerPanel/ViewerVBox/ActionBar/ActionBarMargin/ActionBarHBox/AcceptButton
+@onready var deny_button          = $MainVBox/Content/EmailViewerPanel/ViewerVBox/ActionBar/ActionBarMargin/ActionBarHBox/DenyButton
+@onready var ignore_button        = $MainVBox/Content/EmailViewerPanel/ViewerVBox/ActionBar/ActionBarMargin/ActionBarHBox/IgnoreButton
+@onready var integrity_ui: Control = $MainVBox/BottomBar/BottomBarMargin/BottomBarHBox/IntegrityPanel/IntegrityMargin/IntegrityUI
+@onready var spawn_timer: Timer    = $SpawnTimer
+@onready var hit_sound             = $HitSound
+@onready var textbox               = $Textbox
+@onready var correct_sound = $CorrectSound
+
+@onready var sender_icon = $MainVBox/Content/EmailViewerPanel/ViewerVBox/SenderBar/SenderBarMargin/SenderBarHBox/ViewerSenderIconArea/ViewerSenderIcon
+@onready var score = $MainVBox/Content/FolderSidebarPanel/FolderSidebarMargin/FolderSidebarVBox/Score
 
 
 # -----------------------------------------
@@ -41,6 +44,7 @@ var email_buttons: Dictionary = {}
 # -----------------------------------------
 func _ready():
 	connect_buttons()
+	_load_level(GameManager.current_level)
 	_seed_initial_emails()
 	populate_email_list()
 
@@ -48,128 +52,82 @@ func _ready():
 	spawn_timer.timeout.connect(_on_spawn_timer)
 	spawn_timer.start()
 
+	if not GameManager.office_intro_shown:
+		await get_tree().create_timer(2.0).timeout
+		textbox.queue_messages([
+			"This is your email inbox. This is where you will be doing most of your work.",
+			"Click on one of your emails to read it, then decide to Accept, Deny, or Ignore it."
+		])
+		
+	if GameManager.current_level == 2:
+		await get_tree().create_timer(2.0).timeout
+		textbox.queue_messages([
+			"Great job on your first day! Unfortunately, the hackers have gotten a little better since you've left.",
+			"Some of them have figured out how to send directly from an @fbi.gov address.",
+			"Basically, if anyone is urgently asking you for something serious, and it seems suspicious, its best to deny it.",
+			"Also, be on the lookout for Trevor Woodyard, he is genuinely needing information for payroll, so let that one through."
+		])
+
+
+func _process(_delta):
+	score.text = "Correct Emails: " + str(GameManager.correct_emails) + "/" + str(level_quota)
+
 
 # -----------------------------------------
-# EMAIL POOL
-# All emails are defined here with difficulty
-# 1 = obvious hint, 2 = subtle, 3 = very subtle
+# LOAD LEVEL FROM JSON
 # -----------------------------------------
-func _get_email_pool() -> Array:
-	var pool: Array = []
+func _load_level(level: int):
+	var path = "res://levels/level" + str(level) + ".json"
+	var file = FileAccess.open(path, FileAccess.READ)
+	if file == null:
+		push_error("Could not load level file: " + path)
+		return
 
-	# --- LEGIT ---
-	var l1 = EmailData.new()
-	l1.sender = "boss@fbi.com"
-	l1.subject = "Team Meeting"
-	l1.body = "Reminder: we have our weekly 3PM team meeting today in conference room B. Please bring your status update."
-	l1.is_phishing = false; l1.damage = 0; l1.reward = 15; l1.difficulty = 1
-	pool.append(l1)
+	var json = JSON.new()
+	var result = json.parse(file.get_as_text())
+	file.close()
 
-	var l2 = EmailData.new()
-	l2.sender = "hr@fbi.gov"
-	l2.subject = "Updated Holiday Schedule"
-	l2.body = "Please find the updated holiday schedule for Q2 attached. No action required."
-	l2.is_phishing = false; l2.damage = 0; l2.reward = 15; l2.difficulty = 1
-	pool.append(l2)
+	if result != OK:
+		push_error("Failed to parse JSON for level " + str(level))
+		return
 
-	var l3 = EmailData.new()
-	l3.sender = "it@fbi.gov"
-	l3.subject = "Scheduled Maintenance Tonight"
-	l3.body = "Systems will be down from 11PM to 1AM for routine maintenance. No action required."
-	l3.is_phishing = false; l3.damage = 0; l3.reward = 15; l3.difficulty = 1
-	pool.append(l3)
+	var data = json.get_data()
+	level_quota = data["quota"]
+	GameManager.current_quota = level_quota
+	email_pool = []
 
-	var l4 = EmailData.new()
-	l4.sender = "newsletter@techdigest.com"
-	l4.subject = "Your Weekly Tech Digest"
-	l4.body = "This week in tech: AI developments, new hardware releases, and cybersecurity updates."
-	l4.is_phishing = false; l4.damage = 0; l4.reward = 10; l4.difficulty = 1
-	pool.append(l4)
-
-	var l5 = EmailData.new()
-	l5.sender = "payroll@fbi.gov"
-	l5.subject = "Your Pay Stub is Ready"
-	l5.body = "Your latest pay stub is available in the employee portal at portal.fbi.gov. Log in to view it."
-	l5.is_phishing = false; l5.damage = 0; l5.reward = 10; l5.difficulty = 2
-	pool.append(l5)
-
-	# --- PHISHING (difficulty 1 - obvious) ---
-	var p1 = EmailData.new()
-	p1.sender = "admin-secure@fb1.com"
-	p1.subject = "Account Suspended"
-	p1.body = "Your account has been SUSPENDED. Click immediately to restore access or lose your data forever!!!"
-	p1.is_phishing = true; p1.damage = 25; p1.reward = 0; p1.difficulty = 1
-	pool.append(p1)
-
-	var p2 = EmailData.new()
-	p2.sender = "support@paypai.com"
-	p2.subject = "Unusual Activity Detected"
-	p2.body = "We have locked your account due to suspicious login. Verify your identity IMMEDIATELY or lose access permanently."
-	p2.is_phishing = true; p2.damage = 25; p2.reward = 0; p2.difficulty = 1
-	pool.append(p2)
-
-	var p3 = EmailData.new()
-	p3.sender = "noreply@amaz0n-support.com"
-	p3.subject = "Your Order Has Been Cancelled"
-	p3.body = "Your recent order was flagged for fraud. Click here NOW to confirm your payment details and avoid account closure."
-	p3.is_phishing = true; p3.damage = 20; p3.reward = 0; p3.difficulty = 1
-	pool.append(p3)
-
-	# --- PHISHING (difficulty 2 - subtle) ---
-	var p4 = EmailData.new()
-	p4.sender = "security@micros0ft-alert.com"
-	p4.subject = "Your Password Expires Today"
-	p4.body = "Your Microsoft account password expires today. Please reset it using the link below to maintain access."
-	p4.is_phishing = true; p4.damage = 20; p4.reward = 0; p4.difficulty = 2
-	pool.append(p4)
-
-	var p5 = EmailData.new()
-	p5.sender = "it-helpdesk@fbi-support.net"
-	p5.subject = "Action Required: VPN Certificate Renewal"
-	p5.body = "Your VPN certificate is expiring. Please download and install the attached renewal file before Friday."
-	p5.is_phishing = true; p5.damage = 20; p5.reward = 0; p5.difficulty = 2
-	pool.append(p5)
-
-	# --- PHISHING (difficulty 3 - very subtle) ---
-	var p6 = EmailData.new()
-	p6.sender = "hr@fbi.gov.hr-portal.com"
-	p6.subject = "Open Enrollment Reminder"
-	p6.body = "This is your reminder to complete benefits open enrollment by end of week. Log in at the HR portal link below."
-	p6.is_phishing = true; p6.damage = 30; p6.reward = 0; p6.difficulty = 3
-	pool.append(p6)
-
-	var p7 = EmailData.new()
-	p7.sender = "payroll@fbi.gov.payroll-update.com"
-	p7.subject = "Direct Deposit Update Required"
-	p7.body = "Please verify your direct deposit information for the upcoming pay period. No changes will result in a delayed payment."
-	p7.is_phishing = true; p7.damage = 30; p7.reward = 0; p7.difficulty = 3
-	pool.append(p7)
-
-	return pool
+	for e in data["emails"]:
+		var email = EmailData.new()
+		email.sender     = e["sender"]
+		email.subject    = e["subject"]
+		email.body       = e["body"]
+		email.is_phishing = e["is_phishing"]
+		email.damage     = e["damage"]
+		email.reward     = e["reward"]
+		email.difficulty = e["difficulty"]
+		email.icon 		 = e.get("icon", "Adam_16x16.png")
+		email_pool.append(email)
 
 
 # -----------------------------------------
 # SEED INBOX ON START
 # -----------------------------------------
 func _seed_initial_emails():
-	var pool = _get_email_pool()
-	var to_add = min(5, pool.size())
-	pool.shuffle()
+	var pool_copy = email_pool.duplicate()
+	pool_copy.shuffle()
+	var to_add = min(5, pool_copy.size())
 	for i in to_add:
-		emails.append(pool[i])
+		emails.append(pool_copy[i])
 
 
 # -----------------------------------------
 # SPAWN NEW EMAIL ON TIMER
-# Adjusts phishing ratio based on integrity
 # -----------------------------------------
 func _on_spawn_timer():
 	if emails.size() >= MAX_INBOX:
 		return
 
-	var pool = _get_email_pool()
-	var integrity = integrity_ui.integrity
-
+	var integrity = GameManager.system_integrity
 	var phishing_chance: float
 	if integrity > 60:
 		phishing_chance = PHISHING_RATIO_HIGH
@@ -178,13 +136,12 @@ func _on_spawn_timer():
 	else:
 		phishing_chance = PHISHING_RATIO_LOW
 
-	# Filter pool by type based on chance roll
 	var roll = randf()
 	var candidates: Array
 	if roll < phishing_chance:
-		candidates = pool.filter(func(e): return e.is_phishing)
+		candidates = email_pool.filter(func(e): return e.is_phishing)
 	else:
-		candidates = pool.filter(func(e): return not e.is_phishing)
+		candidates = email_pool.filter(func(e): return not e.is_phishing)
 
 	if candidates.is_empty():
 		return
@@ -192,7 +149,6 @@ func _on_spawn_timer():
 	candidates.shuffle()
 	var new_email = candidates[0]
 
-	# Avoid exact duplicates already in inbox
 	var existing_subjects = emails.map(func(e): return e.subject)
 	if new_email.subject in existing_subjects:
 		return
@@ -224,6 +180,16 @@ func open_email(email: EmailData):
 	sender_label.text = "From: " + email.sender
 	subject_label.text = "Subject: " + email.subject
 	body_text.text = email.body
+	sender_icon.texture = load("res://assets/icons/" + email.icon)
+
+	if not GameManager.office_intro_shown:
+		GameManager.office_intro_shown = true
+		await get_tree().create_timer(3.0).timeout
+		textbox.queue_messages([
+			"Your job is to filter out phishing emails from hackers trying to steal our data.",
+			"Check the sender carefully — if it's not from @fbi.gov, be suspicious.",
+			"Give some emails a try and I'll check back with you soon."
+		])
 
 
 # -----------------------------------------
@@ -241,37 +207,72 @@ func connect_buttons():
 func on_accept_pressed():
 	if current_email == null:
 		return
+
 	if current_email.is_phishing:
-		integrity_ui.lose_integrity(current_email.damage)
-		hit_sound.play()
+		_handle_wrong_answer(current_email.damage)
 	else:
-		print("Correct decision!")
+		GameManager.correct_emails += 1
+		correct_sound.play()
+		print("Correct!")
+		GameManager.add_salary(current_email.reward)
+		_check_quota()
+
 	remove_current_email()
 
 
 func on_deny_pressed():
 	if current_email == null:
 		return
+
 	if not current_email.is_phishing:
-		integrity_ui.lose_integrity(8)
-		hit_sound.play()
+		_handle_wrong_answer(8)
 	else:
+		correct_sound.play()
+		GameManager.correct_emails += 1
 		print("Threat prevented!")
+		GameManager.add_salary(current_email.reward)
+		_check_quota()
+
 	remove_current_email()
 
 
 func on_ignore_pressed():
 	if current_email == null:
 		return
-	var ignored = current_email
-	# Clear viewer but don't remove from inbox yet
 	sender_label.text = ""
 	subject_label.text = ""
 	body_text.text = ""
 	current_email = null
-	# Return email after delay
-	await get_tree().create_timer(IGNORE_RETURN_DELAY).timeout
-	print("Ignored email returned: ", ignored.subject)
+
+
+# -----------------------------------------
+# WRONG ANSWER
+# -----------------------------------------
+func _handle_wrong_answer(damage: int):
+	GameManager.incorrect_emails += 1
+	integrity_ui.lose_integrity(damage)
+	hit_sound.play()
+	$MainVBox/BottomBar/BottomBarMargin/BottomBarHBox/IntegrityPanel/IntegrityMargin/IntegrityUI/AnimationPlayer.play("integrity_hit")
+
+	if not GameManager.office_intro_wrong_choice:
+		GameManager.office_intro_wrong_choice = true
+		await get_tree().create_timer(1.0).timeout
+		textbox.queue_messages([
+			"Woah!! You just let a hacker into our system!",
+			"We handled it this time, but a few more and our systems could go down.",
+			"And if that happens... YOU'RE FIRED!!",
+			"Anyways, keep at it. You'll get the hang of it!"
+		])
+
+
+# -----------------------------------------
+# CHECK QUOTA
+# -----------------------------------------
+func _check_quota():
+	if GameManager.correct_emails >= level_quota:
+		spawn_timer.stop()
+		await get_tree().create_timer(1.0).timeout
+		get_tree().change_scene_to_file("res://scenes/results.tscn")
 
 
 # -----------------------------------------

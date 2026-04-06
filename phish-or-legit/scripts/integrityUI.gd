@@ -16,7 +16,6 @@ func _sync_from_game_manager():
 func lose_integrity(amount: int):
 	GameManager.lose_integrity(amount)
 	integrity_bar.value = GameManager.system_integrity
-	percent_label.text = str(GameManager.system_integrity) + "%"
 	update_bar_color()
 	animation_player.play("integrity_hit")
  

@@ -1,0 +1,433 @@
+[gd_scene format=3 uid="uid://od0yaao37d1"]
+
+[ext_resource type="Script" uid="uid://cspgc87iumu8h" path="res://scripts/EmailSystem.gd" id="1_1ke0g"]
+[ext_resource type="Texture2D" uid="uid://cgh1cmi4hjgmc" path="res://assets/DesktopBG.png" id="1_n6buh"]
+[ext_resource type="FontFile" uid="uid://dc52606rwa2qd" path="res://assets/PixelOperator.ttf" id="2_n6buh"]
+[ext_resource type="PackedScene" uid="uid://byciyheqruofd" path="res://scenes/integrityUI.tscn" id="2_ud1h4"]
+[ext_resource type="Texture2D" uid="uid://ch2qxl2yql2sw" path="res://assets/FBISeal.png" id="3_pp4y5"]
+[ext_resource type="Texture2D" uid="uid://dl4vvjq5xue2r" path="res://assets/itchio-pxl-retro-computer-icons-set-110/separated-items/itchio-pxl-retro-computer-icons-set-110-item1.png" id="5_pc7up"]
+[ext_resource type="AudioStream" uid="uid://bfy0ku1ybo2hm" path="res://assets/kakaist-glitch-sfx-312910.mp3" id="5_u4aqv"]
+[ext_resource type="PackedScene" uid="uid://delr3h13ecgfi" path="res://scenes/TextBox.tscn" id="6_4hlsu"]
+[ext_resource type="Script" uid="uid://dglmkg3uu36xn" path="res://scenes/home_widget.gd" id="7_81i2y"]
+[ext_resource type="Texture2D" uid="uid://dsonai1w27ld4" path="res://assets/itchio-pxl-retro-computer-icons-set-110/separated-items/itchio-pxl-retro-computer-icons-set-110-item57.png" id="7_s8qli"]
+[ext_resource type="Script" uid="uid://pyne58td1kwm" path="res://scenes/exit_button.gd" id="8_dd6fd"]
+[ext_resource type="Texture2D" uid="uid://dqxbtbru56561" path="res://assets/itchio-pxl-retro-computer-icons-set-110/separated-items/itchio-pxl-retro-computer-icons-set-110-item68.png" id="8_mejtc"]
+[ext_resource type="Theme" uid="uid://cjw8pt46pmyd" path="res://themes/email.tres" id="9_cy1xv"]
+[ext_resource type="Script" uid="uid://cypko5bqexrem" path="res://scenes/shop_widget.gd" id="10_s8qli"]
+[ext_resource type="Texture2D" uid="uid://dxwtr7ve7cfq0" path="res://assets/itchio-pxl-retro-computer-icons-set-110/separated-items/itchio-pxl-retro-computer-icons-set-110-item34.png" id="10_xfk65"]
+[ext_resource type="Script" uid="uid://bdygreuvussja" path="res://scripts/EmailLabelStats.gd" id="12_s8qli"]
+[ext_resource type="PackedScene" uid="uid://wy7aqp6f13bv" path="res://scenes/notepad.tscn" id="13_cy1xv"]
+[ext_resource type="Script" uid="uid://msc1p48uhiut" path="res://scripts/salary.gd" id="14_mejtc"]
+[ext_resource type="AudioStream" uid="uid://bjmba6kce1he8" path="res://assets/freesound_community-correct-choice-43861.mp3" id="17_xfk65"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_80n8e"]
+bg_color = Color(0.5096349, 0.5442721, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u4aqv"]
+bg_color = Color(0, 0.16634968, 0.35819906, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4hlsu"]
+bg_color = Color(0.55685854, 0.6954193, 1, 1)
+
+[sub_resource type="Theme" id="Theme_u4aqv"]
+default_font = ExtResource("2_n6buh")
+default_font_size = 32
+Button/colors/font_color = Color(0.8718111, 0.8441092, 0, 1)
+Button/colors/font_focus_color = Color(0.95, 0.95, 0.95, 1)
+Button/colors/icon_normal_color = Color(0.38743624, 0.4382861, 0.54928, 1)
+Button/colors/icon_pressed_color = Color(1, 1, 1, 1)
+Button/constants/h_separation = 0
+Button/fonts/font = ExtResource("2_n6buh")
+Button/styles/hover = SubResource("StyleBoxFlat_80n8e")
+Button/styles/normal = SubResource("StyleBoxFlat_u4aqv")
+Button/styles/pressed = SubResource("StyleBoxFlat_4hlsu")
+
+[sub_resource type="Theme" id="Theme_ud1h4"]
+default_font = ExtResource("2_n6buh")
+
+[sub_resource type="Theme" id="Theme_n6buh"]
+
+[sub_resource type="Theme" id="Theme_mejtc"]
+
+[node name="EmailUI" type="Control" unique_id=1737163360]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1ke0g")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1076971650]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_n6buh")
+
+[node name="MainVBox" type="VBoxContainer" parent="." unique_id=460316494]
+custom_minimum_size = Vector2(1440, 600)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -802.0
+offset_top = -368.0
+offset_right = 802.0
+offset_bottom = 308.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Header" type="PanelContainer" parent="MainVBox" unique_id=528721877]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="HeaderMargin" type="MarginContainer" parent="MainVBox/Header" unique_id=1259597699]
+layout_mode = 2
+
+[node name="HeaderHBox" type="HBoxContainer" parent="MainVBox/Header/HeaderMargin" unique_id=186037861]
+layout_mode = 2
+
+[node name="LogoContainer" type="CenterContainer" parent="MainVBox/Header/HeaderMargin/HeaderHBox" unique_id=1476469128]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Logo" type="TextureRect" parent="MainVBox/Header/HeaderMargin/HeaderHBox/LogoContainer" unique_id=1285663211]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("3_pp4y5")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="InboxTitleArea" type="MarginContainer" parent="MainVBox/Header/HeaderMargin/HeaderHBox" unique_id=1745950242]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_constants/margin_left = 32
+
+[node name="InboxTitle" type="Label" parent="MainVBox/Header/HeaderMargin/HeaderHBox/InboxTitleArea" unique_id=272587034]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_n6buh")
+theme_override_font_sizes/font_size = 64
+text = "						FBI.GOV"
+vertical_alignment = 1
+autowrap_trim_flags = 0
+justification_flags = 0
+uppercase = true
+
+[node name="ExitButtonArea" type="CenterContainer" parent="MainVBox/Header/HeaderMargin/HeaderHBox" unique_id=1089845488]
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 0
+
+[node name="ExitButton" type="Button" parent="MainVBox/Header/HeaderMargin/HeaderHBox/ExitButtonArea" unique_id=873680678]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_n6buh")
+theme_override_font_sizes/font_size = 32
+text = "X"
+script = ExtResource("8_dd6fd")
+
+[node name="Content" type="HBoxContainer" parent="MainVBox" unique_id=1072803660]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="WidgetSidebarPanel" type="PanelContainer" parent="MainVBox/Content" unique_id=448775025]
+custom_minimum_size = Vector2(75, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="WidgetSidebarMargin" type="MarginContainer" parent="MainVBox/Content/WidgetSidebarPanel" unique_id=1916136475]
+layout_mode = 2
+
+[node name="WidgetSidebarVBox" type="VBoxContainer" parent="MainVBox/Content/WidgetSidebarPanel/WidgetSidebarMargin" unique_id=942563047]
+layout_mode = 2
+
+[node name="HomeButton" type="Button" parent="MainVBox/Content/WidgetSidebarPanel/WidgetSidebarMargin/WidgetSidebarVBox" unique_id=1767965049]
+custom_minimum_size = Vector2(96, 75)
+layout_mode = 2
+size_flags_vertical = 4
+icon = ExtResource("5_pc7up")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("7_81i2y")
+
+[node name="InventoryWidget" type="Button" parent="MainVBox/Content/WidgetSidebarPanel/WidgetSidebarMargin/WidgetSidebarVBox" unique_id=1171860501]
+custom_minimum_size = Vector2(0, 75)
+layout_mode = 2
+size_flags_vertical = 4
+icon = ExtResource("7_s8qli")
+icon_alignment = 1
+expand_icon = true
+
+[node name="ShopWidget" type="Button" parent="MainVBox/Content/WidgetSidebarPanel/WidgetSidebarMargin/WidgetSidebarVBox" unique_id=686853928]
+custom_minimum_size = Vector2(0, 75)
+layout_mode = 2
+size_flags_vertical = 4
+icon = ExtResource("8_mejtc")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("10_s8qli")
+
+[node name="NotepadButton" type="Button" parent="MainVBox/Content/WidgetSidebarPanel/WidgetSidebarMargin/WidgetSidebarVBox" unique_id=754509688]
+custom_minimum_size = Vector2(0, 75)
+layout_mode = 2
+size_flags_vertical = 4
+icon = ExtResource("10_xfk65")
+icon_alignment = 1
+expand_icon = true
+
+[node name="FolderSidebarPanel" type="PanelContainer" parent="MainVBox/Content" unique_id=984062805]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="FolderSidebarMargin" type="MarginContainer" parent="MainVBox/Content/FolderSidebarPanel" unique_id=1305665770]
+layout_mode = 2
+
+[node name="FolderSidebarVBox" type="VBoxContainer" parent="MainVBox/Content/FolderSidebarPanel/FolderSidebarMargin" unique_id=1319611092]
+layout_mode = 2
+
+[node name="Score" type="Label" parent="MainVBox/Content/FolderSidebarPanel/FolderSidebarMargin/FolderSidebarVBox" unique_id=1742403257]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_fonts/font = ExtResource("2_n6buh")
+theme_override_font_sizes/font_size = 64
+text = "Correct Emails: X/10"
+
+[node name="Inbox" type="Label" parent="MainVBox/Content/FolderSidebarPanel/FolderSidebarMargin/FolderSidebarVBox" unique_id=1347623022]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("9_cy1xv")
+text = "Total Emails: "
+script = ExtResource("12_s8qli")
+
+[node name="Incorrect" type="Label" parent="MainVBox/Content/FolderSidebarPanel/FolderSidebarMargin/FolderSidebarVBox" unique_id=352219806]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("9_cy1xv")
+text = "Incorrect:"
+script = ExtResource("12_s8qli")
+
+[node name="EmailListSectionPanel" type="PanelContainer" parent="MainVBox/Content" unique_id=2010057634]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="EmailListSectionMargin" type="MarginContainer" parent="MainVBox/Content/EmailListSectionPanel" unique_id=1023583282]
+layout_mode = 2
+
+[node name="EmailList" type="ScrollContainer" parent="MainVBox/Content/EmailListSectionPanel/EmailListSectionMargin" unique_id=836206805]
+layout_mode = 2
+
+[node name="EmailListVBox" type="VBoxContainer" parent="MainVBox/Content/EmailListSectionPanel/EmailListSectionMargin/EmailList" unique_id=109709486]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = SubResource("Theme_u4aqv")
+alignment = 1
+
+[node name="EmailViewerPanel" type="PanelContainer" parent="MainVBox/Content" unique_id=768234701]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ViewerVBox" type="VBoxContainer" parent="MainVBox/Content/EmailViewerPanel" unique_id=933598214]
+layout_mode = 2
+
+[node name="SubjectBar" type="PanelContainer" parent="MainVBox/Content/EmailViewerPanel/ViewerVBox" unique_id=1389129752]
+layout_mode = 2
+
+[node name="SubjectMargin" type="MarginContainer" parent="MainVBox/Content/EmailViewerPanel/ViewerVBox/SubjectBar" unique_id=1243095862]
+layout_mode = 2
+
+[node name="SubjectLabel" type="Label" parent="MainVBox/Content/EmailViewerPanel/ViewerVBox/SubjectBar/SubjectMargin" unique_id=54486880]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+theme = ExtResource("9_cy1xv")
+autowrap_mode = 2
+
+[node name="SenderBar" type="PanelContainer" parent="MainVBox/Content/EmailViewerPanel/ViewerVBox" unique_id=651862776]
+layout_mode = 2
+
+[node name="SenderBarMargin" type="MarginContainer" parent="MainVBox/Content/EmailViewerPanel/ViewerVBox/SenderBar" unique_id=647335456]
+layout_mode = 2
+
+[node name="SenderBarHBox" type="HBoxContainer" parent="MainVBox/Content/EmailViewerPanel/ViewerVBox/SenderBar/SenderBarMargin" unique_id=799444435]
+layout_mode = 2
+
+[node name="ViewerSenderIconArea" type="CenterContainer" parent="MainVBox/Content/EmailViewerPanel/ViewerVBox/SenderBar/SenderBarMargin/SenderBarHBox" unique_id=475145078]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 2
+
+[node name="ViewerSenderIcon" type="TextureRect" parent="MainVBox/Content/EmailViewerPanel/ViewerVBox/SenderBar/SenderBarMargin/SenderBarHBox/ViewerSenderIconArea" unique_id=2013023054]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+expand_mode = 4
+
+[node name="SenderInfoVBox" type="VBoxContainer" parent="MainVBox/Content/EmailViewerPanel/ViewerVBox/SenderBar/SenderBarMargin/SenderBarHBox" unique_id=1306092436]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SenderLabel" type="Label" parent="MainVBox/Content/EmailViewerPanel/ViewerVBox/SenderBar/SenderBarMargin/SenderBarHBox/SenderInfoVBox" unique_id=1524311154]
+custom_minimum_size = Vector2(35.395, 35.74)
+layout_mode = 2
+theme = ExtResource("9_cy1xv")
+autowrap_mode = 2
+
+[node name="AttachmentBar" type="PanelContainer" parent="MainVBox/Content/EmailViewerPanel/ViewerVBox" unique_id=1342249179]
+layout_mode = 2
+
+[node name="AttachmentBarMargin" type="MarginContainer" parent="MainVBox/Content/EmailViewerPanel/ViewerVBox/AttachmentBar" unique_id=1631781297]
+layout_mode = 2
+
+[node name="AttachmentBarHBox" type="HBoxContainer" parent="MainVBox/Content/EmailViewerPanel/ViewerVBox/AttachmentBar/AttachmentBarMargin" unique_id=1267790476]
+layout_mode = 2
+
+[node name="AttachmentLabel" type="Label" parent="MainVBox/Content/EmailViewerPanel/ViewerVBox/AttachmentBar/AttachmentBarMargin/AttachmentBarHBox" unique_id=1293822187]
+layout_mode = 2
+
+[node name="BodyArea" type="PanelContainer" parent="MainVBox/Content/EmailViewerPanel/ViewerVBox" unique_id=1233633918]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="BodyMargin" type="MarginContainer" parent="MainVBox/Content/EmailViewerPanel/ViewerVBox/BodyArea" unique_id=1013466002]
+layout_mode = 2
+
+[node name="BodyText" type="RichTextLabel" parent="MainVBox/Content/EmailViewerPanel/ViewerVBox/BodyArea/BodyMargin" unique_id=1737941471]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("9_cy1xv")
+theme_override_font_sizes/normal_font_size = 24
+
+[node name="ActionBar" type="PanelContainer" parent="MainVBox/Content/EmailViewerPanel/ViewerVBox" unique_id=1521536727]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="ActionBarMargin" type="MarginContainer" parent="MainVBox/Content/EmailViewerPanel/ViewerVBox/ActionBar" unique_id=1575904855]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="ActionBarHBox" type="HBoxContainer" parent="MainVBox/Content/EmailViewerPanel/ViewerVBox/ActionBar/ActionBarMargin" unique_id=1154855980]
+layout_mode = 2
+size_flags_vertical = 8
+alignment = 2
+
+[node name="AcceptButton" type="Button" parent="MainVBox/Content/EmailViewerPanel/ViewerVBox/ActionBar/ActionBarMargin/ActionBarHBox" unique_id=1409707710]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = SubResource("Theme_ud1h4")
+theme_override_fonts/font = ExtResource("2_n6buh")
+text = "Accept"
+
+[node name="DenyButton" type="Button" parent="MainVBox/Content/EmailViewerPanel/ViewerVBox/ActionBar/ActionBarMargin/ActionBarHBox" unique_id=1612710028]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = SubResource("Theme_n6buh")
+text = "Deny"
+
+[node name="IgnoreButton" type="Button" parent="MainVBox/Content/EmailViewerPanel/ViewerVBox/ActionBar/ActionBarMargin/ActionBarHBox" unique_id=1995434711]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Ignore"
+
+[node name="BottomBar" type="PanelContainer" parent="MainVBox" unique_id=1647356923]
+layout_mode = 2
+
+[node name="BottomBarMargin" type="MarginContainer" parent="MainVBox/BottomBar" unique_id=1831638499]
+layout_mode = 2
+
+[node name="BottomBarHBox" type="HBoxContainer" parent="MainVBox/BottomBar/BottomBarMargin" unique_id=291763654]
+layout_mode = 2
+
+[node name="MoneyPanel" type="PanelContainer" parent="MainVBox/BottomBar/BottomBarMargin/BottomBarHBox" unique_id=1939264503]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="MoneyMargin" type="MarginContainer" parent="MainVBox/BottomBar/BottomBarMargin/BottomBarHBox/MoneyPanel" unique_id=109046310]
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 4
+
+[node name="MoneyHBox" type="HBoxContainer" parent="MainVBox/BottomBar/BottomBarMargin/BottomBarHBox/MoneyPanel/MoneyMargin" unique_id=845075412]
+layout_mode = 2
+
+[node name="MoneyIcon" type="TextureRect" parent="MainVBox/BottomBar/BottomBarMargin/BottomBarHBox/MoneyPanel/MoneyMargin/MoneyHBox" unique_id=1232103307]
+layout_mode = 2
+
+[node name="MoneyLabel" type="Label" parent="MainVBox/BottomBar/BottomBarMargin/BottomBarHBox/MoneyPanel/MoneyMargin/MoneyHBox" unique_id=60271468]
+layout_mode = 2
+theme = ExtResource("9_cy1xv")
+text = "Salary:"
+script = ExtResource("12_s8qli")
+
+[node name="Salary" type="Label" parent="MainVBox/BottomBar/BottomBarMargin/BottomBarHBox/MoneyPanel/MoneyMargin/MoneyHBox" unique_id=1223954322]
+layout_mode = 2
+theme = SubResource("Theme_mejtc")
+theme_override_fonts/font = ExtResource("2_n6buh")
+theme_override_font_sizes/font_size = 60
+script = ExtResource("14_mejtc")
+
+[node name="IntegrityPanel" type="PanelContainer" parent="MainVBox/BottomBar/BottomBarMargin/BottomBarHBox" unique_id=1441762822]
+layout_mode = 2
+size_flags_horizontal = 6
+
+[node name="IntegrityMargin" type="MarginContainer" parent="MainVBox/BottomBar/BottomBarMargin/BottomBarHBox/IntegrityPanel" unique_id=434506294]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="IntegrityUI" parent="MainVBox/BottomBar/BottomBarMargin/BottomBarHBox/IntegrityPanel/IntegrityMargin" unique_id=1043091255 instance=ExtResource("2_ud1h4")]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 0
+
+[node name="TimePanel" type="PanelContainer" parent="MainVBox/BottomBar/BottomBarMargin/BottomBarHBox" unique_id=1356238308]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="TimeMargin" type="MarginContainer" parent="MainVBox/BottomBar/BottomBarMargin/BottomBarHBox/TimePanel" unique_id=1634985651]
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="TimeVBox" type="VBoxContainer" parent="MainVBox/BottomBar/BottomBarMargin/BottomBarHBox/TimePanel/TimeMargin" unique_id=1746047708]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="DayLabel" type="Label" parent="MainVBox/BottomBar/BottomBarMargin/BottomBarHBox/TimePanel/TimeMargin/TimeVBox" unique_id=1079304744]
+layout_mode = 2
+text = "Day 1"
+
+[node name="TimeLabel" type="Label" parent="MainVBox/BottomBar/BottomBarMargin/BottomBarHBox/TimePanel/TimeMargin/TimeVBox" unique_id=75472536]
+layout_mode = 2
+text = "3:00 PM"
+
+[node name="SpawnTimer" type="Timer" parent="." unique_id=1565722667]
+
+[node name="HitSound" type="AudioStreamPlayer2D" parent="." unique_id=2004101587]
+stream = ExtResource("5_u4aqv")
+volume_db = -8.537
+
+[node name="CorrectSound" type="AudioStreamPlayer2D" parent="." unique_id=260141348]
+stream = ExtResource("17_xfk65")
+volume_db = -8.537
+
+[node name="Textbox" parent="." unique_id=1298141367 instance=ExtResource("6_4hlsu")]
+offset = Vector2(450, 450)
+scale = Vector2(0.67, 0.67)
+transform = Transform2D(0.67, 0, 0, 0.67, 450, 450)
+
+[node name="Notepad" parent="." unique_id=2025402526 instance=ExtResource("13_cy1xv")]
+visible = false
+
+[connection signal="pressed" from="MainVBox/Header/HeaderMargin/HeaderHBox/ExitButtonArea/ExitButton" to="MainVBox/Header/HeaderMargin/HeaderHBox/ExitButtonArea/ExitButton" method="_on_pressed"]
+[connection signal="pressed" from="MainVBox/Content/WidgetSidebarPanel/WidgetSidebarMargin/WidgetSidebarVBox/HomeButton" to="MainVBox/Content/WidgetSidebarPanel/WidgetSidebarMargin/WidgetSidebarVBox/HomeButton" method="_on_pressed"]
+[connection signal="pressed" from="MainVBox/Content/WidgetSidebarPanel/WidgetSidebarMargin/WidgetSidebarVBox/ShopWidget" to="MainVBox/Content/WidgetSidebarPanel/WidgetSidebarMargin/WidgetSidebarVBox/ShopWidget" method="_on_pressed"]
+[connection signal="pressed" from="MainVBox/Content/WidgetSidebarPanel/WidgetSidebarMargin/WidgetSidebarVBox/NotepadButton" to="Notepad" method="_on_notepad_button_pressed"]

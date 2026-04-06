@@ -1,0 +1,87 @@
+{
+  "level": 2,
+  "quota": 7,
+  "emails": [
+	{
+	"sender": "it-support@fbi.gov",
+	"subject": "Mandatory Security Update",
+	"body": "Hello,\n\nOur security team has identified a critical vulnerability in your workstation. Please download and run the attached patch file immediately to remain compliant with FBI security standards.\n\nFailure to install within 24 hours will result in your workstation being remotely disabled until the patch is applied.\n\nIT Security Team\nFBI Internal Systems",
+	"is_phishing": true,
+	"damage": 25,
+	"reward": 0,
+	"difficulty": 2
+	},
+	{
+	  "sender": "trevorwoodyard@fbi.gov",
+	  "subject": "Payroll File Request",
+	  "body": "Hello,\n\nHope you're doing well. I'm reaching out because I need the updated payroll file for the Q2 reporting period. Could you upload it to the internal shared drive at your earliest convenience?\n\nIf you have any questions or need clarification on which file is needed, feel free to reach out directly.\n\nThanks,\nTrevor Woodyard\nPayroll Department, FBI", 
+	  "is_phishing": false,
+	  "damage": 0,
+	  "reward": 15,
+	  "difficulty": 2
+	},
+	{
+	"sender": "billing@fbi-vendor-services.com",
+	"subject": "Invoice #84821 - Immediate Payment Required",
+	"body": "Hello,\n\nPlease find attached invoice #84821 for services rendered last quarter. Payment of $4,200 is overdue and must be processed within 48 hours to avoid a service interruption.\n\nClick the link below to submit payment securely:\nhttp://fbi-vendor-pay.net/invoice84821\n\nThank you for your prompt attention to this matter.\n\nAccounts Receivable\nFBI Vendor Services",
+	"is_phishing": true,
+	"damage": 25,
+	"reward": 0,
+	"difficulty": 2
+	},
+	{
+	"sender": "security.alert@fbi.gov.account-verify.com",
+	"subject": "Your Account Will Be Suspended",
+	"body": "Dear Employee,\n\nOur systems have flagged unusual login activity on your FBI network account. To prevent suspension, you must verify your identity immediately by clicking the link below and entering your credentials.\n\nThis link expires in 1 hour. Do not share this notice with colleagues as it is part of an active security investigation.\n\nhttp://account-verify.com/fbi-login\n\nFBI Security Operations",
+	"is_phishing": true,
+	"damage": 30,
+	"reward": 0,
+	"difficulty": 2
+	},
+	{
+	"sender": "hr@fbi.gov",
+	"subject": "Updated Benefits Enrollment",
+	"body": "Hello,\n\nThis is a reminder that the annual benefits enrollment window closes at the end of this month. Please log in to the HR portal at hr.fbi.gov to review and update your selections.\n\nNo credentials or personal information should be submitted via email. If you have questions, contact HR directly at extension 4400.\n\nHR Department\nFBI",
+	"is_phishing": false,
+	"damage": 0,
+	"reward": 15,
+	"difficulty": 2
+	},
+	{
+	  "sender": "alerts@dropb0x-share.com",
+	  "subject": "Someone Shared a File With You",
+	  "body": "A colleague has shared an important document with you. Click here to view it and enter your credentials.",
+	  "is_phishing": true,
+	  "damage": 25,
+	  "reward": 0,
+	  "difficulty": 2
+	},
+	{
+	  "sender": "no-reply@linkedln.com",
+	  "subject": "You Have a New Connection Request",
+	  "body": "A senior FBI official wants to connect with you on LinkedIn. Accept their request by clicking the link below.",
+	  "is_phishing": true,
+	  "damage": 20,
+	  "reward": 0,
+	  "difficulty": 2
+	},
+	{
+	"sender": "boss@fbi.gov",
+	"subject": "Case File Review",
+	"body": "Hello,\n\nCan you pull together the summary documents for the Hargrove case and have them ready for review by Thursday? Upload them to the shared drive when done.\n\nLet me know if you need anything from my end.\n\nThanks",
+	"is_phishing": false,
+	"damage": 0,
+	"reward": 15,
+	"difficulty": 2
+	},
+{
+	"sender": "trevor.woodyard@fbi-payroll.gov",
+	"subject": "Urgent: Payroll File Needed",
+	"body": "Hello,\n\nThis is Trevor Woodyard from Payroll. We are conducting an emergency audit and need you to send the payroll file immediately via the link below. Failure to respond within 2 hours may result in delayed payments for the entire department.\n\nPlease do not discuss this request with others as it is part of a confidential audit process.\n\nClick here to upload: http://fbi-payroll-secure.net/upload\n\nThanks,\nTrevor Woodyard\nPayroll Department, FBI",
+	"is_phishing": true,
+	"damage": 45,
+	"reward": 0,
+	"difficulty": 2
+},
+  ]
+}

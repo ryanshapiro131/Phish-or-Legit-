@@ -1,0 +1,96 @@
+{
+  "level": 3,
+  "quota": 10,
+  "emails": [
+	{
+	  "sender": "hr@fbi.gov.hr-portal.com",
+	  "subject": "Open Enrollment Reminder",
+	  "body": "This is your reminder to complete benefits open enrollment by end of week. Log in at the HR portal link below.",
+	  "is_phishing": true,
+	  "damage": 30,
+	  "reward": 0,
+	  "difficulty": 3
+	},
+	{
+	  "sender": "payroll@fbi.gov.payroll-update.com",
+	  "subject": "Direct Deposit Update Required",
+	  "body": "Please verify your direct deposit information for the upcoming pay period. No changes will result in a delayed payment.",
+	  "is_phishing": true,
+	  "damage": 30,
+	  "reward": 0,
+	  "difficulty": 3
+	},
+	{
+	  "sender": "it@fbi.gov",
+	  "subject": "System Update Complete",
+	  "body": "The scheduled system update has been completed successfully. No action is required on your part.",
+	  "is_phishing": false,
+	  "damage": 0,
+	  "reward": 15,
+	  "difficulty": 3
+	},
+	{
+	  "sender": "security@fbi.gov",
+	  "subject": "Routine Password Audit",
+	  "body": "As part of our quarterly audit, please confirm your current password meets policy requirements via the internal portal.",
+	  "is_phishing": false,
+	  "damage": 0,
+	  "reward": 15,
+	  "difficulty": 3
+	},
+	{
+	  "sender": "security@fbi-gov.net",
+	  "subject": "Urgent: Account Access Review",
+	  "body": "We have detected irregular access patterns on your account. Please confirm your credentials immediately to avoid suspension.",
+	  "is_phishing": true,
+	  "damage": 30,
+	  "reward": 0,
+	  "difficulty": 3
+	},
+	{
+	  "sender": "it@fbi.gov",
+	  "subject": "New Remote Access Tool",
+	  "body": "IT has deployed a new remote access tool. Please download and install it from the link below before your next remote session.",
+	  "is_phishing": true,
+	  "damage": 30,
+	  "reward": 0,
+	  "difficulty": 3
+	},
+	{
+	  "sender": "boss@fbi.gov",
+	  "subject": "Budget Report Due Friday",
+	  "body": "Just a reminder the Q2 budget report is due Friday COB. Please upload it to the shared drive when ready.",
+	  "is_phishing": false,
+	  "damage": 0,
+	  "reward": 15,
+	  "difficulty": 3
+	},
+	{
+	  "sender": "hr@fbi.gov",
+	  "subject": "Performance Review Scheduled",
+	  "body": "Your annual performance review has been scheduled for next Tuesday at 2PM. Please come prepared with your self-assessment.",
+	  "is_phishing": false,
+	  "damage": 0,
+	  "reward": 15,
+	  "difficulty": 3
+	},
+	{
+	  "sender": "compliance@fbi.gov.compliance-check.com",
+	  "subject": "Compliance Certification Required",
+	  "body": "Your annual compliance certification is overdue. Please complete it immediately using the secure link below.",
+	  "is_phishing": true,
+	  "damage": 30,
+	  "reward": 0,
+	  "difficulty": 3
+	},
+	{
+	  "sender": "it@fbi.gov",
+	  "subject": "VPN Maintenance Window",
+	  "body": "VPN access will be unavailable this Saturday from 2AM to 6AM for scheduled maintenance.",
+	  "is_phishing": false,
+	  "damage": 0,
+	  "reward": 10,
+	  "difficulty": 3
+	}
+  ]
+}
