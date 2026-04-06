@@ -3,14 +3,10 @@
 [ext_resource type="Texture2D" uid="uid://cgh1cmi4hjgmc" path="res://assets/DesktopBG.png" id="1_n6buh"]
 [ext_resource type="FontFile" uid="uid://dc52606rwa2qd" path="res://assets/PixelOperator.ttf" id="2_n6buh"]
 [ext_resource type="PackedScene" uid="uid://byciyheqruofd" path="res://scenes/integrityUI.tscn" id="2_ud1h4"]
+[ext_resource type="Theme" uid="uid://dqcef7afk7pf5" path="res://themes/defaultfont.tres" id="3_n6buh"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ud1h4"]
 load_path = "res://.godot/imported/download (1).png-9d4c7c11ddbe9ad8fe0f3ff602b1a502.ctex"
-
-[sub_resource type="Theme" id="Theme_ud1h4"]
-default_font = ExtResource("2_n6buh")
-
-[sub_resource type="Theme" id="Theme_n6buh"]
 
 [node name="EmailUI" type="Control" unique_id=1737163360]
 layout_mode = 3
@@ -134,8 +130,8 @@ layout_mode = 2
 size_flags_vertical = 4
 
 [node name="FolderSidebarPanel" type="PanelContainer" parent="MainVBox/Content" unique_id=984062805]
+custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
-size_flags_horizontal = 3
 
 [node name="FolderSidebarMargin" type="MarginContainer" parent="MainVBox/Content/FolderSidebarPanel" unique_id=1305665770]
 layout_mode = 2
@@ -145,23 +141,27 @@ layout_mode = 2
 
 [node name="Inbox" type="Label" parent="MainVBox/Content/FolderSidebarPanel/FolderSidebarMargin/FolderSidebarVBox" unique_id=1347623022]
 layout_mode = 2
+theme = ExtResource("3_n6buh")
 text = "Inbox: 12"
 
 [node name="Drafts" type="Label" parent="MainVBox/Content/FolderSidebarPanel/FolderSidebarMargin/FolderSidebarVBox" unique_id=240687298]
 layout_mode = 2
+theme = ExtResource("3_n6buh")
 text = "Drafts: 2"
 
 [node name="Sent" type="Label" parent="MainVBox/Content/FolderSidebarPanel/FolderSidebarMargin/FolderSidebarVBox" unique_id=352219806]
 layout_mode = 2
+theme = ExtResource("3_n6buh")
 text = "Sent: 10"
 
 [node name="Spam" type="Label" parent="MainVBox/Content/FolderSidebarPanel/FolderSidebarMargin/FolderSidebarVBox" unique_id=1417418932]
 layout_mode = 2
+theme = ExtResource("3_n6buh")
 text = "Spam: 15"
 
 [node name="EmailListSectionPanel" type="PanelContainer" parent="MainVBox/Content" unique_id=2010057634]
+custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
-size_flags_horizontal = 3
 
 [node name="EmailListSectionMargin" type="MarginContainer" parent="MainVBox/Content/EmailListSectionPanel" unique_id=1023583282]
 layout_mode = 2
@@ -257,19 +257,20 @@ alignment = 2
 [node name="AcceptButton" type="Button" parent="MainVBox/Content/EmailViewerPanel/ViewerVBox/ActionBar/ActionBarMargin/ActionBarHBox" unique_id=1409707710]
 layout_mode = 2
 size_flags_horizontal = 3
-theme = SubResource("Theme_ud1h4")
+theme = ExtResource("3_n6buh")
 theme_override_fonts/font = ExtResource("2_n6buh")
 text = "Accept"
 
 [node name="DenyButton" type="Button" parent="MainVBox/Content/EmailViewerPanel/ViewerVBox/ActionBar/ActionBarMargin/ActionBarHBox" unique_id=1612710028]
 layout_mode = 2
 size_flags_horizontal = 3
-theme = SubResource("Theme_n6buh")
+theme = ExtResource("3_n6buh")
 text = "Deny"
 
 [node name="IgnoreButton" type="Button" parent="MainVBox/Content/EmailViewerPanel/ViewerVBox/ActionBar/ActionBarMargin/ActionBarHBox" unique_id=1995434711]
 layout_mode = 2
 size_flags_horizontal = 3
+theme = ExtResource("3_n6buh")
 text = "Ignore"
 
 [node name="BottomBar" type="PanelContainer" parent="MainVBox" unique_id=1647356923]
