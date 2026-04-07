@@ -172,14 +172,14 @@ texture_pressed = SubResource("AtlasTexture_oxsar")
 texture_hover = SubResource("AtlasTexture_dd6fd")
 stretch_mode = 5
 
-[node name="ContentPanel" type="TextureRect" parent="MainWindow/MainVBox" unique_id=756296273]
+[node name="Content" type="TextureRect" parent="MainWindow/MainVBox" unique_id=756296273]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = ExtResource("7_b6i5y")
 stretch_mode = 5
 
-[node name="Content" type="HBoxContainer" parent="MainWindow/MainVBox/ContentPanel" unique_id=1072803660]
+[node name="ContentHBox" type="HBoxContainer" parent="MainWindow/MainVBox/Content" unique_id=1072803660]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -190,14 +190,14 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_constants/separation = -10
 
-[node name="WidgetSidebarPanel" type="TextureRect" parent="MainWindow/MainVBox/ContentPanel/Content" unique_id=1326829356]
+[node name="WidgetSidebarPanel" type="TextureRect" parent="MainWindow/MainVBox/Content/ContentHBox" unique_id=1326829356]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = ExtResource("7_flayh")
 stretch_mode = 5
 
-[node name="WidgetSidebarMargin" type="MarginContainer" parent="MainWindow/MainVBox/ContentPanel/Content/WidgetSidebarPanel" unique_id=1916136475]
+[node name="WidgetSidebarMargin" type="MarginContainer" parent="MainWindow/MainVBox/Content/ContentHBox/WidgetSidebarPanel" unique_id=1916136475]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -205,32 +205,32 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="WidgetSidebarVBox" type="VBoxContainer" parent="MainWindow/MainVBox/ContentPanel/Content/WidgetSidebarPanel/WidgetSidebarMargin" unique_id=942563047]
+[node name="WidgetSidebarVBox" type="VBoxContainer" parent="MainWindow/MainVBox/Content/ContentHBox/WidgetSidebarPanel/WidgetSidebarMargin" unique_id=942563047]
 layout_mode = 2
 
-[node name="MailWidget" type="TextureButton" parent="MainWindow/MainVBox/ContentPanel/Content/WidgetSidebarPanel/WidgetSidebarMargin/WidgetSidebarVBox" unique_id=1984079198]
+[node name="MailWidget" type="TextureButton" parent="MainWindow/MainVBox/Content/ContentHBox/WidgetSidebarPanel/WidgetSidebarMargin/WidgetSidebarVBox" unique_id=1984079198]
 layout_mode = 2
 
-[node name="InventoryWidget" type="TextureButton" parent="MainWindow/MainVBox/ContentPanel/Content/WidgetSidebarPanel/WidgetSidebarMargin/WidgetSidebarVBox" unique_id=900572551]
-layout_mode = 2
-size_flags_vertical = 4
-
-[node name="ShopWidget" type="TextureButton" parent="MainWindow/MainVBox/ContentPanel/Content/WidgetSidebarPanel/WidgetSidebarMargin/WidgetSidebarVBox" unique_id=373220498]
+[node name="InventoryWidget" type="TextureButton" parent="MainWindow/MainVBox/Content/ContentHBox/WidgetSidebarPanel/WidgetSidebarMargin/WidgetSidebarVBox" unique_id=900572551]
 layout_mode = 2
 size_flags_vertical = 4
 
-[node name="NotesWidget" type="TextureButton" parent="MainWindow/MainVBox/ContentPanel/Content/WidgetSidebarPanel/WidgetSidebarMargin/WidgetSidebarVBox" unique_id=219399567]
+[node name="ShopWidget" type="TextureButton" parent="MainWindow/MainVBox/Content/ContentHBox/WidgetSidebarPanel/WidgetSidebarMargin/WidgetSidebarVBox" unique_id=373220498]
 layout_mode = 2
 size_flags_vertical = 4
 
-[node name="FolderSidebarPanel" type="TextureRect" parent="MainWindow/MainVBox/ContentPanel/Content" unique_id=817156366]
+[node name="NotesWidget" type="TextureButton" parent="MainWindow/MainVBox/Content/ContentHBox/WidgetSidebarPanel/WidgetSidebarMargin/WidgetSidebarVBox" unique_id=219399567]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="FolderSidebarPanel" type="TextureRect" parent="MainWindow/MainVBox/Content/ContentHBox" unique_id=817156366]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = ExtResource("8_s8qli")
 stretch_mode = 5
 
-[node name="FolderSidebarMargin" type="MarginContainer" parent="MainWindow/MainVBox/ContentPanel/Content/FolderSidebarPanel" unique_id=1305665770]
+[node name="FolderSidebarMargin" type="MarginContainer" parent="MainWindow/MainVBox/Content/ContentHBox/FolderSidebarPanel" unique_id=1305665770]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -238,40 +238,40 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="FolderSidebarVBox" type="VBoxContainer" parent="MainWindow/MainVBox/ContentPanel/Content/FolderSidebarPanel/FolderSidebarMargin" unique_id=1319611092]
+[node name="FolderSidebarVBox" type="VBoxContainer" parent="MainWindow/MainVBox/Content/ContentHBox/FolderSidebarPanel/FolderSidebarMargin" unique_id=1319611092]
 layout_mode = 2
 size_flags_horizontal = 0
 
-[node name="Inbox" type="Label" parent="MainWindow/MainVBox/ContentPanel/Content/FolderSidebarPanel/FolderSidebarMargin/FolderSidebarVBox" unique_id=1347623022]
+[node name="Inbox" type="Label" parent="MainWindow/MainVBox/Content/ContentHBox/FolderSidebarPanel/FolderSidebarMargin/FolderSidebarVBox" unique_id=1347623022]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 1
 theme = ExtResource("3_n6buh")
 text = "Inbox: 12"
 
-[node name="Drafts" type="Label" parent="MainWindow/MainVBox/ContentPanel/Content/FolderSidebarPanel/FolderSidebarMargin/FolderSidebarVBox" unique_id=240687298]
+[node name="Drafts" type="Label" parent="MainWindow/MainVBox/Content/ContentHBox/FolderSidebarPanel/FolderSidebarMargin/FolderSidebarVBox" unique_id=240687298]
 layout_mode = 2
 theme = ExtResource("3_n6buh")
 text = "Drafts: 2"
 
-[node name="Sent" type="Label" parent="MainWindow/MainVBox/ContentPanel/Content/FolderSidebarPanel/FolderSidebarMargin/FolderSidebarVBox" unique_id=352219806]
+[node name="Sent" type="Label" parent="MainWindow/MainVBox/Content/ContentHBox/FolderSidebarPanel/FolderSidebarMargin/FolderSidebarVBox" unique_id=352219806]
 layout_mode = 2
 theme = ExtResource("3_n6buh")
 text = "Sent: 10"
 
-[node name="Spam" type="Label" parent="MainWindow/MainVBox/ContentPanel/Content/FolderSidebarPanel/FolderSidebarMargin/FolderSidebarVBox" unique_id=1417418932]
+[node name="Spam" type="Label" parent="MainWindow/MainVBox/Content/ContentHBox/FolderSidebarPanel/FolderSidebarMargin/FolderSidebarVBox" unique_id=1417418932]
 layout_mode = 2
 theme = ExtResource("3_n6buh")
 text = "Spam: 15"
 
-[node name="EmailListSectionPanel" type="TextureRect" parent="MainWindow/MainVBox/ContentPanel/Content" unique_id=1408437061]
+[node name="EmailListSectionPanel" type="TextureRect" parent="MainWindow/MainVBox/Content/ContentHBox" unique_id=1408437061]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = ExtResource("10_mejtc")
 stretch_mode = 5
 
-[node name="EmailListSectionMargin" type="MarginContainer" parent="MainWindow/MainVBox/ContentPanel/Content/EmailListSectionPanel" unique_id=1023583282]
+[node name="EmailListSectionMargin" type="MarginContainer" parent="MainWindow/MainVBox/Content/ContentHBox/EmailListSectionPanel" unique_id=1023583282]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -279,20 +279,20 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="EmailList" type="ScrollContainer" parent="MainWindow/MainVBox/ContentPanel/Content/EmailListSectionPanel/EmailListSectionMargin" unique_id=836206805]
+[node name="EmailList" type="ScrollContainer" parent="MainWindow/MainVBox/Content/ContentHBox/EmailListSectionPanel/EmailListSectionMargin" unique_id=836206805]
 clip_contents = false
 layout_mode = 2
 
-[node name="EmailListVBox" type="VBoxContainer" parent="MainWindow/MainVBox/ContentPanel/Content/EmailListSectionPanel/EmailListSectionMargin/EmailList" unique_id=109709486]
+[node name="EmailListVBox" type="VBoxContainer" parent="MainWindow/MainVBox/Content/ContentHBox/EmailListSectionPanel/EmailListSectionMargin/EmailList" unique_id=109709486]
 layout_mode = 2
 
-[node name="EmailViewerPanel" type="TextureRect" parent="MainWindow/MainVBox/ContentPanel/Content" unique_id=1395457429]
+[node name="EmailViewerPanel" type="TextureRect" parent="MainWindow/MainVBox/Content/ContentHBox" unique_id=1395457429]
 layout_mode = 2
 size_flags_vertical = 3
 texture = ExtResource("11_xfk65")
 stretch_mode = 5
 
-[node name="ViewerVBox" type="VBoxContainer" parent="MainWindow/MainVBox/ContentPanel/Content/EmailViewerPanel" unique_id=933598214]
+[node name="ViewerVBox" type="VBoxContainer" parent="MainWindow/MainVBox/Content/ContentHBox/EmailViewerPanel" unique_id=933598214]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -300,73 +300,73 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="SubjectBar" type="PanelContainer" parent="MainWindow/MainVBox/ContentPanel/Content/EmailViewerPanel/ViewerVBox" unique_id=1389129752]
+[node name="SubjectBar" type="PanelContainer" parent="MainWindow/MainVBox/Content/ContentHBox/EmailViewerPanel/ViewerVBox" unique_id=1389129752]
 layout_mode = 2
 
-[node name="SubjectMargin" type="MarginContainer" parent="MainWindow/MainVBox/ContentPanel/Content/EmailViewerPanel/ViewerVBox/SubjectBar" unique_id=1243095862]
+[node name="SubjectMargin" type="MarginContainer" parent="MainWindow/MainVBox/Content/ContentHBox/EmailViewerPanel/ViewerVBox/SubjectBar" unique_id=1243095862]
 layout_mode = 2
 
-[node name="SubjectLabel" type="Label" parent="MainWindow/MainVBox/ContentPanel/Content/EmailViewerPanel/ViewerVBox/SubjectBar/SubjectMargin" unique_id=54486880]
+[node name="SubjectLabel" type="Label" parent="MainWindow/MainVBox/Content/ContentHBox/EmailViewerPanel/ViewerVBox/SubjectBar/SubjectMargin" unique_id=54486880]
 layout_mode = 2
 size_flags_vertical = 1
 
-[node name="SenderBar" type="PanelContainer" parent="MainWindow/MainVBox/ContentPanel/Content/EmailViewerPanel/ViewerVBox" unique_id=651862776]
+[node name="SenderBar" type="PanelContainer" parent="MainWindow/MainVBox/Content/ContentHBox/EmailViewerPanel/ViewerVBox" unique_id=651862776]
 layout_mode = 2
 
-[node name="SenderBarMargin" type="MarginContainer" parent="MainWindow/MainVBox/ContentPanel/Content/EmailViewerPanel/ViewerVBox/SenderBar" unique_id=647335456]
+[node name="SenderBarMargin" type="MarginContainer" parent="MainWindow/MainVBox/Content/ContentHBox/EmailViewerPanel/ViewerVBox/SenderBar" unique_id=647335456]
 layout_mode = 2
 
-[node name="SenderBarHBox" type="HBoxContainer" parent="MainWindow/MainVBox/ContentPanel/Content/EmailViewerPanel/ViewerVBox/SenderBar/SenderBarMargin" unique_id=799444435]
+[node name="SenderBarHBox" type="HBoxContainer" parent="MainWindow/MainVBox/Content/ContentHBox/EmailViewerPanel/ViewerVBox/SenderBar/SenderBarMargin" unique_id=799444435]
 layout_mode = 2
 
-[node name="ViewerSenderIconArea" type="CenterContainer" parent="MainWindow/MainVBox/ContentPanel/Content/EmailViewerPanel/ViewerVBox/SenderBar/SenderBarMargin/SenderBarHBox" unique_id=475145078]
+[node name="ViewerSenderIconArea" type="CenterContainer" parent="MainWindow/MainVBox/Content/ContentHBox/EmailViewerPanel/ViewerVBox/SenderBar/SenderBarMargin/SenderBarHBox" unique_id=475145078]
 layout_mode = 2
 size_flags_horizontal = 2
 
-[node name="ViewerSenderIcon" type="TextureRect" parent="MainWindow/MainVBox/ContentPanel/Content/EmailViewerPanel/ViewerVBox/SenderBar/SenderBarMargin/SenderBarHBox/ViewerSenderIconArea" unique_id=2013023054]
+[node name="ViewerSenderIcon" type="TextureRect" parent="MainWindow/MainVBox/Content/ContentHBox/EmailViewerPanel/ViewerVBox/SenderBar/SenderBarMargin/SenderBarHBox/ViewerSenderIconArea" unique_id=2013023054]
 layout_mode = 2
 
-[node name="SenderInfoVBox" type="VBoxContainer" parent="MainWindow/MainVBox/ContentPanel/Content/EmailViewerPanel/ViewerVBox/SenderBar/SenderBarMargin/SenderBarHBox" unique_id=1306092436]
+[node name="SenderInfoVBox" type="VBoxContainer" parent="MainWindow/MainVBox/Content/ContentHBox/EmailViewerPanel/ViewerVBox/SenderBar/SenderBarMargin/SenderBarHBox" unique_id=1306092436]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="SenderLabel" type="Label" parent="MainWindow/MainVBox/ContentPanel/Content/EmailViewerPanel/ViewerVBox/SenderBar/SenderBarMargin/SenderBarHBox/SenderInfoVBox" unique_id=1524311154]
+[node name="SenderLabel" type="Label" parent="MainWindow/MainVBox/Content/ContentHBox/EmailViewerPanel/ViewerVBox/SenderBar/SenderBarMargin/SenderBarHBox/SenderInfoVBox" unique_id=1524311154]
 layout_mode = 2
 
-[node name="ToLabel" type="Label" parent="MainWindow/MainVBox/ContentPanel/Content/EmailViewerPanel/ViewerVBox/SenderBar/SenderBarMargin/SenderBarHBox/SenderInfoVBox" unique_id=667818908]
+[node name="ToLabel" type="Label" parent="MainWindow/MainVBox/Content/ContentHBox/EmailViewerPanel/ViewerVBox/SenderBar/SenderBarMargin/SenderBarHBox/SenderInfoVBox" unique_id=667818908]
 layout_mode = 2
 
-[node name="AttachmentBar" type="PanelContainer" parent="MainWindow/MainVBox/ContentPanel/Content/EmailViewerPanel/ViewerVBox" unique_id=1342249179]
+[node name="AttachmentBar" type="PanelContainer" parent="MainWindow/MainVBox/Content/ContentHBox/EmailViewerPanel/ViewerVBox" unique_id=1342249179]
 layout_mode = 2
 
-[node name="AttachmentBarMargin" type="MarginContainer" parent="MainWindow/MainVBox/ContentPanel/Content/EmailViewerPanel/ViewerVBox/AttachmentBar" unique_id=1631781297]
+[node name="AttachmentBarMargin" type="MarginContainer" parent="MainWindow/MainVBox/Content/ContentHBox/EmailViewerPanel/ViewerVBox/AttachmentBar" unique_id=1631781297]
 layout_mode = 2
 
-[node name="AttachmentBarHBox" type="HBoxContainer" parent="MainWindow/MainVBox/ContentPanel/Content/EmailViewerPanel/ViewerVBox/AttachmentBar/AttachmentBarMargin" unique_id=1267790476]
+[node name="AttachmentBarHBox" type="HBoxContainer" parent="MainWindow/MainVBox/Content/ContentHBox/EmailViewerPanel/ViewerVBox/AttachmentBar/AttachmentBarMargin" unique_id=1267790476]
 layout_mode = 2
 
-[node name="AttachmentLabel" type="Label" parent="MainWindow/MainVBox/ContentPanel/Content/EmailViewerPanel/ViewerVBox/AttachmentBar/AttachmentBarMargin/AttachmentBarHBox" unique_id=1293822187]
+[node name="AttachmentLabel" type="Label" parent="MainWindow/MainVBox/Content/ContentHBox/EmailViewerPanel/ViewerVBox/AttachmentBar/AttachmentBarMargin/AttachmentBarHBox" unique_id=1293822187]
 layout_mode = 2
 
-[node name="BodyArea" type="PanelContainer" parent="MainWindow/MainVBox/ContentPanel/Content/EmailViewerPanel/ViewerVBox" unique_id=1233633918]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="BodyMargin" type="MarginContainer" parent="MainWindow/MainVBox/ContentPanel/Content/EmailViewerPanel/ViewerVBox/BodyArea" unique_id=1013466002]
-layout_mode = 2
-
-[node name="BodyText" type="RichTextLabel" parent="MainWindow/MainVBox/ContentPanel/Content/EmailViewerPanel/ViewerVBox/BodyArea/BodyMargin" unique_id=1737941471]
+[node name="BodyArea" type="PanelContainer" parent="MainWindow/MainVBox/Content/ContentHBox/EmailViewerPanel/ViewerVBox" unique_id=1233633918]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="ActionBar" type="TextureRect" parent="MainWindow/MainVBox/ContentPanel/Content/EmailViewerPanel/ViewerVBox" unique_id=1688231045]
+[node name="BodyMargin" type="MarginContainer" parent="MainWindow/MainVBox/Content/ContentHBox/EmailViewerPanel/ViewerVBox/BodyArea" unique_id=1013466002]
+layout_mode = 2
+
+[node name="BodyText" type="RichTextLabel" parent="MainWindow/MainVBox/Content/ContentHBox/EmailViewerPanel/ViewerVBox/BodyArea/BodyMargin" unique_id=1737941471]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ActionBar" type="TextureRect" parent="MainWindow/MainVBox/Content/ContentHBox/EmailViewerPanel/ViewerVBox" unique_id=1688231045]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = ExtResource("12_oqf7v")
 stretch_mode = 5
 
-[node name="ActionBarMargin" type="MarginContainer" parent="MainWindow/MainVBox/ContentPanel/Content/EmailViewerPanel/ViewerVBox/ActionBar" unique_id=1575904855]
+[node name="ActionBarMargin" type="MarginContainer" parent="MainWindow/MainVBox/Content/ContentHBox/EmailViewerPanel/ViewerVBox/ActionBar" unique_id=1575904855]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -375,13 +375,13 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 8
 
-[node name="ActionBarHBox" type="HBoxContainer" parent="MainWindow/MainVBox/ContentPanel/Content/EmailViewerPanel/ViewerVBox/ActionBar/ActionBarMargin" unique_id=1154855980]
+[node name="ActionBarHBox" type="HBoxContainer" parent="MainWindow/MainVBox/Content/ContentHBox/EmailViewerPanel/ViewerVBox/ActionBar/ActionBarMargin" unique_id=1154855980]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 alignment = 2
 
-[node name="AcceptButton" type="TextureButton" parent="MainWindow/MainVBox/ContentPanel/Content/EmailViewerPanel/ViewerVBox/ActionBar/ActionBarMargin/ActionBarHBox" unique_id=1831745300]
+[node name="AcceptButton" type="TextureButton" parent="MainWindow/MainVBox/Content/ContentHBox/EmailViewerPanel/ViewerVBox/ActionBar/ActionBarMargin/ActionBarHBox" unique_id=1831745300]
 layout_mode = 2
 size_flags_vertical = 0
 theme = ExtResource("3_n6buh")
@@ -389,14 +389,14 @@ texture_normal = SubResource("AtlasTexture_vwbq0")
 texture_pressed = SubResource("AtlasTexture_yw5ew")
 texture_hover = SubResource("AtlasTexture_oq8lc")
 
-[node name="DenyButton" type="TextureButton" parent="MainWindow/MainVBox/ContentPanel/Content/EmailViewerPanel/ViewerVBox/ActionBar/ActionBarMargin/ActionBarHBox" unique_id=155453117]
+[node name="DenyButton" type="TextureButton" parent="MainWindow/MainVBox/Content/ContentHBox/EmailViewerPanel/ViewerVBox/ActionBar/ActionBarMargin/ActionBarHBox" unique_id=155453117]
 layout_mode = 2
 theme = ExtResource("3_n6buh")
 texture_normal = SubResource("AtlasTexture_cepvy")
 texture_pressed = SubResource("AtlasTexture_v5uti")
 texture_hover = SubResource("AtlasTexture_motaj")
 
-[node name="IgnoreButton" type="TextureButton" parent="MainWindow/MainVBox/ContentPanel/Content/EmailViewerPanel/ViewerVBox/ActionBar/ActionBarMargin/ActionBarHBox" unique_id=1786045066]
+[node name="IgnoreButton" type="TextureButton" parent="MainWindow/MainVBox/Content/ContentHBox/EmailViewerPanel/ViewerVBox/ActionBar/ActionBarMargin/ActionBarHBox" unique_id=1786045066]
 layout_mode = 2
 theme = ExtResource("3_n6buh")
 texture_normal = SubResource("AtlasTexture_gxrcw")
