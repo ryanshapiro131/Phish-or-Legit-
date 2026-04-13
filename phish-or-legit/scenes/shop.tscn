@@ -7,14 +7,15 @@
 [ext_resource type="FontFile" uid="uid://dc52606rwa2qd" path="res://assets/PixelOperator.ttf" id="4_fgaav"]
 [ext_resource type="Texture2D" uid="uid://xdbpkq46nusk" path="res://assets/itchio-pxl-retro-computer-icons-set-110/itchio-pxl-retro-computer-icons-set-110.jpg" id="5_8r1wq"]
 [ext_resource type="Script" uid="uid://187fbfhtt3cc" path="res://scripts/email_button.gd" id="6_ajxib"]
-[ext_resource type="Script" path="res://scripts/hyperlink_button.gd" id="6_gobkm"]
+[ext_resource type="Script" uid="uid://bbivlppt3s2lp" path="res://scripts/hyperlink_button.gd" id="6_gobkm"]
 [ext_resource type="Script" uid="uid://dker31g6pk3dy" path="res://scripts/texture_button.gd" id="7_ajxib"]
 [ext_resource type="Script" uid="uid://bl7e6kjjb6ssn" path="res://scripts/ai_firewall_button.gd" id="7_j14q8"]
 [ext_resource type="Script" uid="uid://cg1uqfibtr1mj" path="res://scripts/encrypted_storage_button.gd" id="8_5u241"]
 [ext_resource type="PackedScene" uid="uid://byciyheqruofd" path="res://scenes/integrityUI.tscn" id="8_y6sft"]
 [ext_resource type="Script" uid="uid://b3si73742sdu4" path="res://scripts/grant_button.gd" id="9_pqync"]
-[ext_resource type="Script" path="res://scripts/spam_filter_button.gd" id="10_yuijs"]
+[ext_resource type="Script" uid="uid://cgnqi0chmllmc" path="res://scripts/spam_filter_button.gd" id="10_yuijs"]
 [ext_resource type="Script" uid="uid://dkpep63leqmox" path="res://scripts/encrypted_backup_button.gd" id="11_aa4hd"]
+[ext_resource type="AudioStream" uid="uid://con4guyqhtllm" path="res://audio/poppop.ai - cha ching audio.mp3" id="16_j14q8"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gmb2m"]
 texture = ExtResource("4_6lah5")
@@ -354,6 +355,10 @@ offset_left = 239.0
 offset_top = 1138.0
 offset_right = 711.0
 offset_bottom = 1476.0
+
+[node name="BuySound" type="AudioStreamPlayer2D" parent="." unique_id=1958106485]
+stream = ExtResource("16_j14q8")
+volume_db = -8.537
 
 [connection signal="pressed" from="EmailButton" to="EmailButton" method="_on_pressed"]
 [connection signal="pressed" from="HomeButton" to="HomeButton" method="_on_pressed"]
