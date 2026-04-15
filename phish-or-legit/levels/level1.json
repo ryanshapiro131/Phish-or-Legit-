@@ -1,0 +1,83 @@
+{
+  "level": 1,
+  "quota": 5,
+  "emails": [
+	{
+	  "sender": "boss@fbi.gov",
+	  "subject": "Team Meeting",
+	  "body": "Hi,\n\nJust a reminder that we have our weekly 3PM team meeting today in conference room B.\n\nPlease bring your status update and any blockers you want to discuss.\n\nSee you there.",
+	  "is_phishing": false,
+	  "damage": 0,
+	  "reward": 15,
+	  "difficulty": 1,
+	  "icon": "Bob_16x16.png"
+	},
+	{
+	  "sender": "hr@fbi.gov",
+	  "subject": "Updated Holiday Schedule",
+	  "body": "Hello,\n\nPlease be advised that the updated holiday schedule for Q2 is now available on the internal HR portal.\n\nNo action is required. If you have any questions, reach out to HR directly at extension 4400.\n\nHR Department\nFBI",
+	  "is_phishing": false,
+	  "damage": 0,
+	  "reward": 15,
+	  "difficulty": 1,
+	  "icon": "Amelia_16x16.png"
+	},
+	{
+	  "sender": "it@fbi.gov",
+	  "subject": "Scheduled Maintenance Tonight",
+	  "body": "Hello,\n\nPlease be aware that scheduled maintenance will take place tonight from 11PM to 1AM.\n\nSystems may be unavailable during this window. No action is required on your part.\n\nIT Department\nFBI",
+	  "is_phishing": false,
+	  "damage": 0,
+	  "reward": 15,
+	  "difficulty": 1,
+	  "icon": "Alex_16x16.png"
+	},
+	{
+	  "sender": "admin-secure@fb1.com",
+	  "subject": "Account Suspended",
+	  "body": "Your account has been SUSPENDED due to suspicious activity!!!\n\nClick immediately to restore access or your data will be permanently deleted.\n\nAct NOW before it is too late.",
+	  "is_phishing": true,
+	  "damage": 20,
+	  "reward": 0,
+	  "difficulty": 1
+	},
+	{
+	  "sender": "support@paypai.com",
+	  "subject": "Unusual Activity Detected",
+	  "body": "We have detected suspicious login attempts on your account and have locked it for your protection.\n\nVerify your identity IMMEDIATELY by clicking the link below or you will lose access permanently.\n\nThis link expires in 30 minutes.",
+	  "is_phishing": true,
+	  "damage": 20,
+	  "reward": 0,
+	  "difficulty": 1
+	},
+	{
+	  "sender": "noreply@fbi.com",
+	  "subject": "Your Order Has Been Cancelled",
+	  "body": "Your recent order has been flagged for suspected fraud and cancelled.\n\nClick here NOW to confirm your payment details and restore your account before it is permanently closed.\n\nImmediate action is required.",
+	  "is_phishing": true,
+	  "damage": 20,
+	  "reward": 0,
+	  "difficulty": 1
+	},
+	{
+	  "sender": "newsletter@fbi.gov",
+	  "subject": "Your Weekly Tech Digest",
+	  "body": "Hello,\n\nHere is your weekly roundup of what is happening in tech.\n\nThis week: new developments in AI research, upcoming hardware releases, and a summary of recent cybersecurity incidents across federal agencies.\n\nHave a great week.",
+	  "is_phishing": false,
+	  "damage": 0,
+	  "reward": 10,
+	  "difficulty": 1,
+	  "icon": "Adam_16x16.png"
+	},
+	{
+	  "sender": "payroll@fbi.gov",
+	  "subject": "Your Pay Stub is Ready",
+	  "body": "Hello,\n\nYour pay stub for the current pay period is now available.\n\nPlease log in to the employee portal at portal.fbi.gov to view it. If you have any payroll questions, contact the payroll department at extension 3300.\n\nPayroll Department\nFBI",
+	  "is_phishing": false,
+	  "damage": 0,
+	  "reward": 10,
+	  "difficulty": 1,
+	  "icon": "Adam_16x16.png"
+	}
+  ]
+}

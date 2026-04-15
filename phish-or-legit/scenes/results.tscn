@@ -1,0 +1,94 @@
+[gd_scene format=3 uid="uid://d3eafn5pljb60"]
+
+[ext_resource type="Script" uid="uid://b2k7m8tqnujce" path="res://scripts/results.gd" id="1_r4wmc"]
+[ext_resource type="Texture2D" uid="uid://d3bbhwo7haneo" path="res://assets/PhishorLegitLogo.png" id="2_s58my"]
+[ext_resource type="FontFile" uid="uid://dc52606rwa2qd" path="res://assets/PixelOperator.ttf" id="3_w6ibn"]
+
+[sub_resource type="Theme" id="Theme_r4wmc"]
+Button/colors/font_color = Color(0.7579507, 0.90293676, 0.9580489, 1)
+Button/colors/icon_normal_color = Color(0.7529856, 0.8364976, 0.83191365, 1)
+
+[node name="Results" type="Control" unique_id=1638022197]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_r4wmc")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=780423791]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.47354227, 0.6274544, 0.7609134, 0.76862746)
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1886609677]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -384.0
+offset_top = 42.0
+offset_right = 485.0
+offset_bottom = 459.0
+grow_horizontal = 2
+texture = ExtResource("2_s58my")
+expand_mode = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=300512336]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.57100004
+anchor_right = 0.5
+anchor_bottom = 0.57100004
+offset_left = -216.0
+offset_top = -89.68005
+offset_right = 216.0
+offset_bottom = 122.31995
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=693914304]
+layout_mode = 2
+
+[node name="Level" type="Label" parent="CenterContainer/VBoxContainer" unique_id=1308795286]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_w6ibn")
+theme_override_font_sizes/font_size = 128
+text = "Level X Complete!"
+
+[node name="Correct" type="Label" parent="CenterContainer/VBoxContainer" unique_id=1181858946]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_w6ibn")
+theme_override_font_sizes/font_size = 64
+text = "Correct Emails: "
+
+[node name="Incorrect" type="Label" parent="CenterContainer/VBoxContainer" unique_id=1552605526]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_w6ibn")
+theme_override_font_sizes/font_size = 64
+text = "Incorrect Emails: "
+
+[node name="NextLevel" type="Button" parent="." unique_id=1256642926]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -375.0
+offset_top = -174.0
+offset_right = -172.0
+offset_bottom = -79.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = SubResource("Theme_r4wmc")
+theme_override_font_sizes/font_size = 64
+text = "Next Level"
+
+[connection signal="pressed" from="NextLevel" to="." method="_on_next_level_pressed"]

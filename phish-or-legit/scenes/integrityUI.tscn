@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://vn31b1aqtjil" path="res://scripts/integrityUI.gd" id="1_le0mg"]
 [ext_resource type="FontFile" uid="uid://dc52606rwa2qd" path="res://assets/PixelOperator.ttf" id="2_4j5t6"]
+[ext_resource type="Animation" uid="uid://xgl2jpys5gwg" path="res://animations/RESET.res" id="3_wg0af"]
+[ext_resource type="Animation" uid="uid://btbshy8npql44" path="res://animations/integrity_hit.res" id="4_lross"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_le0mg"]
 content_margin_left = 3.0
@@ -21,116 +23,50 @@ bg_color = Color(0, 0.60038817, 0, 1)
 border_color = Color(0, 0, 0, 1)
 corner_detail = 1
 
-[sub_resource type="Animation" id="Animation_le0mg"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("DamageFlash:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 0, 0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("WarningText:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("WarningText:scale")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_4j5t6"]
-resource_name = "integrity_hit"
-length = 0.6
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("DamageFlash:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Color(1, 0, 0, 0), Color(1, 0, 0, 0.3), Color(1, 0, 0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("WarningText:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.15, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("WarningText:scale")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.15, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(1, 1), Vector2(1.05, 1.05), Vector2(1, 1)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_72plh"]
 _data = {
-&"RESET": SubResource("Animation_le0mg"),
-&"integrity_hit": SubResource("Animation_4j5t6")
+&"RESET": ExtResource("3_wg0af"),
+&"integrity_hit": ExtResource("4_lross")
 }
 
 [node name="IntegrityUI" type="Control" unique_id=1043091255]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_top = 0.432
+anchor_right = 0.38500002
+anchor_bottom = 0.79800004
+offset_top = 323.44
+offset_right = 10.799988
+offset_bottom = 151.15997
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_le0mg")
 
 [node name="SystemIntegrityLabel" type="Label" parent="." unique_id=1429689797]
-layout_mode = 0
-offset_left = 15.0
-offset_top = 465.0
-offset_right = 507.0
-offset_bottom = 556.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.3010001
+anchor_top = -1.312
+anchor_right = 1.3010001
+anchor_bottom = -1.312
+offset_left = -218.75006
+offset_top = 36.57602
+offset_right = 273.24994
+offset_bottom = 127.57602
 theme_override_fonts/font = ExtResource("2_4j5t6")
 theme_override_font_sizes/font_size = 48
 text = "System Integrity:"
 
 [node name="IntegrityBar" type="ProgressBar" parent="." unique_id=1855588939]
-layout_mode = 0
-offset_left = 13.0
-offset_top = 540.0
-offset_right = 656.0
-offset_bottom = 634.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.312
+anchor_top = -1.2780001
+anchor_right = 1.319
+anchor_bottom = -1.2780001
+offset_left = -229.0
+offset_top = -29.005981
+offset_right = 238.75
+offset_bottom = 24.994019
 theme_override_fonts/font = ExtResource("2_4j5t6")
 theme_override_font_sizes/font_size = 48
 theme_override_styles/background = SubResource("StyleBoxFlat_le0mg")
@@ -139,23 +75,22 @@ step = 1.0
 value = 100.0
 
 [node name="DamageFlash" type="ColorRect" parent="." unique_id=297492583]
-visible = false
 layout_mode = 0
-offset_left = -22.0
-offset_top = -23.0
-offset_right = 1191.0
-offset_bottom = 671.0
+offset_left = 637.0
+offset_top = -2087.0
+offset_right = 3979.0
+offset_bottom = -485.0
+mouse_filter = 2
 color = Color(1, 0, 0, 0)
 
 [node name="WarningText" type="Label" parent="." unique_id=1706333433]
-visible = false
 modulate = Color(1, 1, 1, 0)
 layout_mode = 0
-offset_left = -1.0
-offset_top = -5.0
-offset_right = 1156.0
-offset_bottom = 658.0
-theme_override_font_sizes/font_size = 32
+offset_left = 1043.0
+offset_top = -930.0
+offset_right = 2966.0
+offset_bottom = 152.0
+theme_override_font_sizes/font_size = 64
 text = "SECURITY BREACH DETECTED"
 horizontal_alignment = 1
 vertical_alignment = 1

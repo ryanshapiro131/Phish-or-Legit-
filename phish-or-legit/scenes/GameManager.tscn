@@ -9,3 +9,4 @@ script = ExtResource("1_qppyr")
 [node name="BGMusic" type="AudioStreamPlayer2D" parent="." unique_id=676263933]
 stream = ExtResource("1_u05yr")
 autoplay = true
+parameters/looping = true

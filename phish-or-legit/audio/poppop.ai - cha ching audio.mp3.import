@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://con4guyqhtllm"
+path="res://.godot/imported/poppop.ai - cha ching audio.mp3-efa581a36b45c53c615b88b7760e2ecd.mp3str"
+
+[deps]
+
+source_file="res://audio/poppop.ai - cha ching audio.mp3"
+dest_files=["res://.godot/imported/poppop.ai - cha ching audio.mp3-efa581a36b45c53c615b88b7760e2ecd.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
