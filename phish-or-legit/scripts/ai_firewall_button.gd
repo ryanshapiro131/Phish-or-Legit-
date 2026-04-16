@@ -1,6 +1,6 @@
 extends Button
 
-@export var cost: int = 150
+@export var cost: int = 50
 @export var power_up_name: String = "AI Firewall"
 
 @onready var buy_sound = $"../BuySound"

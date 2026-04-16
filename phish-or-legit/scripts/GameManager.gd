@@ -3,9 +3,9 @@ extends Node
 const BASE_MAX_INTEGRITY: int = 100
 const ENCRYPTED_STORAGE_BONUS: int = 30
 const BACKUP_RESTORE_PERCENT_OF_MAX: float = 0.5
-const HYPERLINK_ANALYZER_DURATION_SEC: float = 30.0
-const GRANT_STREAK_LINEAR: int = 16
-const GRANT_STREAK_SQUARE: int = 2
+const HYPERLINK_ANALYZER_DURATION_SEC: float = 90.0
+const GRANT_BONUS_PER_STEP: int = 5
+const GRANT_BONUS_MAX_STEP: int = 4
 
 signal integrity_changed
 signal powerups_changed
@@ -24,13 +24,14 @@ var current_quota: int = 5
 
 var notepad_text: String = ""
 
-# Power-ups: tiers stack (rebought in shop). Firewall / backup use charges.
-var spam_filter_tier: int = 0
+# Upgrades are one-time purchases; power-ups can be rebought.
+var has_spam_filter_upgrade: bool = false
 var grant_tier: int = 0
 var encrypted_storage_tier: int = 0
-var hyperlink_analyzer_deadline_sec: float = 0.0
+var hyperlink_analyzer_time_left_sec: float = 0.0
 var ai_firewall_charges: int = 0
 var encrypted_backup_charges: int = 0
+var has_encrypted_backup_upgrade: bool = false
 var correct_streak: int = 0
 
 @onready var bg_music: AudioStreamPlayer2D = $BGMusic
@@ -39,17 +40,21 @@ func _ready():
 	bg_music.play()
 
 func is_hyperlink_analyzer_active() -> bool:
-	return Time.get_ticks_msec() / 1000.0 < hyperlink_analyzer_deadline_sec
+	return hyperlink_analyzer_time_left_sec > 0.0
 
 func get_hyperlink_time_remaining() -> float:
-	return max(0.0, hyperlink_analyzer_deadline_sec - Time.get_ticks_msec() / 1000.0)
+	return max(0.0, hyperlink_analyzer_time_left_sec)
 
 func activate_hyperlink_analyzer(duration_sec: float) -> void:
-	var now := Time.get_ticks_msec() / 1000.0
-	if now < hyperlink_analyzer_deadline_sec:
-		hyperlink_analyzer_deadline_sec += duration_sec
-	else:
-		hyperlink_analyzer_deadline_sec = now + duration_sec
+	hyperlink_analyzer_time_left_sec += duration_sec
+	powerups_changed.emit()
+
+func tick_hyperlink_analyzer(delta: float) -> void:
+	if hyperlink_analyzer_time_left_sec <= 0.0:
+		return
+	hyperlink_analyzer_time_left_sec = max(0.0, hyperlink_analyzer_time_left_sec - delta)
+	if hyperlink_analyzer_time_left_sec == 0.0:
+		powerups_changed.emit()
 
 func consume_ai_firewall() -> bool:
 	if ai_firewall_charges <= 0:
@@ -62,11 +67,18 @@ func reset_grant_streak() -> void:
 	if grant_tier > 0:
 		correct_streak = 0
 
+
+func disable_grant() -> void:
+	if grant_tier > 0:
+		grant_tier = 0
+		correct_streak = 0
+		powerups_changed.emit()
+
 func add_salary_for_correct_answer(base_reward: int) -> void:
 	if grant_tier > 0:
 		correct_streak += 1
-		var linear := GRANT_STREAK_LINEAR + (grant_tier - 1) * 4
-		var streak_bonus := correct_streak * linear + correct_streak * correct_streak * GRANT_STREAK_SQUARE
+		var streak_step: int = mini(correct_streak, GRANT_BONUS_MAX_STEP)
+		var streak_bonus: int = streak_step * GRANT_BONUS_PER_STEP
 		salary += base_reward + streak_bonus
 	else:
 		salary += base_reward
@@ -107,12 +119,13 @@ func reset():
 	integrity_changed.emit()
 
 func _reset_powerups():
-	spam_filter_tier = 0
+	has_spam_filter_upgrade = false
 	grant_tier = 0
 	encrypted_storage_tier = 0
-	hyperlink_analyzer_deadline_sec = 0.0
+	hyperlink_analyzer_time_left_sec = 0.0
 	ai_firewall_charges = 0
 	encrypted_backup_charges = 0
+	has_encrypted_backup_upgrade = false
 	correct_streak = 0
 
 func game_over():
@@ -121,7 +134,9 @@ func game_over():
 
 # --- Shop: always succeeds (caller checks salary) ---
 func try_purchase_spam_filter() -> bool:
-	spam_filter_tier += 1
+	if has_spam_filter_upgrade:
+		return false
+	has_spam_filter_upgrade = true
 	powerups_changed.emit()
 	return true
 
@@ -131,7 +146,10 @@ func try_purchase_hyperlink_analyzer() -> bool:
 	return true
 
 func try_purchase_grant() -> bool:
-	grant_tier += 1
+	if grant_tier > 0:
+		return false
+	grant_tier = 1
+	correct_streak = 0
 	powerups_changed.emit()
 	return true
 
@@ -144,6 +162,9 @@ func try_purchase_encrypted_storage() -> bool:
 	return true
 
 func try_purchase_encrypted_backup() -> bool:
+	if has_encrypted_backup_upgrade:
+		return false
+	has_encrypted_backup_upgrade = true
 	encrypted_backup_charges += 1
 	powerups_changed.emit()
 	return true

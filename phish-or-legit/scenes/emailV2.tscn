@@ -409,6 +409,18 @@ theme_override_fonts/font = ExtResource("2_n6buh")
 theme_override_font_sizes/font_size = 60
 script = ExtResource("14_mejtc")
 
+[node name="AnalyzerArea" type="MarginContainer" parent="MainVBox/BottomBar/BottomBarMargin/BottomBarHBox" unique_id=1466041241]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/margin_left = 12
+
+[node name="HyperlinkCountdown" type="Label" parent="MainVBox/BottomBar/BottomBarMargin/BottomBarHBox/AnalyzerArea" unique_id=166041241]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.65, 0.65, 0.65, 1)
+theme_override_fonts/font = ExtResource("2_n6buh")
+theme_override_font_sizes/font_size = 30
+text = "Analyzer --:--"
+
 [node name="IntegrityPanel" type="PanelContainer" parent="MainVBox/BottomBar/BottomBarMargin/BottomBarHBox" unique_id=1441762822]
 layout_mode = 2
 size_flags_horizontal = 6
@@ -464,7 +476,9 @@ visible = false
 [node name="InventoryPopup" type="PopupPanel" parent="." unique_id=1716712160]
 unique_name_in_owner = true
 transparent_bg = false
+oversampling_override = 1.0
 title = "Power-ups"
+size = Vector2i(100, 187)
 transparent = false
 theme_override_styles/panel = SubResource("StyleBoxFlat_inv_opaque")
 
@@ -475,7 +489,7 @@ anchor_bottom = 1.0
 offset_left = 2.0
 offset_top = 2.0
 offset_right = 98.0
-offset_bottom = 98.0
+offset_bottom = 185.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 12
@@ -492,6 +506,9 @@ custom_minimum_size = Vector2(50, 120)
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_fonts/normal_font = ExtResource("2_n6buh")
+theme_override_fonts/bold_font = ExtResource("2_n6buh")
+theme_override_fonts/bold_italics_font = ExtResource("2_n6buh")
+theme_override_fonts/italics_font = ExtResource("2_n6buh")
 theme_override_font_sizes/normal_font_size = 20
 bbcode_enabled = true
 
