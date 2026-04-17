@@ -18,7 +18,12 @@ var current_email: EmailData = null
 var email_buttons: Dictionary = {}
 var email_pool: Array = []   # full pool loaded from JSON
 var level_quota: int = 5
-
+# -----------------------------------------
+# TUTORIAL STATE
+# -----------------------------------------
+var tutorial_mode: bool = false
+var tutorial_step: String = ""
+var tutorial_open_count: int = 0
 # -----------------------------------------
 # NODE REFS
 # -----------------------------------------
@@ -53,19 +58,15 @@ func _ready():
 	spawn_timer.start()
 
 	if not GameManager.office_intro_shown:
-		await get_tree().create_timer(2.0).timeout
-		textbox.queue_messages([
-			"This is your email inbox. This is where you will be doing most of your work.",
-			"Click on one of your emails to read it, then decide to Accept, Deny, or Ignore it."
-		])
+		_start_forced_action_tutorial()
 		
 	if GameManager.current_level == 2:
-		await get_tree().create_timer(2.0).timeout
 		textbox.queue_messages([
-			"Great job on your first day! Unfortunately, the hackers have gotten a little better since you've left.",
-			"Some of them have figured out how to send directly from an @fbi.gov address.",
-			"Basically, if anyone is urgently asking you for something serious, and it seems suspicious, its best to deny it.",
-			"Also, be on the lookout for Trevor Woodyard, he is genuinely needing information for payroll, so let that one through."
+			"Good work. Day two is more difficult.",
+			"Some attackers can now spoof official-looking @fbi.gov addresses.",
+			"That means you can’t trust the sender alone anymore.",
+			"Pay close attention to urgency, unusual requests, and whether the message makes sense in context.",
+			"One legitimate payroll request may come from Trevor Woodyard, so read carefully before deciding."
 		])
 
 
@@ -182,14 +183,47 @@ func open_email(email: EmailData):
 	body_text.text = email.body
 	sender_icon.texture = load("res://assets/icons/" + email.icon)
 
-	if not GameManager.office_intro_shown:
-		GameManager.office_intro_shown = true
-		await get_tree().create_timer(3.0).timeout
-		textbox.queue_messages([
-			"Your job is to filter out phishing emails from hackers trying to steal our data.",
-			"Check the sender carefully — if it's not from @fbi.gov, be suspicious.",
-			"Give some emails a try and I'll check back with you soon."
-		])
+	if tutorial_mode:
+		tutorial_open_count += 1
+
+		if tutorial_step == "open_for_accept":
+			tutorial_step = "press_accept"
+			_set_action_buttons_enabled(true)
+			deny_button.disabled = true
+			ignore_button.disabled = true
+
+			textbox.queue_messages([
+				"You opened an email.",
+				"Now press ACCEPT.",
+				"ACCEPT lets the email go through the system."
+			])
+			return
+
+		if tutorial_step == "open_for_deny":
+			tutorial_step = "press_deny"
+			_set_action_buttons_enabled(true)
+			accept_button.disabled = true
+			ignore_button.disabled = true
+
+			textbox.queue_messages([
+				"You opened an email.",
+				"Now press DENY.",
+				"DENY blocks the email to help protect the system."
+			])
+			return
+
+		if tutorial_step == "open_for_ignore":
+			tutorial_step = "press_ignore"
+			_set_action_buttons_enabled(true)
+			accept_button.disabled = true
+			deny_button.disabled = true
+
+			textbox.queue_messages([
+				"You opened an email.",
+				"Now press IGNORE.",
+				"IGNORE means you are leaving the email for later and not deciding yet."
+			])
+			return
 
 
 # -----------------------------------------
@@ -200,21 +234,178 @@ func connect_buttons():
 	deny_button.pressed.connect(on_deny_pressed)
 	ignore_button.pressed.connect(on_ignore_pressed)
 
+# -----------------------------------------
+# TUTORIAL HELPERS
+# -----------------------------------------
+func _set_action_buttons_enabled(enabled: bool):
+	accept_button.disabled = not enabled
+	deny_button.disabled = not enabled
+	ignore_button.disabled = not enabled
 
+func _clear_viewer():
+	sender_label.text = ""
+	subject_label.text = ""
+	body_text.text = ""
+	current_email = null
+
+func _start_forced_action_tutorial():
+	tutorial_mode = true
+	tutorial_step = "open_for_accept"
+	tutorial_open_count = 0
+	_set_action_buttons_enabled(false)
+
+	textbox.queue_messages([
+		"This is your inbox.",
+		"First, click any email to inspect it.",
+		"After you open it, I will show you what ACCEPT does."
+	])
+
+func _finish_accept_tutorial():
+	tutorial_step = "open_for_deny"
+	_clear_viewer()
+	_set_action_buttons_enabled(false)
+
+	textbox.queue_messages([
+		"Good job.",
+		"ACCEPT lets a safe email go through.",
+		"Use ACCEPT when an email looks legitimate and not dangerous.",
+		"Now click any email again.",
+		"This time I will show you what DENY does."
+	])
+
+func _finish_deny_tutorial():
+	tutorial_step = "open_for_ignore"
+	_clear_viewer()
+	_set_action_buttons_enabled(false)
+
+	textbox.queue_messages([
+		"Good job.",
+		"DENY blocks an email from going through.",
+		"Use DENY when an email looks suspicious or dangerous.",
+		"Now click any email again.",
+		"This time I will show you what IGNORE does."
+	])
+
+func _finish_ignore_tutorial():
+	tutorial_step = "done"
+	_clear_viewer()
+	_set_action_buttons_enabled(true)
+	tutorial_mode = false
+	GameManager.office_intro_shown = true
+
+	textbox.queue_messages([
+		"Good job.",
+		"IGNORE means you are not deciding yet.",
+		"The email stays for later while you keep thinking.",
+		"Now you can play on your own. Read carefully and choose the best action."
+	])
 # -----------------------------------------
 # DECISION LOGIC
 # -----------------------------------------
+func _show_correct_accept_feedback():
+	textbox.queue_messages([
+		"Good call. That message was legitimate.",
+		"You confirmed a safe email without disrupting workflow."
+	])
+
+func _show_correct_deny_feedback():
+	textbox.queue_messages([
+		"Nice catch. That was a phishing attempt.",
+		"Denying suspicious emails protects the system from compromise."
+	])
+
+func _show_ignore_feedback():
+	textbox.queue_messages([
+		"You ignored the email.",
+		"That can be useful when you need more time, but unresolved messages can still become a problem if left alone."
+	])
+
+func _show_wrong_legit_denied_feedback():
+	textbox.queue_messages([
+		"Careful. That email was legitimate.",
+		"Blocking safe messages can slow down operations and create confusion.",
+		"Look again at the details before making the next decision."
+	])
+
+func _show_wrong_phish_accepted_feedback():
+	textbox.queue_messages([
+		"That was a phishing email.",
+		"Accepting suspicious messages gives attackers a chance to damage the system.",
+		"Use the sender, tone, and request itself to guide your decision next time."
+	])
+func _get_level_one_phishing_reason(email: EmailData) -> Array:
+	var reasons: Array = []
+
+	if "@fbi.gov" not in email.sender.to_lower():
+		reasons.append("The sender was not from @fbi.gov.")
+
+	if "urgent" in email.subject.to_lower():
+		reasons.append("The subject tried to create urgency.")
+
+	if "password" in email.subject.to_lower() or "password" in email.body.to_lower():
+		reasons.append("It asked about a password, which is a common phishing trick.")
+
+	if "click" in email.body.to_lower() or "link" in email.body.to_lower():
+		reasons.append("It pushed you to click something quickly.")
+
+	if reasons.is_empty():
+		reasons.append("Something about the email was suspicious and unsafe.")
+
+	return reasons
+
+func _show_level_one_wrong_accept_feedback(email: EmailData):
+	var reasons = _get_level_one_phishing_reason(email)
+
+	var messages = [
+		"That email should have been denied."
+	]
+
+	for reason in reasons:
+		messages.append(reason)
+
+	messages.append("In level 1, always check the sender first.")
+
+	textbox.queue_messages(messages)
+
+func _show_level_one_wrong_deny_feedback(email: EmailData):
+	textbox.queue_messages([
+		"That email should have been accepted.",
+		"The sender was from @fbi.gov.",
+		"In level 1, emails from official FBI addresses are usually safe."
+	])
+	
 func on_accept_pressed():
 	if current_email == null:
 		return
 
+	if tutorial_mode:
+		if tutorial_step != "press_accept":
+			textbox.queue_messages([
+				"Not yet.",
+				"Follow the tutorial and press the button I asked for."
+			])
+			return
+
+		_finish_accept_tutorial()
+		return
+
 	if current_email.is_phishing:
 		_handle_wrong_answer(current_email.damage)
+
+		if GameManager.current_level == 1:
+			_show_level_one_wrong_accept_feedback(current_email)
+		else:
+			textbox.queue_messages([
+				"That email should have been denied.",
+				"It contained warning signs of phishing.",
+				"Look carefully at the sender, the request, and the tone next time."
+			])
 	else:
 		GameManager.correct_emails += 1
 		correct_sound.play()
 		print("Correct!")
 		GameManager.add_salary(current_email.reward)
+		_show_correct_accept_feedback()
 		_check_quota()
 
 	remove_current_email()
@@ -224,21 +415,47 @@ func on_deny_pressed():
 	if current_email == null:
 		return
 
+	if tutorial_mode:
+		if tutorial_step != "press_deny":
+			textbox.queue_messages([
+				"Not yet.",
+				"Follow the tutorial and press the button I asked for."
+			])
+			return
+
+		_finish_deny_tutorial()
+		return
+
 	if not current_email.is_phishing:
 		_handle_wrong_answer(8)
-	else:
-		correct_sound.play()
-		GameManager.correct_emails += 1
-		print("Threat prevented!")
-		GameManager.add_salary(current_email.reward)
-		_check_quota()
+
+		if GameManager.current_level == 1:
+			_show_level_one_wrong_deny_feedback(current_email)
+		else:
+			textbox.queue_messages([
+				"That email was legitimate.",
+				"You denied a safe email.",
+				"Be careful not to block messages that are actually okay."
+			])
 
 	remove_current_email()
-
 
 func on_ignore_pressed():
 	if current_email == null:
 		return
+
+	if tutorial_mode:
+		if tutorial_step != "press_ignore":
+			textbox.queue_messages([
+				"Not yet.",
+				"Follow the tutorial and press the button I asked for."
+			])
+			return
+
+		_finish_ignore_tutorial()
+		return
+
+	_show_ignore_feedback()
 	sender_label.text = ""
 	subject_label.text = ""
 	body_text.text = ""
@@ -253,15 +470,12 @@ func _handle_wrong_answer(damage: int):
 	integrity_ui.lose_integrity(damage)
 	hit_sound.play()
 	$MainVBox/BottomBar/BottomBarMargin/BottomBarHBox/IntegrityPanel/IntegrityMargin/IntegrityUI/AnimationPlayer.play("integrity_hit")
-
-	if not GameManager.office_intro_wrong_choice:
-		GameManager.office_intro_wrong_choice = true
-		await get_tree().create_timer(1.0).timeout
+	if GameManager.system_integrity <= 20 and not GameManager.low_integrity_warning_shown:
+		GameManager.low_integrity_warning_shown = true
 		textbox.queue_messages([
-			"Woah!! You just let a hacker into our system!",
-			"We handled it this time, but a few more and our systems could go down.",
-			"And if that happens... YOU'RE FIRED!!",
-			"Anyways, keep at it. You'll get the hang of it!"
+			"Warning: system integrity is critically low.",
+			"One or two more mistakes could compromise the network completely.",
+			"Slow down and inspect each email carefully."
 		])
 
 

@@ -4,6 +4,7 @@ var system_integrity: int = 100
 var salary: int = 0
 var office_intro_shown: bool = false
 var office_intro_wrong_choice: bool = false
+var low_integrity_warning_shown: bool = false
 
 var current_level: int = 1
 var correct_emails: int = 0
@@ -40,6 +41,7 @@ func reset():
 	office_intro_shown = false
 	office_intro_wrong_choice = false
 	notepad_text = ""
+	low_integrity_warning_shown = false
 
 func game_over():
 	print("NETWORK COMPROMISED")

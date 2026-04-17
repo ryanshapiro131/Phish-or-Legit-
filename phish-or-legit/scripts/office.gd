@@ -13,9 +13,11 @@ func _ready() -> void:
 	desk_area.body_entered.connect(_on_desk_body_entered)
 	desk_area.body_exited.connect(_on_desk_body_exited)
 	if not GameManager.office_intro_shown:
-		await get_tree().create_timer(3.0).timeout
-		canvas_layer.queue_messages(["Welcome to your first day on the job as an FBI Security Analyst.", "Please head over to your desk to get started."])
-		
+		canvas_layer.queue_messages([
+			"Welcome to your first day as an FBI Security Analyst.",
+			"My job is to help train you to identify phishing attempts before they compromise the system.",
+			"Head to your desk when you're ready, and I'll walk you through the basics."
+		])
 func _process(_delta: float) -> void:
 	if player_near_desk and Input.is_action_just_pressed("interact"):
 		get_tree().change_scene_to_file("res://scenes/desktop.tscn")

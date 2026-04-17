@@ -11,9 +11,11 @@ var is_open: bool = false
 func _ready():
 	notepad.notepad_panel.hide()
 	if not GameManager.office_intro_shown:
-		await get_tree().create_timer(1.0).timeout
-		textbox.queue_messages(["This is your Workstation", "Here you can access your emails, buy items, and take notes on whatever issues may come up.", "Start by clicking on the email icon on the Desktop, and I'll show you around from there."])
-
+		textbox.queue_messages([
+		"This is your workstation.",
+		"From here, you can review emails, buy upgrades, and keep notes on suspicious activity.",
+		"Start by opening the email app, and I’ll guide you through your first review."
+	])
 
 
  
