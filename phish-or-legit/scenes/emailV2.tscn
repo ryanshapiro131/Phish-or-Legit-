@@ -37,11 +37,11 @@ region = Rect2(84, 0, 84, 84)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vwbq0"]
 atlas = ExtResource("13_b6i5y")
-region = Rect2(0, -6, 216, 84)
+region = Rect2(0, 0, 216, 78)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yw5ew"]
 atlas = ExtResource("13_b6i5y")
-region = Rect2(432, -6, 216, 84)
+region = Rect2(432, 0, 216, 78)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oq8lc"]
 atlas = ExtResource("13_b6i5y")
@@ -49,11 +49,11 @@ region = Rect2(216, 0, 216, 84)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cepvy"]
 atlas = ExtResource("14_dnybs")
-region = Rect2(0, -6, 216, 84)
+region = Rect2(0, 0, 216, 78)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v5uti"]
 atlas = ExtResource("14_dnybs")
-region = Rect2(432, -6, 216, 84)
+region = Rect2(432, -1, 216, 79)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_motaj"]
 atlas = ExtResource("14_dnybs")
@@ -61,11 +61,11 @@ region = Rect2(216, 0, 216, 84)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gxrcw"]
 atlas = ExtResource("15_fh72i")
-region = Rect2(0, -6, 216, 84)
+region = Rect2(0, 0, 216, 78)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_10ylf"]
 atlas = ExtResource("15_fh72i")
-region = Rect2(432, -6, 216, 84)
+region = Rect2(432, 0, 216, 78)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oavub"]
 atlas = ExtResource("15_fh72i")
@@ -383,11 +383,13 @@ alignment = 2
 
 [node name="AcceptButton" type="TextureButton" parent="MainWindow/MainVBox/Content/ContentHBox/EmailViewerPanel/ViewerVBox/ActionBar/ActionBarMargin/ActionBarHBox" unique_id=1831745300]
 layout_mode = 2
-size_flags_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
 theme = ExtResource("3_n6buh")
 texture_normal = SubResource("AtlasTexture_vwbq0")
 texture_pressed = SubResource("AtlasTexture_yw5ew")
 texture_hover = SubResource("AtlasTexture_oq8lc")
+stretch_mode = 5
 
 [node name="DenyButton" type="TextureButton" parent="MainWindow/MainVBox/Content/ContentHBox/EmailViewerPanel/ViewerVBox/ActionBar/ActionBarMargin/ActionBarHBox" unique_id=155453117]
 layout_mode = 2
@@ -395,6 +397,7 @@ theme = ExtResource("3_n6buh")
 texture_normal = SubResource("AtlasTexture_cepvy")
 texture_pressed = SubResource("AtlasTexture_v5uti")
 texture_hover = SubResource("AtlasTexture_motaj")
+stretch_mode = 5
 
 [node name="IgnoreButton" type="TextureButton" parent="MainWindow/MainVBox/Content/ContentHBox/EmailViewerPanel/ViewerVBox/ActionBar/ActionBarMargin/ActionBarHBox" unique_id=1786045066]
 layout_mode = 2
@@ -402,6 +405,7 @@ theme = ExtResource("3_n6buh")
 texture_normal = SubResource("AtlasTexture_gxrcw")
 texture_pressed = SubResource("AtlasTexture_10ylf")
 texture_hover = SubResource("AtlasTexture_oavub")
+stretch_mode = 6
 
 [node name="BottomBar" type="TextureRect" parent="MainWindow/MainVBox" unique_id=1131612848]
 layout_mode = 2
