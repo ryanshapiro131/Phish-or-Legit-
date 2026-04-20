@@ -7,10 +7,10 @@
 	  "subject": "Welcome to the Team, Champ!!",
 	  "body": "Hey there!!\n\nJust wanted to be the first to officially welcome you to the cyber division! We are SO excited to have you on board. Big things happening around here, big things!!\n\nYour job is pretty simple — just keep an eye on the inbox, filter out anything suspicious, and keep our systems clean. Easy stuff for a go-getter like you!\n\nMy door is always open. Well, not literally, I keep it closed for the AC. But you know what I mean!!\n\nLet's make some magic happen, champ!!\n\nBob\nDirector, Cyber Division",
 	  "is_phishing": false,
-	  "damage": 0,
-	  "reward": 0,
+	  "damage": 10,
+	  "reward": 10,
 	  "difficulty": 1,
-	  "icon": "Bob_16x16.png",
+	  "icon": "boss.png",
 	  "trigger": "on_start"
 	},
 	{
@@ -18,10 +18,10 @@
 	  "subject": "Onboarding Documents",
 	  "body": "Hello and welcome!\n\nWe are so glad to have you joining us. Please find your onboarding checklist available on the HR portal at hr.fbi.gov. You will need to complete it within your first two weeks.\n\nIf you have any questions about benefits, payroll setup, or office policies, do not hesitate to reach out. We are here to help you settle in.\n\nWishing you a wonderful first day!\n\nAmelia\nHR Department, FBI",
 	  "is_phishing": false,
-	  "damage": 0,
+	  "damage": 15,
 	  "reward": 10,
 	  "difficulty": 1,
-	  "icon": "Amelia_16x16.png",
+	  "icon": "hr.png",
 	  "trigger": "on_start"
 	},
 	{
@@ -29,21 +29,21 @@
 	  "subject": "Workstation Setup",
 	  "body": "Hello,\n\nYour workstation has been configured and is ready to use. Your network credentials were sent separately via the secure onboarding portal.\n\nIf you experience any issues with access or equipment, log a ticket at it.fbi.gov or call extension 5500.\n\nDo not share your credentials with anyone, including IT staff. We will never ask for your password.\n\nAlex\nIT Department, FBI",
 	  "is_phishing": false,
-	  "damage": 0,
+	  "damage": 15,
 	  "reward": 10,
 	  "difficulty": 1,
-	  "icon": "Alex_16x16.png",
-	  "trigger": "on_start"
+	  "icon": "it.png",
+	  "trigger": "none"
 	},
 	{
 	  "sender": "payroll@fbi.gov",
 	  "subject": "Direct Deposit Setup",
 	  "body": "Hi there,\n\nWelcome aboard! I just wanted to make sure your direct deposit information gets set up before the next pay period.\n\nPlease log in to the payroll portal at portal.fbi.gov and fill in your banking details at your earliest convenience. If you run into any issues, feel free to reach out directly.\n\nLooking forward to making sure you get paid on time — that part is kind of important!\n\nTrevor Woodyard\nPayroll Department, FBI",
 	  "is_phishing": false,
-	  "damage": 0,
+	  "damage": 15,
 	  "reward": 10,
 	  "difficulty": 1,
-	  "icon": "Adam_16x16.png",
+	  "icon": "finance.png",
 	  "trigger": "on_start"
 	},
 	{
@@ -51,10 +51,10 @@
 	  "subject": "Great Work Out There Champ!!",
 	  "body": "Hey!!\n\nHeard you've been crushing it already — that's what I like to see!! The kind of energy that makes this division tick!!\n\nKeep your eyes peeled, we have been seeing a slight uptick in phishing attempts lately. Nothing crazy, probably just some script kiddies trying their luck. You'll spot them a mile away, I'm sure!!\n\nRemember — when in doubt, deny it out!! That's a Bob-ism, you can have that one for free!!\n\nKeep up the great work!!\n\nBob\nDirector, Cyber Division",
 	  "is_phishing": false,
-	  "damage": 0,
+	  "damage": 15,
 	  "reward": 10,
 	  "difficulty": 1,
-	  "icon": "Bob_16x16.png",
+	  "icon": "boss.png",
 	  "trigger": "on_first_correct"
 	},
 	{
@@ -62,10 +62,10 @@
 	  "subject": "A Quick Check In",
 	  "body": "Hello,\n\nI just wanted to check in and see how your first day is going! Starting a new job can be a lot to take in, especially here.\n\nIf anything feels overwhelming, please do not hesitate to reach out. That is what we are here for.\n\nAlso, gentle reminder — if you ever receive any emails asking for personal information or credentials, please report them to IT immediately. We have been seeing a few more of those lately than usual.\n\nTake care of yourself!\n\nAmelia\nHR Department, FBI",
 	  "is_phishing": false,
-	  "damage": 0,
+	  "damage": 15,
 	  "reward": 10,
 	  "difficulty": 1,
-	  "icon": "Amelia_16x16.png",
+	  "icon": "hr.png",
 	  "trigger": "on_first_wrong"
 	},
 	{
@@ -73,10 +73,10 @@
 	  "subject": "Reminder: Report Suspicious Emails",
 	  "body": "Hello,\n\nThis is a friendly reminder that if you receive any emails requesting credentials, downloads, or urgent action, please do not interact with them.\n\nForward any suspicious emails to security@fbi.gov and delete them immediately. Our team will investigate.\n\nWhen in doubt, the safest move is always to deny and report.\n\nAlex\nIT Department, FBI",
 	  "is_phishing": false,
-	  "damage": 0,
+	  "damage": 15,
 	  "reward": 10,
 	  "difficulty": 1,
-	  "icon": "Alex_16x16.png",
+	  "icon": "it.png",
 	  "trigger": "on_quota_half"
 	},
 	{
@@ -85,9 +85,9 @@
 	  "body": "YOUR ACCOUNT HAS BEEN SUSPENDED DUE TO SUSPICIOUS ACTIVITY!!!\n\nClick the link below IMMEDIATELY to restore access before your files are permanently deleted!!!\n\nThis is your FINAL WARNING. You have 15 minutes to act.\n\nhttp://fbi-secure-login.fb1.com/restore\n\nDo not ignore this message!!!",
 	  "is_phishing": true,
 	  "damage": 20,
-	  "reward": 0,
+	  "reward": 15,
 	  "difficulty": 1,
-	  "icon": "Adam_16x16.png",
+	  "icon": "unknown.png",
 	  "trigger": "none"
 	},
 	{
@@ -96,10 +96,10 @@
 	  "body": "Dear FBI Employee,\n\nWe have detected a failed payment attempt on your account and have temporarily suspended your access as a security precaution.\n\nTo restore your account and avoid permanent closure, please verify your identity IMMEDIATELY by clicking the link below and entering your login credentials.\n\nhttp://paypai-verify.com/fbi-login\n\nThis link expires in 30 minutes. Do not delay.",
 	  "is_phishing": true,
 	  "damage": 20,
-	  "reward": 0,
+	  "reward": 15,
 	  "difficulty": 1,
-	  "icon": "Adam_16x16.png",
-	  "trigger": "none"
+	  "icon": "unknown.png",
+	  "trigger": "on_start"
 	},
 	{
 	  "sender": "noreply@fbi-alerts.com",
@@ -107,9 +107,9 @@
 	  "body": "ATTENTION FBI EMPLOYEE,\n\nOur automated systems have flagged your account for unauthorised access from an unknown location.\n\nYou must confirm your credentials immediately to prevent your account from being locked out of all FBI systems permanently.\n\nClick here NOW: http://fbi-alerts.com/verify-now\n\nFailure to act within 1 hour will result in immediate account termination.",
 	  "is_phishing": true,
 	  "damage": 20,
-	  "reward": 0,
+	  "reward": 15,
 	  "difficulty": 1,
-	  "icon": "Adam_16x16.png",
+	  "icon": "unknown.png",
 	  "trigger": "none"
 	}
   ]

@@ -421,5 +421,7 @@ offset_bottom = 1525.0
 stream = ExtResource("16_j14q8")
 volume_db = -8.537
 
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1258885894]
+
 [connection signal="pressed" from="EmailButton" to="EmailButton" method="_on_pressed"]
 [connection signal="pressed" from="HomeButton" to="HomeButton" method="_on_pressed"]
