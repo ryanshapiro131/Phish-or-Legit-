@@ -14,8 +14,8 @@ var system_integrity: int = 100
 var max_system_integrity: int = BASE_MAX_INTEGRITY
 
 var salary: int = 0
-var office_intro_shown: bool = false
-var office_intro_wrong_choice: bool = false
+var tutorial_shown: bool = false
+var tutorial_wrong_choice: bool = false
 
 var current_level: int = 1
 var correct_emails: int = 0
@@ -112,8 +112,8 @@ func reset():
 	current_level = 1
 	correct_emails = 0
 	incorrect_emails = 0
-	office_intro_shown = false
-	office_intro_wrong_choice = false
+	tutorial_shown = false
+	tutorial_wrong_choice = false
 	notepad_text = ""
 	_reset_powerups()
 	integrity_changed.emit()
