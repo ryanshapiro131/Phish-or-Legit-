@@ -476,8 +476,6 @@ theme = ExtResource("15_v5uti")
 
 [node name="ActionBar" type="TextureRect" parent="MainWindow/MainVBox/Content/ContentHBox/EmailViewerPanel/MarginContainer/ViewerVBox" unique_id=1688231045]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
 texture = ExtResource("12_oqf7v")
 stretch_mode = 5
 
@@ -486,7 +484,6 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 16.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 8
@@ -495,6 +492,7 @@ size_flags_vertical = 8
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme_override_constants/separation = 0
 alignment = 2
 
 [node name="AcceptButton" type="TextureButton" parent="MainWindow/MainVBox/Content/ContentHBox/EmailViewerPanel/MarginContainer/ViewerVBox/ActionBar/ActionBarMargin/ActionBarHBox" unique_id=1831745300]
@@ -505,7 +503,7 @@ theme = ExtResource("3_n6buh")
 texture_normal = SubResource("AtlasTexture_vwbq0")
 texture_pressed = SubResource("AtlasTexture_yw5ew")
 texture_hover = SubResource("AtlasTexture_oq8lc")
-stretch_mode = 5
+stretch_mode = 3
 
 [node name="DenyButton" type="TextureButton" parent="MainWindow/MainVBox/Content/ContentHBox/EmailViewerPanel/MarginContainer/ViewerVBox/ActionBar/ActionBarMargin/ActionBarHBox" unique_id=155453117]
 layout_mode = 2
@@ -513,7 +511,7 @@ theme = ExtResource("3_n6buh")
 texture_normal = SubResource("AtlasTexture_cepvy")
 texture_pressed = SubResource("AtlasTexture_v5uti")
 texture_hover = SubResource("AtlasTexture_motaj")
-stretch_mode = 5
+stretch_mode = 3
 
 [node name="IgnoreButton" type="TextureButton" parent="MainWindow/MainVBox/Content/ContentHBox/EmailViewerPanel/MarginContainer/ViewerVBox/ActionBar/ActionBarMargin/ActionBarHBox" unique_id=1786045066]
 layout_mode = 2
@@ -521,7 +519,7 @@ theme = ExtResource("3_n6buh")
 texture_normal = SubResource("AtlasTexture_gxrcw")
 texture_pressed = SubResource("AtlasTexture_10ylf")
 texture_hover = SubResource("AtlasTexture_oavub")
-stretch_mode = 6
+stretch_mode = 3
 
 [node name="BottomBar" type="TextureRect" parent="MainWindow/MainVBox" unique_id=1131612848]
 layout_mode = 2
