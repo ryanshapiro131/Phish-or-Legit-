@@ -3,6 +3,11 @@ extends Control
 @onready var integrity_bar: TextureProgressBar = $TextureProgressBar
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
  
+const GREEN_PROGRESS = preload("uid://be45i7efcbeba")
+const YELLOW_PROGRESS = preload("uid://carq4c45vi5")
+const RED_PROGRESS = preload("uid://bn1sht7ywn5ra")
+
+
 func _ready():
 	_sync_from_game_manager()
  
@@ -18,10 +23,9 @@ func lose_integrity(amount: int):
 	animation_player.play("integrity_hit")
  
 func update_bar_color():
-	var fill_style = integrity_bar.get_theme_stylebox("fill")
 	if GameManager.system_integrity > 60:
-		fill_style.bg_color = Color(0, 1, 0)   # green
+		integrity_bar.texture_progress = GREEN_PROGRESS   # green
 	elif GameManager.system_integrity > 30:
-		fill_style.bg_color = Color(1, 1, 0)   # yellow
+		integrity_bar.texture_progress = YELLOW_PROGRESS   # yellow
 	else:
-		fill_style.bg_color = Color(1, 0, 0)   # red
+		integrity_bar.texture_progress = RED_PROGRESS   # red

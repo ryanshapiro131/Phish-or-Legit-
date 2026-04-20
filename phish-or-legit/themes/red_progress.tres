@@ -1,0 +1,9 @@
+[gd_resource type="AtlasTexture" format=3 uid="uid://bn1sht7ywn5ra"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_5yhsl"]
+load_path = "res://.godot/imported/IntegrityBarProgress.png-daebf9c277a556554444a16ee87f7c3a.ctex"
+
+[resource]
+atlas = SubResource("CompressedTexture2D_5yhsl")
+region = Rect2(984, 0, 492, 30)
+margin = Rect2(12, 12, 24, 24)

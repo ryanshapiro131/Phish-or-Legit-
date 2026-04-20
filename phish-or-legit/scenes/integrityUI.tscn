@@ -4,7 +4,7 @@
 [ext_resource type="FontFile" uid="uid://dc52606rwa2qd" path="res://assets/PixelOperator.ttf" id="2_4j5t6"]
 [ext_resource type="Texture2D" uid="uid://styu0xpo4qnn" path="res://assets/EmailDesktopAssets/IntegBarSprites.png" id="2_72plh"]
 [ext_resource type="Texture2D" uid="uid://3lr5s7liod4m" path="res://assets/EmailDesktopAssets/IntegBarSprites-sheet.png" id="2_lross"]
-[ext_resource type="Texture2D" uid="uid://0euxwl0bkvdx" path="res://assets/EmailDesktopAssets/IntegrityBarProgress.png" id="4_2addc"]
+[ext_resource type="Texture2D" uid="uid://be45i7efcbeba" path="res://themes/green_progress.tres" id="4_lross"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wg0af"]
 atlas = ExtResource("2_lross")
@@ -13,11 +13,6 @@ region = Rect2(0, 0, 516, 54)
 [sub_resource type="AtlasTexture" id="AtlasTexture_lross"]
 atlas = ExtResource("2_72plh")
 region = Rect2(0, 60, 516, 54)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_lq0cv"]
-atlas = ExtResource("4_2addc")
-region = Rect2(0, 0, 492, 30)
-margin = Rect2(12, 12, 24, 24)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_le0mg"]
 content_margin_left = 3.0
@@ -154,7 +149,7 @@ stretch_margin_right = 8
 stretch_margin_bottom = 8
 texture_under = SubResource("AtlasTexture_wg0af")
 texture_over = SubResource("AtlasTexture_lross")
-texture_progress = SubResource("AtlasTexture_lq0cv")
+texture_progress = ExtResource("4_lross")
 
 [node name="IntegrityBar" type="ProgressBar" parent="." unique_id=1855588939]
 visible = false
