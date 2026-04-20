@@ -12,23 +12,23 @@
 [ext_resource type="Texture2D" uid="uid://bkl20722le3ci" path="res://assets/EmailDesktopAssets/ContentPanel.png" id="7_b6i5y"]
 [ext_resource type="Texture2D" uid="uid://ct5sqp23e5qtx" path="res://assets/EmailDesktopAssets/WidgetPanel.png" id="7_flayh"]
 [ext_resource type="Texture2D" uid="uid://bln8jow48pp7v" path="res://assets/EmailDesktopAssets/FolderListPanel.png" id="8_s8qli"]
-[ext_resource type="Texture2D" uid="uid://dl4vvjq5xue2r" path="res://assets/itchio-pxl-retro-computer-icons-set-110/separated-items/itchio-pxl-retro-computer-icons-set-110-item1.png" id="10_avh5d"]
+[ext_resource type="Texture2D" uid="uid://dx0074bhp0jvo" path="res://assets/EmailDesktopAssets/HomeWidget.png" id="10_avh5d"]
 [ext_resource type="Texture2D" uid="uid://b0rsc0s834xdc" path="res://assets/EmailDesktopAssets/EmailListPanel.png" id="10_mejtc"]
 [ext_resource type="Script" uid="uid://bdygreuvussja" path="res://scripts/EmailLabelStats.gd" id="11_dnybs"]
 [ext_resource type="Script" uid="uid://dglmkg3uu36xn" path="res://scenes/home_widget.gd" id="11_lt0qg"]
 [ext_resource type="Texture2D" uid="uid://ieikttgqtctc" path="res://assets/EmailDesktopAssets/EmailViewPanel.png" id="11_xfk65"]
-[ext_resource type="Texture2D" uid="uid://dsonai1w27ld4" path="res://assets/itchio-pxl-retro-computer-icons-set-110/separated-items/itchio-pxl-retro-computer-icons-set-110-item57.png" id="12_4ku52"]
+[ext_resource type="Texture2D" uid="uid://dqvdxep1bqc72" path="res://assets/EmailDesktopAssets/InventWidget.png" id="12_lt0qg"]
 [ext_resource type="Texture2D" uid="uid://bqg4s8ruspvmp" path="res://assets/EmailDesktopAssets/ActionBarPanel.png" id="12_oqf7v"]
+[ext_resource type="Texture2D" uid="uid://u8vdfnb4jvvy" path="res://assets/EmailDesktopAssets/ShopWidget.png" id="13_4ku52"]
 [ext_resource type="Texture2D" uid="uid://l3waqutisip" path="res://assets/EmailDesktopAssets/AcceptButtonSprites.png" id="13_b6i5y"]
-[ext_resource type="Texture2D" uid="uid://dqxbtbru56561" path="res://assets/itchio-pxl-retro-computer-icons-set-110/separated-items/itchio-pxl-retro-computer-icons-set-110-item68.png" id="13_hdtas"]
 [ext_resource type="Texture2D" uid="uid://3ythn5ryg2sr" path="res://assets/EmailDesktopAssets/BottomPanel.png" id="13_p4o1y"]
 [ext_resource type="Script" uid="uid://cypko5bqexrem" path="res://scenes/shop_widget.gd" id="14_6kg3f"]
 [ext_resource type="Texture2D" uid="uid://bsxyakwtrdipl" path="res://assets/EmailDesktopAssets/SalaryPanel.png" id="14_b6i5y"]
 [ext_resource type="Texture2D" uid="uid://6ak8tfdmi8s3" path="res://assets/EmailDesktopAssets/DenyButtonSprites.png" id="14_dnybs"]
 [ext_resource type="Theme" uid="uid://bw5y7v8qdlh80" path="res://themes/email_button.tres" id="14_motaj"]
-[ext_resource type="Texture2D" uid="uid://dxwtr7ve7cfq0" path="res://assets/itchio-pxl-retro-computer-icons-set-110/separated-items/itchio-pxl-retro-computer-icons-set-110-item34.png" id="15_3da7x"]
 [ext_resource type="Texture2D" uid="uid://bxdawefsil82d" path="res://assets/EmailDesktopAssets/CoinIcon.png" id="15_dnybs"]
 [ext_resource type="Texture2D" uid="uid://gtd5h0nfar6b" path="res://assets/EmailDesktopAssets/IgnoreButtonSprites.png" id="15_fh72i"]
+[ext_resource type="Texture2D" uid="uid://b6vkmixthpyum" path="res://assets/EmailDesktopAssets/NoteWidget.png" id="15_hdtas"]
 [ext_resource type="Theme" uid="uid://cjw8pt46pmyd" path="res://themes/email.tres" id="15_v5uti"]
 [ext_resource type="Texture2D" uid="uid://br1sd43yy1tgy" path="res://assets/EmailDesktopAssets/IntegrityBarPanel.png" id="16_fh72i"]
 [ext_resource type="Texture2D" uid="uid://wgvg258nv2qu" path="res://assets/EmailDesktopAssets/TimePanel.png" id="18_mejtc"]
@@ -48,6 +48,54 @@ region = Rect2(168, 0, 84, 84)
 [sub_resource type="AtlasTexture" id="AtlasTexture_dd6fd"]
 atlas = ExtResource("6_80n8e")
 region = Rect2(84, 0, 84, 84)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6kg3f"]
+atlas = ExtResource("10_avh5d")
+region = Rect2(0, 0, 132, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3da7x"]
+atlas = ExtResource("10_avh5d")
+region = Rect2(264, 0, 132, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m08b5"]
+atlas = ExtResource("10_avh5d")
+region = Rect2(132, 0, 132, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e2j7b"]
+atlas = ExtResource("12_lt0qg")
+region = Rect2(0, 0, 132, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_opmgc"]
+atlas = ExtResource("12_lt0qg")
+region = Rect2(264, 0, 132, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ltc1"]
+atlas = ExtResource("12_lt0qg")
+region = Rect2(132, 1, 132, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sln8a"]
+atlas = ExtResource("13_4ku52")
+region = Rect2(0, 0, 132, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_atsb3"]
+atlas = ExtResource("13_4ku52")
+region = Rect2(264, 0, 132, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6nxfb"]
+atlas = ExtResource("13_4ku52")
+region = Rect2(132, 0, 132, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4mg2v"]
+atlas = ExtResource("15_hdtas")
+region = Rect2(0, 0, 132, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tfhsh"]
+atlas = ExtResource("15_hdtas")
+region = Rect2(264, 0, 132, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tn05p"]
+atlas = ExtResource("15_hdtas")
+region = Rect2(132, 0, 132, 144)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vwbq0"]
 atlas = ExtResource("13_b6i5y")
@@ -228,40 +276,41 @@ grow_vertical = 2
 
 [node name="WidgetSidebarVBox" type="VBoxContainer" parent="MainWindow/MainVBox/Content/ContentHBox/WidgetSidebarPanel/WidgetSidebarMargin" unique_id=1082036281]
 layout_mode = 2
+theme_override_constants/separation = -10
 
-[node name="HomeButton" type="Button" parent="MainWindow/MainVBox/Content/ContentHBox/WidgetSidebarPanel/WidgetSidebarMargin/WidgetSidebarVBox" unique_id=2093861142]
+[node name="HomeButton" type="TextureButton" parent="MainWindow/MainVBox/Content/ContentHBox/WidgetSidebarPanel/WidgetSidebarMargin/WidgetSidebarVBox" unique_id=2012266124]
 custom_minimum_size = Vector2(96, 75)
 layout_mode = 2
 size_flags_vertical = 4
-icon = ExtResource("10_avh5d")
-icon_alignment = 1
-expand_icon = true
+texture_normal = SubResource("AtlasTexture_6kg3f")
+texture_pressed = SubResource("AtlasTexture_3da7x")
+texture_hover = SubResource("AtlasTexture_m08b5")
 script = ExtResource("11_lt0qg")
 
-[node name="InventoryWidget" type="Button" parent="MainWindow/MainVBox/Content/ContentHBox/WidgetSidebarPanel/WidgetSidebarMargin/WidgetSidebarVBox" unique_id=145904753]
+[node name="InventoryWidget" type="TextureButton" parent="MainWindow/MainVBox/Content/ContentHBox/WidgetSidebarPanel/WidgetSidebarMargin/WidgetSidebarVBox" unique_id=1691373104]
 custom_minimum_size = Vector2(0, 75)
 layout_mode = 2
 size_flags_vertical = 4
-icon = ExtResource("12_4ku52")
-icon_alignment = 1
-expand_icon = true
+texture_normal = SubResource("AtlasTexture_e2j7b")
+texture_pressed = SubResource("AtlasTexture_opmgc")
+texture_hover = SubResource("AtlasTexture_6ltc1")
 
-[node name="ShopWidget" type="Button" parent="MainWindow/MainVBox/Content/ContentHBox/WidgetSidebarPanel/WidgetSidebarMargin/WidgetSidebarVBox" unique_id=632875945]
+[node name="ShopWidget" type="TextureButton" parent="MainWindow/MainVBox/Content/ContentHBox/WidgetSidebarPanel/WidgetSidebarMargin/WidgetSidebarVBox" unique_id=763514]
 custom_minimum_size = Vector2(0, 75)
 layout_mode = 2
 size_flags_vertical = 4
-icon = ExtResource("13_hdtas")
-icon_alignment = 1
-expand_icon = true
+texture_normal = SubResource("AtlasTexture_sln8a")
+texture_pressed = SubResource("AtlasTexture_atsb3")
+texture_hover = SubResource("AtlasTexture_6nxfb")
 script = ExtResource("14_6kg3f")
 
-[node name="NotepadButton" type="Button" parent="MainWindow/MainVBox/Content/ContentHBox/WidgetSidebarPanel/WidgetSidebarMargin/WidgetSidebarVBox" unique_id=1296927623]
+[node name="NotepadButton" type="TextureButton" parent="MainWindow/MainVBox/Content/ContentHBox/WidgetSidebarPanel/WidgetSidebarMargin/WidgetSidebarVBox" unique_id=794648361]
 custom_minimum_size = Vector2(0, 75)
 layout_mode = 2
 size_flags_vertical = 4
-icon = ExtResource("15_3da7x")
-icon_alignment = 1
-expand_icon = true
+texture_normal = SubResource("AtlasTexture_4mg2v")
+texture_pressed = SubResource("AtlasTexture_tfhsh")
+texture_hover = SubResource("AtlasTexture_tn05p")
 
 [node name="FolderSidebarPanel" type="TextureRect" parent="MainWindow/MainVBox/Content/ContentHBox" unique_id=817156366]
 layout_mode = 2
