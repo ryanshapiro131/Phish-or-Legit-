@@ -665,7 +665,7 @@ scale = Vector2(0.67, 0.67)
 transform = Transform2D(0.67, 0, 0, 0.67, 450, 450)
 
 [node name="Notepad" parent="." unique_id=2025402526 instance=ExtResource("28_gxrcw")]
-visible = false
 
 [connection signal="pressed" from="MainWindow/MainVBox/Content/ContentHBox/WidgetSidebarPanel/WidgetSidebarMargin/WidgetSidebarVBox/HomeButton" to="MainWindow/MainVBox/Content/ContentHBox/WidgetSidebarPanel/WidgetSidebarMargin/WidgetSidebarVBox/HomeButton" method="_on_pressed"]
 [connection signal="pressed" from="MainWindow/MainVBox/Content/ContentHBox/WidgetSidebarPanel/WidgetSidebarMargin/WidgetSidebarVBox/ShopWidget" to="MainWindow/MainVBox/Content/ContentHBox/WidgetSidebarPanel/WidgetSidebarMargin/WidgetSidebarVBox/ShopWidget" method="_on_pressed"]
+[connection signal="pressed" from="MainWindow/MainVBox/Content/ContentHBox/WidgetSidebarPanel/WidgetSidebarMargin/WidgetSidebarVBox/NotepadButton" to="." method="_on_notepad_button_pressed"]

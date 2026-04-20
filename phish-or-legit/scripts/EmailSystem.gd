@@ -18,6 +18,7 @@ var current_email: EmailData = null
 var email_buttons: Dictionary = {}
 var email_pool: Array = []
 var level_quota: int = 5
+var is_open: bool = false
 
 var triggered_emails: Dictionary = {
 	"on_start": [],
@@ -41,7 +42,7 @@ var triggers_fired: Dictionary = {
 @onready var accept_button = $MainWindow/MainVBox/Content/ContentHBox/EmailViewerPanel/MarginContainer/ViewerVBox/ActionBar/ActionBarMargin/ActionBarHBox/AcceptButton
 @onready var deny_button = $MainWindow/MainVBox/Content/ContentHBox/EmailViewerPanel/MarginContainer/ViewerVBox/ActionBar/ActionBarMargin/ActionBarHBox/DenyButton
 @onready var ignore_button = $MainWindow/MainVBox/Content/ContentHBox/EmailViewerPanel/MarginContainer/ViewerVBox/ActionBar/ActionBarMargin/ActionBarHBox/IgnoreButton
-@onready var integrity_ui: Control = $MainWindow/MainVBox/BottomBar/BottomBarMargin/BottomBarHBox/IntegrityPanel/IntegrityMargin/HBoxContainer/IntegrityUI
+@onready var integrity_ui = $MainWindow/MainVBox/BottomBar/BottomBarMargin/BottomBarHBox/IntegrityPanel/IntegrityMargin/IntegHBox/IntegrityUI
 @onready var sender_icon = $MainWindow/MainVBox/Content/ContentHBox/EmailViewerPanel/MarginContainer/ViewerVBox/MarginContainer/VBoxContainer/SenderBar/SenderBarMargin/SenderBarHBox/ViewerSenderIconArea/ViewerSenderIcon
 @onready var score                = $MainWindow/MainVBox/Content/ContentHBox/FolderSidebarPanel/FolderSidebarMargin/FolderSidebarVBox/Score
 @onready var money_label          = $MainWindow/MainVBox/BottomBar/BottomBarMargin/BottomBarHBox/MoneyPanel/MoneyMargin/MoneyHBox/MoneyLabel
@@ -50,6 +51,7 @@ var triggers_fired: Dictionary = {
 @onready var hit_sound            = $HitSound
 @onready var correct_sound        = $CorrectSound
 @onready var textbox              = $Textbox
+@onready var notepad: CanvasLayer = $Notepad
 
 
 # -----------------------------------------
@@ -350,3 +352,17 @@ func remove_current_email():
 		email_buttons.erase(current_email)
 	emails.erase(current_email)
 	current_email = null
+
+
+func _on_notepad_button_pressed() -> void:
+	is_open = !is_open
+	if is_open:
+		notepad.notepad_panel.show()
+		notepad.text_edit.grab_focus()
+	else:
+		notepad.notepad_panel.hide()
+
+
+func _on_text_changed():
+	# Save to GameManager every time the player types
+	GameManager.notepad_text = notepad.text_edit.text

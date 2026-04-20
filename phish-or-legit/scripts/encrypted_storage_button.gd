@@ -9,10 +9,10 @@ func _ready() -> void:
 	pressed.connect(_on_pressed)
 
 func _on_pressed() -> void:
-	if GameManager.salary >= cost:
-		GameManager.salary -= cost
-		print("Bought:", power_up_name)
-		buy_sound.play()
-		# Add your power-up activation logic here
-	else:
+	if GameManager.salary < cost:
 		print("Not enough money!")
+		return
+	GameManager.try_purchase_encrypted_storage()
+	GameManager.salary -= cost
+	print("Bought:", power_up_name)
+	buy_sound.play()
