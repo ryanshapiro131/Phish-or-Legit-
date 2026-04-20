@@ -26,7 +26,6 @@
 [ext_resource type="Texture2D" uid="uid://bsxyakwtrdipl" path="res://assets/EmailDesktopAssets/SalaryPanel.png" id="14_b6i5y"]
 [ext_resource type="Texture2D" uid="uid://6ak8tfdmi8s3" path="res://assets/EmailDesktopAssets/DenyButtonSprites.png" id="14_dnybs"]
 [ext_resource type="Theme" uid="uid://bw5y7v8qdlh80" path="res://themes/email_button.tres" id="14_motaj"]
-[ext_resource type="Texture2D" uid="uid://bxdawefsil82d" path="res://assets/EmailDesktopAssets/CoinIcon.png" id="15_dnybs"]
 [ext_resource type="Texture2D" uid="uid://gtd5h0nfar6b" path="res://assets/EmailDesktopAssets/IgnoreButtonSprites.png" id="15_fh72i"]
 [ext_resource type="Texture2D" uid="uid://b6vkmixthpyum" path="res://assets/EmailDesktopAssets/NoteWidget.png" id="15_hdtas"]
 [ext_resource type="Theme" uid="uid://cjw8pt46pmyd" path="res://themes/email.tres" id="15_v5uti"]
@@ -36,6 +35,8 @@
 [ext_resource type="AudioStream" uid="uid://bjmba6kce1he8" path="res://assets/freesound_community-correct-choice-43861.mp3" id="26_v5uti"]
 [ext_resource type="PackedScene" uid="uid://delr3h13ecgfi" path="res://scenes/TextBox.tscn" id="27_motaj"]
 [ext_resource type="PackedScene" uid="uid://wy7aqp6f13bv" path="res://scenes/notepad.tscn" id="28_gxrcw"]
+[ext_resource type="Texture2D" uid="uid://cyk3tnp7br84p" path="res://assets/EmailDesktopAssets/MoneyIcon.png" id="29_avh5d"]
+[ext_resource type="Texture2D" uid="uid://d08trr0bckxo4" path="res://assets/EmailDesktopAssets/TimeIcon.png" id="33_lt0qg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_flayh"]
 atlas = ExtResource("6_80n8e")
@@ -561,13 +562,17 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 2
 size_flags_vertical = 4
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 1
+theme_override_constants/margin_bottom = 4
 
 [node name="MoneyHBox" type="HBoxContainer" parent="MainWindow/MainVBox/BottomBar/BottomBarMargin/BottomBarHBox/MoneyPanel/MoneyMargin" unique_id=845075412]
 layout_mode = 2
+theme_override_constants/separation = 10
 
 [node name="MoneyIcon" type="TextureRect" parent="MainWindow/MainVBox/BottomBar/BottomBarMargin/BottomBarHBox/MoneyPanel/MoneyMargin/MoneyHBox" unique_id=1232103307]
 layout_mode = 2
-texture = ExtResource("15_dnybs")
+texture = ExtResource("29_avh5d")
 stretch_mode = 5
 
 [node name="MoneyLabel" type="Label" parent="MainWindow/MainVBox/BottomBar/BottomBarMargin/BottomBarHBox/MoneyPanel/MoneyMargin/MoneyHBox" unique_id=60271468]
@@ -595,43 +600,54 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MainWindow/MainVBox/BottomBar/BottomBarMargin/BottomBarHBox/IntegrityPanel/IntegrityMargin" unique_id=610689025]
+[node name="IntegHBox" type="HBoxContainer" parent="MainWindow/MainVBox/BottomBar/BottomBarMargin/BottomBarHBox/IntegrityPanel/IntegrityMargin" unique_id=610689025]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="MainWindow/MainVBox/BottomBar/BottomBarMargin/BottomBarHBox/IntegrityPanel/IntegrityMargin/HBoxContainer" unique_id=1432244108]
+[node name="IntegLabel" type="Label" parent="MainWindow/MainVBox/BottomBar/BottomBarMargin/BottomBarHBox/IntegrityPanel/IntegrityMargin/IntegHBox" unique_id=1432244108]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "System Integrity:"
 vertical_alignment = 1
 
-[node name="IntegrityUI" parent="MainWindow/MainVBox/BottomBar/BottomBarMargin/BottomBarHBox/IntegrityPanel/IntegrityMargin/HBoxContainer" unique_id=1043091255 instance=ExtResource("2_ud1h4")]
+[node name="IntegrityUI" parent="MainWindow/MainVBox/BottomBar/BottomBarMargin/BottomBarHBox/IntegrityPanel/IntegrityMargin/IntegHBox" unique_id=1043091255 instance=ExtResource("2_ud1h4")]
 layout_mode = 2
 size_flags_horizontal = 6
 
 [node name="TimePanel" type="TextureRect" parent="MainWindow/MainVBox/BottomBar/BottomBarMargin/BottomBarHBox" unique_id=285876294]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
 texture = ExtResource("18_mejtc")
 stretch_mode = 5
 
 [node name="TimeMargin" type="MarginContainer" parent="MainWindow/MainVBox/BottomBar/BottomBarMargin/BottomBarHBox/TimePanel" unique_id=1634985651]
-layout_mode = 0
-offset_left = 16.0
-offset_top = 18.0
-offset_right = 95.0
-offset_bottom = 84.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 10
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 15
 
-[node name="TimeVBox" type="VBoxContainer" parent="MainWindow/MainVBox/BottomBar/BottomBarMargin/BottomBarHBox/TimePanel/TimeMargin" unique_id=1746047708]
+[node name="TimeHBox" type="HBoxContainer" parent="MainWindow/MainVBox/BottomBar/BottomBarMargin/BottomBarHBox/TimePanel/TimeMargin" unique_id=1756217307]
 layout_mode = 2
-size_flags_horizontal = 8
+theme_override_constants/separation = 20
 
-[node name="DayLabel" type="Label" parent="MainWindow/MainVBox/BottomBar/BottomBarMargin/BottomBarHBox/TimePanel/TimeMargin/TimeVBox" unique_id=1079304744]
+[node name="TimeIcon" type="TextureRect" parent="MainWindow/MainVBox/BottomBar/BottomBarMargin/BottomBarHBox/TimePanel/TimeMargin/TimeHBox" unique_id=657956249]
+layout_mode = 2
+texture = ExtResource("33_lt0qg")
+stretch_mode = 5
+
+[node name="TimeVBox" type="VBoxContainer" parent="MainWindow/MainVBox/BottomBar/BottomBarMargin/BottomBarHBox/TimePanel/TimeMargin/TimeHBox" unique_id=1746047708]
+layout_mode = 2
+
+[node name="DayLabel" type="Label" parent="MainWindow/MainVBox/BottomBar/BottomBarMargin/BottomBarHBox/TimePanel/TimeMargin/TimeHBox/TimeVBox" unique_id=1079304744]
 layout_mode = 2
 text = "Day 1"
 
-[node name="TimeLabel" type="Label" parent="MainWindow/MainVBox/BottomBar/BottomBarMargin/BottomBarHBox/TimePanel/TimeMargin/TimeVBox" unique_id=75472536]
+[node name="TimeLabel" type="Label" parent="MainWindow/MainVBox/BottomBar/BottomBarMargin/BottomBarHBox/TimePanel/TimeMargin/TimeHBox/TimeVBox" unique_id=75472536]
 layout_mode = 2
 text = "3:00 PM"
 
