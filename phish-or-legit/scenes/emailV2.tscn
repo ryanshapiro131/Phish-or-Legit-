@@ -300,62 +300,71 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="SubjectBar" type="PanelContainer" parent="MainWindow/MainVBox/Content/ContentHBox/EmailViewerPanel/ViewerVBox" unique_id=1389129752]
+[node name="MarginContainer" type="MarginContainer" parent="MainWindow/MainVBox/Content/ContentHBox/EmailViewerPanel/ViewerVBox" unique_id=2002769564]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainWindow/MainVBox/Content/ContentHBox/EmailViewerPanel/ViewerVBox/MarginContainer" unique_id=267744013]
 layout_mode = 2
 
-[node name="SubjectMargin" type="MarginContainer" parent="MainWindow/MainVBox/Content/ContentHBox/EmailViewerPanel/ViewerVBox/SubjectBar" unique_id=1243095862]
+[node name="SubjectBar" type="PanelContainer" parent="MainWindow/MainVBox/Content/ContentHBox/EmailViewerPanel/ViewerVBox/MarginContainer/VBoxContainer" unique_id=1389129752]
 layout_mode = 2
 
-[node name="SubjectLabel" type="Label" parent="MainWindow/MainVBox/Content/ContentHBox/EmailViewerPanel/ViewerVBox/SubjectBar/SubjectMargin" unique_id=54486880]
+[node name="SubjectMargin" type="MarginContainer" parent="MainWindow/MainVBox/Content/ContentHBox/EmailViewerPanel/ViewerVBox/MarginContainer/VBoxContainer/SubjectBar" unique_id=1243095862]
+layout_mode = 2
+
+[node name="SubjectLabel" type="Label" parent="MainWindow/MainVBox/Content/ContentHBox/EmailViewerPanel/ViewerVBox/MarginContainer/VBoxContainer/SubjectBar/SubjectMargin" unique_id=54486880]
 layout_mode = 2
 size_flags_vertical = 1
 
-[node name="SenderBar" type="PanelContainer" parent="MainWindow/MainVBox/Content/ContentHBox/EmailViewerPanel/ViewerVBox" unique_id=651862776]
+[node name="SenderBar" type="PanelContainer" parent="MainWindow/MainVBox/Content/ContentHBox/EmailViewerPanel/ViewerVBox/MarginContainer/VBoxContainer" unique_id=651862776]
 layout_mode = 2
 
-[node name="SenderBarMargin" type="MarginContainer" parent="MainWindow/MainVBox/Content/ContentHBox/EmailViewerPanel/ViewerVBox/SenderBar" unique_id=647335456]
+[node name="SenderBarMargin" type="MarginContainer" parent="MainWindow/MainVBox/Content/ContentHBox/EmailViewerPanel/ViewerVBox/MarginContainer/VBoxContainer/SenderBar" unique_id=647335456]
 layout_mode = 2
 
-[node name="SenderBarHBox" type="HBoxContainer" parent="MainWindow/MainVBox/Content/ContentHBox/EmailViewerPanel/ViewerVBox/SenderBar/SenderBarMargin" unique_id=799444435]
+[node name="SenderBarHBox" type="HBoxContainer" parent="MainWindow/MainVBox/Content/ContentHBox/EmailViewerPanel/ViewerVBox/MarginContainer/VBoxContainer/SenderBar/SenderBarMargin" unique_id=799444435]
 layout_mode = 2
 
-[node name="ViewerSenderIconArea" type="CenterContainer" parent="MainWindow/MainVBox/Content/ContentHBox/EmailViewerPanel/ViewerVBox/SenderBar/SenderBarMargin/SenderBarHBox" unique_id=475145078]
+[node name="ViewerSenderIconArea" type="CenterContainer" parent="MainWindow/MainVBox/Content/ContentHBox/EmailViewerPanel/ViewerVBox/MarginContainer/VBoxContainer/SenderBar/SenderBarMargin/SenderBarHBox" unique_id=475145078]
 layout_mode = 2
 size_flags_horizontal = 2
 
-[node name="ViewerSenderIcon" type="TextureRect" parent="MainWindow/MainVBox/Content/ContentHBox/EmailViewerPanel/ViewerVBox/SenderBar/SenderBarMargin/SenderBarHBox/ViewerSenderIconArea" unique_id=2013023054]
+[node name="ViewerSenderIcon" type="TextureRect" parent="MainWindow/MainVBox/Content/ContentHBox/EmailViewerPanel/ViewerVBox/MarginContainer/VBoxContainer/SenderBar/SenderBarMargin/SenderBarHBox/ViewerSenderIconArea" unique_id=2013023054]
 layout_mode = 2
 
-[node name="SenderInfoVBox" type="VBoxContainer" parent="MainWindow/MainVBox/Content/ContentHBox/EmailViewerPanel/ViewerVBox/SenderBar/SenderBarMargin/SenderBarHBox" unique_id=1306092436]
+[node name="SenderInfoVBox" type="VBoxContainer" parent="MainWindow/MainVBox/Content/ContentHBox/EmailViewerPanel/ViewerVBox/MarginContainer/VBoxContainer/SenderBar/SenderBarMargin/SenderBarHBox" unique_id=1306092436]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="SenderLabel" type="Label" parent="MainWindow/MainVBox/Content/ContentHBox/EmailViewerPanel/ViewerVBox/SenderBar/SenderBarMargin/SenderBarHBox/SenderInfoVBox" unique_id=1524311154]
+[node name="SenderLabel" type="Label" parent="MainWindow/MainVBox/Content/ContentHBox/EmailViewerPanel/ViewerVBox/MarginContainer/VBoxContainer/SenderBar/SenderBarMargin/SenderBarHBox/SenderInfoVBox" unique_id=1524311154]
 layout_mode = 2
 
-[node name="ToLabel" type="Label" parent="MainWindow/MainVBox/Content/ContentHBox/EmailViewerPanel/ViewerVBox/SenderBar/SenderBarMargin/SenderBarHBox/SenderInfoVBox" unique_id=667818908]
+[node name="ToLabel" type="Label" parent="MainWindow/MainVBox/Content/ContentHBox/EmailViewerPanel/ViewerVBox/MarginContainer/VBoxContainer/SenderBar/SenderBarMargin/SenderBarHBox/SenderInfoVBox" unique_id=667818908]
 layout_mode = 2
 
-[node name="AttachmentBar" type="PanelContainer" parent="MainWindow/MainVBox/Content/ContentHBox/EmailViewerPanel/ViewerVBox" unique_id=1342249179]
+[node name="AttachmentBar" type="PanelContainer" parent="MainWindow/MainVBox/Content/ContentHBox/EmailViewerPanel/ViewerVBox/MarginContainer/VBoxContainer" unique_id=1342249179]
 layout_mode = 2
 
-[node name="AttachmentBarMargin" type="MarginContainer" parent="MainWindow/MainVBox/Content/ContentHBox/EmailViewerPanel/ViewerVBox/AttachmentBar" unique_id=1631781297]
+[node name="AttachmentBarMargin" type="MarginContainer" parent="MainWindow/MainVBox/Content/ContentHBox/EmailViewerPanel/ViewerVBox/MarginContainer/VBoxContainer/AttachmentBar" unique_id=1631781297]
 layout_mode = 2
 
-[node name="AttachmentBarHBox" type="HBoxContainer" parent="MainWindow/MainVBox/Content/ContentHBox/EmailViewerPanel/ViewerVBox/AttachmentBar/AttachmentBarMargin" unique_id=1267790476]
+[node name="AttachmentBarHBox" type="HBoxContainer" parent="MainWindow/MainVBox/Content/ContentHBox/EmailViewerPanel/ViewerVBox/MarginContainer/VBoxContainer/AttachmentBar/AttachmentBarMargin" unique_id=1267790476]
 layout_mode = 2
 
-[node name="AttachmentLabel" type="Label" parent="MainWindow/MainVBox/Content/ContentHBox/EmailViewerPanel/ViewerVBox/AttachmentBar/AttachmentBarMargin/AttachmentBarHBox" unique_id=1293822187]
+[node name="AttachmentLabel" type="Label" parent="MainWindow/MainVBox/Content/ContentHBox/EmailViewerPanel/ViewerVBox/MarginContainer/VBoxContainer/AttachmentBar/AttachmentBarMargin/AttachmentBarHBox" unique_id=1293822187]
 layout_mode = 2
 
-[node name="BodyArea" type="PanelContainer" parent="MainWindow/MainVBox/Content/ContentHBox/EmailViewerPanel/ViewerVBox" unique_id=1233633918]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="BodyMargin" type="MarginContainer" parent="MainWindow/MainVBox/Content/ContentHBox/EmailViewerPanel/ViewerVBox/BodyArea" unique_id=1013466002]
+[node name="BodyArea" type="PanelContainer" parent="MainWindow/MainVBox/Content/ContentHBox/EmailViewerPanel/ViewerVBox/MarginContainer/VBoxContainer" unique_id=1233633918]
 layout_mode = 2
 
-[node name="BodyText" type="RichTextLabel" parent="MainWindow/MainVBox/Content/ContentHBox/EmailViewerPanel/ViewerVBox/BodyArea/BodyMargin" unique_id=1737941471]
+[node name="BodyMargin" type="MarginContainer" parent="MainWindow/MainVBox/Content/ContentHBox/EmailViewerPanel/ViewerVBox/MarginContainer/VBoxContainer/BodyArea" unique_id=1013466002]
+layout_mode = 2
+
+[node name="BodyText" type="RichTextLabel" parent="MainWindow/MainVBox/Content/ContentHBox/EmailViewerPanel/ViewerVBox/MarginContainer/VBoxContainer/BodyArea/BodyMargin" unique_id=1737941471]
+custom_minimum_size = Vector2(0, 330)
 layout_mode = 2
 size_flags_vertical = 3
 
