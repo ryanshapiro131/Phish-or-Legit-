@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cs44ynaxwndsi"
-path="res://.godot/imported/Bob_16x16.png-9abd7da2109953c5597357eee3f42acd.ctex"
+uid="uid://cyk3tnp7br84p"
+path="res://.godot/imported/MoneyIcon.png-c4721a08cb8b6eef26a5a994c41756e6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/icons/Bob_16x16.png"
-dest_files=["res://.godot/imported/Bob_16x16.png-9abd7da2109953c5597357eee3f42acd.ctex"]
+source_file="res://assets/EmailDesktopAssets/MoneyIcon.png"
+dest_files=["res://.godot/imported/MoneyIcon.png-c4721a08cb8b6eef26a5a994c41756e6.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://beofdg7b1t41"
-path="res://.godot/imported/Amelia_16x16.png-716fa75a4708276a78b583a43aa8664c.ctex"
+uid="uid://d08trr0bckxo4"
+path="res://.godot/imported/TimeIcon.png-1b68193a12f0dd9f094bfb900d084be7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/icons/Amelia_16x16.png"
-dest_files=["res://.godot/imported/Amelia_16x16.png-716fa75a4708276a78b583a43aa8664c.ctex"]
+source_file="res://assets/EmailDesktopAssets/TimeIcon.png"
+dest_files=["res://.godot/imported/TimeIcon.png-1b68193a12f0dd9f094bfb900d084be7.ctex"]
 
 [params]
 

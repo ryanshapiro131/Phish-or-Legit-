@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cho0j0rqxwama"
-path="res://.godot/imported/Alex_16x16.png-14cfa042c1ee7ff56fa7fcdfab166df3.ctex"
+uid="uid://sw5nbpv1461x"
+path="res://.godot/imported/ShopIcons.png-def1aa2a7c5b183435fbe5ccfb7784c9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/icons/Alex_16x16.png"
-dest_files=["res://.godot/imported/Alex_16x16.png-14cfa042c1ee7ff56fa7fcdfab166df3.ctex"]
+source_file="res://assets/EmailDesktopAssets/ShopIcons.png"
+dest_files=["res://.godot/imported/ShopIcons.png-def1aa2a7c5b183435fbe5ccfb7784c9.ctex"]
 
 [params]
 
