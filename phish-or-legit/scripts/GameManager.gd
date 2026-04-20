@@ -1,40 +1,50 @@
 extends Node
- 
+
 var system_integrity: int = 100
 var salary: int = 0
-var office_intro_shown: bool = false
-var desktop_intro_shown: bool = false
-var email_intro_shown: bool = false
-var shop_intro_shown: bool = false
+var tutorial_shown: bool = false
+var tutorial_wrong_choice: bool = false
+var feedback_true_positive_shown: bool = false
+var feedback_false_positive_shown: bool = false
+var feedback_true_negative_shown: bool = false
+var feedback_false_negative_shown: bool = false
 
+var current_level: int = 1
+var correct_emails: int = 0
+var incorrect_emails: int = 0
+var current_quota: int = 5
 
-@onready var bg_music = $BGMusic
+var notepad_text: String = ""  # Persists across scenes
+
+@onready var bg_music: AudioStreamPlayer2D = $BGMusic
 
 func _ready():
 	bg_music.play()
-	
+
 func lose_integrity(amount: int):
 	system_integrity = max(system_integrity - amount, 0)
 	print("Integrity:", system_integrity)
-	# LOW WARNING
-	if system_integrity <= 20 and system_integrity > 0:
-		Assistant.show_message("Warning: System Integrity is critically low. Be very careful with incoming emails.")
-	# GAME OVER
 	if system_integrity <= 0:
 		game_over()
- 
+
 func add_salary(amount: int):
 	salary += amount
-	print("Salary:", salary)
- 
+
+func advance_level():
+	current_level += 1
+	correct_emails = 0
+	incorrect_emails = 0
+
+func reset():
+	system_integrity = 100
+	salary = 0
+	current_level = 1
+	correct_emails = 0
+	incorrect_emails = 0
+	tutorial_shown = false
+	tutorial_wrong_choice = false
+	notepad_text = ""
+
 func game_over():
 	print("NETWORK COMPROMISED")
-	Assistant.show_messages([
-		"System Integrity has reached zero.",
-		"You failed to protect the network.",
-		"You have been terminated from your position."
-	])
-
-	# Optional delay before switching scene
-	await get_tree().create_timer(3.0).timeout
 	# get_tree().change_scene_to_file("res://scenes/game_over.tscn")

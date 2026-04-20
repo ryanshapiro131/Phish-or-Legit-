@@ -7,6 +7,6 @@ extends TextureButton
 
 
 func _on_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/email.tscn")
+	get_tree().change_scene_to_file("res://scenes/emailV2.tscn")
 	
 	

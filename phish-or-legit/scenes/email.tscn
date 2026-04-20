@@ -8,6 +8,8 @@
 [ext_resource type="Script" uid="uid://187fbfhtt3cc" path="res://scripts/email_button.gd" id="6_d5cbr"]
 [ext_resource type="Script" uid="uid://gb5vporxst6l" path="res://scripts/shop_button.gd" id="7_f8h04"]
 [ext_resource type="AudioStream" uid="uid://bfy0ku1ybo2hm" path="res://assets/kakaist-glitch-sfx-312910.mp3" id="8_f8h04"]
+[ext_resource type="PackedScene" uid="uid://delr3h13ecgfi" path="res://scenes/TextBox.tscn" id="9_70sxr"]
+[ext_resource type="FontFile" uid="uid://dc52606rwa2qd" path="res://assets/PixelOperator.ttf" id="10_1pmli"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_wrqkr"]
 
@@ -146,6 +148,23 @@ script = ExtResource("4_72j2e")
 [node name="HitSound" type="AudioStreamPlayer2D" parent="." unique_id=1180899977]
 stream = ExtResource("8_f8h04")
 volume_db = -8.537
+
+[node name="Textbox" parent="." unique_id=1298141367 instance=ExtResource("9_70sxr")]
+offset = Vector2(450, 450)
+scale = Vector2(0.67, 0.67)
+transform = Transform2D(0.67, 0, 0, 0.67, 450, 450)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=90133128]
+
+[node name="Score" type="Label" parent="." unique_id=2024262732]
+layout_mode = 0
+offset_left = 13.0
+offset_top = -380.0
+offset_right = 669.0
+offset_bottom = -255.0
+theme_override_fonts/font = ExtResource("10_1pmli")
+theme_override_font_sizes/font_size = 64
+text = "Correct Emails: X/10"
 
 [connection signal="pressed" from="TaskBar/EmailButton" to="TaskBar/EmailButton" method="_on_pressed"]
 [connection signal="pressed" from="TaskBar/ShopButton" to="TaskBar/ShopButton" method="_on_pressed"]

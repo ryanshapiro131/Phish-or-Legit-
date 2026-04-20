@@ -1,0 +1,608 @@
+[gd_scene format=3 uid="uid://bc1dwn2ug6ruj"]
+
+[ext_resource type="Script" uid="uid://cspgc87iumu8h" path="res://scripts/EmailSystem.gd" id="1_fh72i"]
+[ext_resource type="Texture2D" uid="uid://v1m65l6wkdr0" path="res://assets/EmailDesktopAssets/MonitorBG.png" id="1_n6buh"]
+[ext_resource type="Texture2D" uid="uid://bacvuv1uxggl7" path="res://assets/EmailDesktopAssets/MainWindow.png" id="2_1ke0g"]
+[ext_resource type="FontFile" uid="uid://dc52606rwa2qd" path="res://assets/PixelOperator.ttf" id="2_n6buh"]
+[ext_resource type="PackedScene" uid="uid://byciyheqruofd" path="res://scenes/integrityUI.tscn" id="2_ud1h4"]
+[ext_resource type="Texture2D" uid="uid://dy4386vs7oiej" path="res://assets/EmailDesktopAssets/HeaderPanel.png" id="3_4hlsu"]
+[ext_resource type="Theme" uid="uid://dqcef7afk7pf5" path="res://themes/defaultfont.tres" id="3_n6buh"]
+[ext_resource type="Texture2D" uid="uid://c6hqu4lucrd0o" path="res://assets/EmailDesktopAssets/Logo.png" id="4_80n8e"]
+[ext_resource type="Texture2D" uid="uid://de7acj1rmqqva" path="res://assets/EmailDesktopAssets/ExitButtonSprites.png" id="6_80n8e"]
+[ext_resource type="Texture2D" uid="uid://bkl20722le3ci" path="res://assets/EmailDesktopAssets/ContentPanel.png" id="7_b6i5y"]
+[ext_resource type="Texture2D" uid="uid://ct5sqp23e5qtx" path="res://assets/EmailDesktopAssets/WidgetPanel.png" id="7_flayh"]
+[ext_resource type="Texture2D" uid="uid://bln8jow48pp7v" path="res://assets/EmailDesktopAssets/FolderListPanel.png" id="8_s8qli"]
+[ext_resource type="Texture2D" uid="uid://dl4vvjq5xue2r" path="res://assets/itchio-pxl-retro-computer-icons-set-110/separated-items/itchio-pxl-retro-computer-icons-set-110-item1.png" id="10_avh5d"]
+[ext_resource type="Texture2D" uid="uid://b0rsc0s834xdc" path="res://assets/EmailDesktopAssets/EmailListPanel.png" id="10_mejtc"]
+[ext_resource type="Script" uid="uid://bdygreuvussja" path="res://scripts/EmailLabelStats.gd" id="11_dnybs"]
+[ext_resource type="Script" uid="uid://dglmkg3uu36xn" path="res://scenes/home_widget.gd" id="11_lt0qg"]
+[ext_resource type="Texture2D" uid="uid://ieikttgqtctc" path="res://assets/EmailDesktopAssets/EmailViewPanel.png" id="11_xfk65"]
+[ext_resource type="Texture2D" uid="uid://dsonai1w27ld4" path="res://assets/itchio-pxl-retro-computer-icons-set-110/separated-items/itchio-pxl-retro-computer-icons-set-110-item57.png" id="12_4ku52"]
+[ext_resource type="Texture2D" uid="uid://bqg4s8ruspvmp" path="res://assets/EmailDesktopAssets/ActionBarPanel.png" id="12_oqf7v"]
+[ext_resource type="Texture2D" uid="uid://l3waqutisip" path="res://assets/EmailDesktopAssets/AcceptButtonSprites.png" id="13_b6i5y"]
+[ext_resource type="Texture2D" uid="uid://dqxbtbru56561" path="res://assets/itchio-pxl-retro-computer-icons-set-110/separated-items/itchio-pxl-retro-computer-icons-set-110-item68.png" id="13_hdtas"]
+[ext_resource type="Texture2D" uid="uid://3ythn5ryg2sr" path="res://assets/EmailDesktopAssets/BottomPanel.png" id="13_p4o1y"]
+[ext_resource type="Script" uid="uid://cypko5bqexrem" path="res://scenes/shop_widget.gd" id="14_6kg3f"]
+[ext_resource type="Texture2D" uid="uid://bsxyakwtrdipl" path="res://assets/EmailDesktopAssets/SalaryPanel.png" id="14_b6i5y"]
+[ext_resource type="Texture2D" uid="uid://6ak8tfdmi8s3" path="res://assets/EmailDesktopAssets/DenyButtonSprites.png" id="14_dnybs"]
+[ext_resource type="Theme" uid="uid://bw5y7v8qdlh80" path="res://themes/email_button.tres" id="14_motaj"]
+[ext_resource type="Texture2D" uid="uid://dxwtr7ve7cfq0" path="res://assets/itchio-pxl-retro-computer-icons-set-110/separated-items/itchio-pxl-retro-computer-icons-set-110-item34.png" id="15_3da7x"]
+[ext_resource type="Texture2D" uid="uid://bxdawefsil82d" path="res://assets/EmailDesktopAssets/CoinIcon.png" id="15_dnybs"]
+[ext_resource type="Texture2D" uid="uid://gtd5h0nfar6b" path="res://assets/EmailDesktopAssets/IgnoreButtonSprites.png" id="15_fh72i"]
+[ext_resource type="Theme" uid="uid://cjw8pt46pmyd" path="res://themes/email.tres" id="15_v5uti"]
+[ext_resource type="Texture2D" uid="uid://br1sd43yy1tgy" path="res://assets/EmailDesktopAssets/IntegrityBarPanel.png" id="16_fh72i"]
+[ext_resource type="Texture2D" uid="uid://wgvg258nv2qu" path="res://assets/EmailDesktopAssets/TimePanel.png" id="18_mejtc"]
+[ext_resource type="AudioStream" uid="uid://bfy0ku1ybo2hm" path="res://assets/kakaist-glitch-sfx-312910.mp3" id="25_cepvy"]
+[ext_resource type="AudioStream" uid="uid://bjmba6kce1he8" path="res://assets/freesound_community-correct-choice-43861.mp3" id="26_v5uti"]
+[ext_resource type="PackedScene" uid="uid://delr3h13ecgfi" path="res://scenes/TextBox.tscn" id="27_motaj"]
+[ext_resource type="PackedScene" uid="uid://wy7aqp6f13bv" path="res://scenes/notepad.tscn" id="28_gxrcw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_flayh"]
+atlas = ExtResource("6_80n8e")
+region = Rect2(0, 0, 84, 84)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oxsar"]
+atlas = ExtResource("6_80n8e")
+region = Rect2(168, 0, 84, 84)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dd6fd"]
+atlas = ExtResource("6_80n8e")
+region = Rect2(84, 0, 84, 84)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vwbq0"]
+atlas = ExtResource("13_b6i5y")
+region = Rect2(0, 0, 216, 78)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yw5ew"]
+atlas = ExtResource("13_b6i5y")
+region = Rect2(432, 0, 216, 78)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oq8lc"]
+atlas = ExtResource("13_b6i5y")
+region = Rect2(216, 0, 216, 84)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cepvy"]
+atlas = ExtResource("14_dnybs")
+region = Rect2(0, 0, 216, 78)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v5uti"]
+atlas = ExtResource("14_dnybs")
+region = Rect2(432, -1, 216, 79)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_motaj"]
+atlas = ExtResource("14_dnybs")
+region = Rect2(216, 0, 216, 84)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gxrcw"]
+atlas = ExtResource("15_fh72i")
+region = Rect2(0, 0, 216, 78)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_10ylf"]
+atlas = ExtResource("15_fh72i")
+region = Rect2(432, 0, 216, 78)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oavub"]
+atlas = ExtResource("15_fh72i")
+region = Rect2(216, 0, 216, 84)
+
+[node name="EmailUI" type="Control" unique_id=1737163360]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fh72i")
+
+[node name="Background" type="TextureRect" parent="." unique_id=1076971650]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_n6buh")
+
+[node name="MainWindow" type="TextureRect" parent="." unique_id=1519983074]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -852.0
+offset_top = -378.0
+offset_right = 852.0
+offset_bottom = 378.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_1ke0g")
+stretch_mode = 5
+
+[node name="MainVBox" type="VBoxContainer" parent="MainWindow" unique_id=460316494]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = -15
+alignment = 1
+
+[node name="Header" type="TextureRect" parent="MainWindow/MainVBox" unique_id=1454882741]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("3_4hlsu")
+stretch_mode = 5
+
+[node name="HeaderMargin" type="MarginContainer" parent="MainWindow/MainVBox/Header" unique_id=1259597699]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HeaderHBox" type="HBoxContainer" parent="MainWindow/MainVBox/Header/HeaderMargin" unique_id=186037861]
+layout_mode = 2
+
+[node name="LogoContainer" type="MarginContainer" parent="MainWindow/MainVBox/Header/HeaderMargin/HeaderHBox" unique_id=69701143]
+layout_mode = 2
+theme_override_constants/margin_left = 25
+
+[node name="Logo" type="TextureRect" parent="MainWindow/MainVBox/Header/HeaderMargin/HeaderHBox/LogoContainer" unique_id=1285663211]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("4_80n8e")
+stretch_mode = 5
+
+[node name="InboxTitleArea" type="MarginContainer" parent="MainWindow/MainVBox/Header/HeaderMargin/HeaderHBox" unique_id=1745950242]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_constants/margin_left = 32
+
+[node name="InboxTitle" type="Label" parent="MainWindow/MainVBox/Header/HeaderMargin/HeaderHBox/InboxTitleArea" unique_id=272587034]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_n6buh")
+theme_override_font_sizes/font_size = 64
+text = "						FBI.GOV"
+vertical_alignment = 1
+autowrap_trim_flags = 0
+justification_flags = 0
+uppercase = true
+
+[node name="ExitButtonArea" type="CenterContainer" parent="MainWindow/MainVBox/Header/HeaderMargin/HeaderHBox" unique_id=1089845488]
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 0
+
+[node name="ExitButton" type="TextureButton" parent="MainWindow/MainVBox/Header/HeaderMargin/HeaderHBox/ExitButtonArea" unique_id=411913422]
+layout_mode = 2
+texture_normal = SubResource("AtlasTexture_flayh")
+texture_pressed = SubResource("AtlasTexture_oxsar")
+texture_hover = SubResource("AtlasTexture_dd6fd")
+stretch_mode = 5
+
+[node name="Content" type="TextureRect" parent="MainWindow/MainVBox" unique_id=756296273]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("7_b6i5y")
+stretch_mode = 5
+
+[node name="ContentHBox" type="HBoxContainer" parent="MainWindow/MainVBox/Content" unique_id=1072803660]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -3.0
+offset_right = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = -10
+
+[node name="WidgetSidebarPanel" type="TextureRect" parent="MainWindow/MainVBox/Content/ContentHBox" unique_id=1326829356]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("7_flayh")
+stretch_mode = 5
+
+[node name="WidgetSidebarMargin" type="MarginContainer" parent="MainWindow/MainVBox/Content/ContentHBox/WidgetSidebarPanel" unique_id=1916136475]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 14.0
+offset_top = 14.0
+offset_right = -15.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="WidgetSidebarVBox" type="VBoxContainer" parent="MainWindow/MainVBox/Content/ContentHBox/WidgetSidebarPanel/WidgetSidebarMargin" unique_id=1082036281]
+layout_mode = 2
+
+[node name="HomeButton" type="Button" parent="MainWindow/MainVBox/Content/ContentHBox/WidgetSidebarPanel/WidgetSidebarMargin/WidgetSidebarVBox" unique_id=2093861142]
+custom_minimum_size = Vector2(96, 75)
+layout_mode = 2
+size_flags_vertical = 4
+icon = ExtResource("10_avh5d")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("11_lt0qg")
+
+[node name="InventoryWidget" type="Button" parent="MainWindow/MainVBox/Content/ContentHBox/WidgetSidebarPanel/WidgetSidebarMargin/WidgetSidebarVBox" unique_id=145904753]
+custom_minimum_size = Vector2(0, 75)
+layout_mode = 2
+size_flags_vertical = 4
+icon = ExtResource("12_4ku52")
+icon_alignment = 1
+expand_icon = true
+
+[node name="ShopWidget" type="Button" parent="MainWindow/MainVBox/Content/ContentHBox/WidgetSidebarPanel/WidgetSidebarMargin/WidgetSidebarVBox" unique_id=632875945]
+custom_minimum_size = Vector2(0, 75)
+layout_mode = 2
+size_flags_vertical = 4
+icon = ExtResource("13_hdtas")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("14_6kg3f")
+
+[node name="NotepadButton" type="Button" parent="MainWindow/MainVBox/Content/ContentHBox/WidgetSidebarPanel/WidgetSidebarMargin/WidgetSidebarVBox" unique_id=1296927623]
+custom_minimum_size = Vector2(0, 75)
+layout_mode = 2
+size_flags_vertical = 4
+icon = ExtResource("15_3da7x")
+icon_alignment = 1
+expand_icon = true
+
+[node name="FolderSidebarPanel" type="TextureRect" parent="MainWindow/MainVBox/Content/ContentHBox" unique_id=817156366]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("8_s8qli")
+stretch_mode = 5
+
+[node name="FolderSidebarMargin" type="MarginContainer" parent="MainWindow/MainVBox/Content/ContentHBox/FolderSidebarPanel" unique_id=1305665770]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 18.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="FolderSidebarVBox" type="VBoxContainer" parent="MainWindow/MainVBox/Content/ContentHBox/FolderSidebarPanel/FolderSidebarMargin" unique_id=1319611092]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Score" type="Label" parent="MainWindow/MainVBox/Content/ContentHBox/FolderSidebarPanel/FolderSidebarMargin/FolderSidebarVBox" unique_id=1002798]
+layout_mode = 2
+size_flags_vertical = 0
+theme = ExtResource("3_n6buh")
+theme_override_fonts/font = ExtResource("2_n6buh")
+theme_override_font_sizes/font_size = 40
+text = "Correct Emails: X/10"
+
+[node name="Inbox" type="Label" parent="MainWindow/MainVBox/Content/ContentHBox/FolderSidebarPanel/FolderSidebarMargin/FolderSidebarVBox" unique_id=604107702]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("3_n6buh")
+text = "Total Emails: "
+script = ExtResource("11_dnybs")
+
+[node name="Incorrect" type="Label" parent="MainWindow/MainVBox/Content/ContentHBox/FolderSidebarPanel/FolderSidebarMargin/FolderSidebarVBox" unique_id=319798050]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("3_n6buh")
+text = "Incorrect:"
+script = ExtResource("11_dnybs")
+
+[node name="EmailListSectionPanel" type="TextureRect" parent="MainWindow/MainVBox/Content/ContentHBox" unique_id=1408437061]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("10_mejtc")
+stretch_mode = 5
+
+[node name="EmailListSectionMargin" type="MarginContainer" parent="MainWindow/MainVBox/Content/ContentHBox/EmailListSectionPanel" unique_id=1023583282]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 14.0
+offset_right = -15.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="EmailList" type="ScrollContainer" parent="MainWindow/MainVBox/Content/ContentHBox/EmailListSectionPanel/EmailListSectionMargin" unique_id=836206805]
+clip_contents = false
+layout_mode = 2
+
+[node name="EmailListVBox" type="VBoxContainer" parent="MainWindow/MainVBox/Content/ContentHBox/EmailListSectionPanel/EmailListSectionMargin/EmailList" unique_id=109709486]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme = ExtResource("14_motaj")
+
+[node name="EmailViewerPanel" type="TextureRect" parent="MainWindow/MainVBox/Content/ContentHBox" unique_id=1395457429]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("11_xfk65")
+stretch_mode = 5
+
+[node name="MarginContainer" type="MarginContainer" parent="MainWindow/MainVBox/Content/ContentHBox/EmailViewerPanel" unique_id=1409386432]
+layout_mode = 0
+offset_right = 672.0
+offset_bottom = 556.0
+
+[node name="ViewerVBox" type="VBoxContainer" parent="MainWindow/MainVBox/Content/ContentHBox/EmailViewerPanel/MarginContainer" unique_id=933598214]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="MainWindow/MainVBox/Content/ContentHBox/EmailViewerPanel/MarginContainer/ViewerVBox" unique_id=1361426204]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainWindow/MainVBox/Content/ContentHBox/EmailViewerPanel/MarginContainer/ViewerVBox/MarginContainer" unique_id=590242119]
+layout_mode = 2
+
+[node name="SubjectBar" type="PanelContainer" parent="MainWindow/MainVBox/Content/ContentHBox/EmailViewerPanel/MarginContainer/ViewerVBox/MarginContainer/VBoxContainer" unique_id=1389129752]
+layout_mode = 2
+
+[node name="SubjectMargin" type="MarginContainer" parent="MainWindow/MainVBox/Content/ContentHBox/EmailViewerPanel/MarginContainer/ViewerVBox/MarginContainer/VBoxContainer/SubjectBar" unique_id=1243095862]
+layout_mode = 2
+
+[node name="SubjectLabel" type="Label" parent="MainWindow/MainVBox/Content/ContentHBox/EmailViewerPanel/MarginContainer/ViewerVBox/MarginContainer/VBoxContainer/SubjectBar/SubjectMargin" unique_id=54486880]
+layout_mode = 2
+size_flags_vertical = 1
+theme = ExtResource("15_v5uti")
+
+[node name="SenderBar" type="PanelContainer" parent="MainWindow/MainVBox/Content/ContentHBox/EmailViewerPanel/MarginContainer/ViewerVBox/MarginContainer/VBoxContainer" unique_id=651862776]
+layout_mode = 2
+
+[node name="SenderBarMargin" type="MarginContainer" parent="MainWindow/MainVBox/Content/ContentHBox/EmailViewerPanel/MarginContainer/ViewerVBox/MarginContainer/VBoxContainer/SenderBar" unique_id=647335456]
+layout_mode = 2
+
+[node name="SenderBarHBox" type="HBoxContainer" parent="MainWindow/MainVBox/Content/ContentHBox/EmailViewerPanel/MarginContainer/ViewerVBox/MarginContainer/VBoxContainer/SenderBar/SenderBarMargin" unique_id=799444435]
+layout_mode = 2
+
+[node name="ViewerSenderIconArea" type="CenterContainer" parent="MainWindow/MainVBox/Content/ContentHBox/EmailViewerPanel/MarginContainer/ViewerVBox/MarginContainer/VBoxContainer/SenderBar/SenderBarMargin/SenderBarHBox" unique_id=475145078]
+layout_mode = 2
+size_flags_horizontal = 2
+
+[node name="ViewerSenderIcon" type="TextureRect" parent="MainWindow/MainVBox/Content/ContentHBox/EmailViewerPanel/MarginContainer/ViewerVBox/MarginContainer/VBoxContainer/SenderBar/SenderBarMargin/SenderBarHBox/ViewerSenderIconArea" unique_id=2013023054]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+expand_mode = 4
+
+[node name="SenderInfoVBox" type="VBoxContainer" parent="MainWindow/MainVBox/Content/ContentHBox/EmailViewerPanel/MarginContainer/ViewerVBox/MarginContainer/VBoxContainer/SenderBar/SenderBarMargin/SenderBarHBox" unique_id=1306092436]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SenderLabel" type="Label" parent="MainWindow/MainVBox/Content/ContentHBox/EmailViewerPanel/MarginContainer/ViewerVBox/MarginContainer/VBoxContainer/SenderBar/SenderBarMargin/SenderBarHBox/SenderInfoVBox" unique_id=1524311154]
+layout_mode = 2
+theme = ExtResource("15_v5uti")
+
+[node name="AttachmentBar" type="PanelContainer" parent="MainWindow/MainVBox/Content/ContentHBox/EmailViewerPanel/MarginContainer/ViewerVBox/MarginContainer/VBoxContainer" unique_id=1342249179]
+layout_mode = 2
+
+[node name="AttachmentBarMargin" type="MarginContainer" parent="MainWindow/MainVBox/Content/ContentHBox/EmailViewerPanel/MarginContainer/ViewerVBox/MarginContainer/VBoxContainer/AttachmentBar" unique_id=1631781297]
+layout_mode = 2
+
+[node name="AttachmentBarHBox" type="HBoxContainer" parent="MainWindow/MainVBox/Content/ContentHBox/EmailViewerPanel/MarginContainer/ViewerVBox/MarginContainer/VBoxContainer/AttachmentBar/AttachmentBarMargin" unique_id=1267790476]
+visible = false
+layout_mode = 2
+theme = ExtResource("15_v5uti")
+
+[node name="AttachmentLabel" type="Label" parent="MainWindow/MainVBox/Content/ContentHBox/EmailViewerPanel/MarginContainer/ViewerVBox/MarginContainer/VBoxContainer/AttachmentBar/AttachmentBarMargin/AttachmentBarHBox" unique_id=1293822187]
+layout_mode = 2
+
+[node name="BodyArea" type="PanelContainer" parent="MainWindow/MainVBox/Content/ContentHBox/EmailViewerPanel/MarginContainer/ViewerVBox/MarginContainer/VBoxContainer" unique_id=1233633918]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="BodyMargin" type="MarginContainer" parent="MainWindow/MainVBox/Content/ContentHBox/EmailViewerPanel/MarginContainer/ViewerVBox/MarginContainer/VBoxContainer/BodyArea" unique_id=1013466002]
+layout_mode = 2
+
+[node name="BodyText" type="RichTextLabel" parent="MainWindow/MainVBox/Content/ContentHBox/EmailViewerPanel/MarginContainer/ViewerVBox/MarginContainer/VBoxContainer/BodyArea/BodyMargin" unique_id=1737941471]
+custom_minimum_size = Vector2(333, 333)
+layout_mode = 2
+size_flags_vertical = 3
+localize_numeral_system = false
+theme = ExtResource("15_v5uti")
+
+[node name="ActionBar" type="TextureRect" parent="MainWindow/MainVBox/Content/ContentHBox/EmailViewerPanel/MarginContainer/ViewerVBox" unique_id=1688231045]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("12_oqf7v")
+stretch_mode = 5
+
+[node name="ActionBarMargin" type="MarginContainer" parent="MainWindow/MainVBox/Content/ContentHBox/EmailViewerPanel/MarginContainer/ViewerVBox/ActionBar" unique_id=1575904855]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 8
+
+[node name="ActionBarHBox" type="HBoxContainer" parent="MainWindow/MainVBox/Content/ContentHBox/EmailViewerPanel/MarginContainer/ViewerVBox/ActionBar/ActionBarMargin" unique_id=1154855980]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 2
+
+[node name="AcceptButton" type="TextureButton" parent="MainWindow/MainVBox/Content/ContentHBox/EmailViewerPanel/MarginContainer/ViewerVBox/ActionBar/ActionBarMargin/ActionBarHBox" unique_id=1831745300]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("3_n6buh")
+texture_normal = SubResource("AtlasTexture_vwbq0")
+texture_pressed = SubResource("AtlasTexture_yw5ew")
+texture_hover = SubResource("AtlasTexture_oq8lc")
+stretch_mode = 5
+
+[node name="DenyButton" type="TextureButton" parent="MainWindow/MainVBox/Content/ContentHBox/EmailViewerPanel/MarginContainer/ViewerVBox/ActionBar/ActionBarMargin/ActionBarHBox" unique_id=155453117]
+layout_mode = 2
+theme = ExtResource("3_n6buh")
+texture_normal = SubResource("AtlasTexture_cepvy")
+texture_pressed = SubResource("AtlasTexture_v5uti")
+texture_hover = SubResource("AtlasTexture_motaj")
+stretch_mode = 5
+
+[node name="IgnoreButton" type="TextureButton" parent="MainWindow/MainVBox/Content/ContentHBox/EmailViewerPanel/MarginContainer/ViewerVBox/ActionBar/ActionBarMargin/ActionBarHBox" unique_id=1786045066]
+layout_mode = 2
+theme = ExtResource("3_n6buh")
+texture_normal = SubResource("AtlasTexture_gxrcw")
+texture_pressed = SubResource("AtlasTexture_10ylf")
+texture_hover = SubResource("AtlasTexture_oavub")
+stretch_mode = 6
+
+[node name="BottomBar" type="TextureRect" parent="MainWindow/MainVBox" unique_id=1131612848]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("13_p4o1y")
+stretch_mode = 5
+
+[node name="BottomBarMargin" type="MarginContainer" parent="MainWindow/MainVBox/BottomBar" unique_id=1831638499]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BottomBarHBox" type="HBoxContainer" parent="MainWindow/MainVBox/BottomBar/BottomBarMargin" unique_id=291763654]
+layout_mode = 2
+theme_override_constants/separation = -10
+
+[node name="MoneyPanel" type="TextureRect" parent="MainWindow/MainVBox/BottomBar/BottomBarMargin/BottomBarHBox" unique_id=853638787]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("14_b6i5y")
+stretch_mode = 5
+
+[node name="MoneyMargin" type="MarginContainer" parent="MainWindow/MainVBox/BottomBar/BottomBarMargin/BottomBarHBox/MoneyPanel" unique_id=109046310]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 15.0
+offset_top = 11.0
+offset_right = -12.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 2
+size_flags_vertical = 4
+
+[node name="MoneyHBox" type="HBoxContainer" parent="MainWindow/MainVBox/BottomBar/BottomBarMargin/BottomBarHBox/MoneyPanel/MoneyMargin" unique_id=845075412]
+layout_mode = 2
+
+[node name="MoneyIcon" type="TextureRect" parent="MainWindow/MainVBox/BottomBar/BottomBarMargin/BottomBarHBox/MoneyPanel/MoneyMargin/MoneyHBox" unique_id=1232103307]
+layout_mode = 2
+texture = ExtResource("15_dnybs")
+stretch_mode = 5
+
+[node name="MoneyLabel" type="Label" parent="MainWindow/MainVBox/BottomBar/BottomBarMargin/BottomBarHBox/MoneyPanel/MoneyMargin/MoneyHBox" unique_id=60271468]
+layout_mode = 2
+text = "Salary: $----"
+
+[node name="IntegrityPanel" type="TextureRect" parent="MainWindow/MainVBox/BottomBar/BottomBarMargin/BottomBarHBox" unique_id=79246854]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("16_fh72i")
+stretch_mode = 5
+
+[node name="IntegrityMargin" type="MarginContainer" parent="MainWindow/MainVBox/BottomBar/BottomBarMargin/BottomBarHBox/IntegrityPanel" unique_id=434506294]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 22.0
+offset_top = 12.0
+offset_right = -11.0
+offset_bottom = -14.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MainWindow/MainVBox/BottomBar/BottomBarMargin/BottomBarHBox/IntegrityPanel/IntegrityMargin" unique_id=610689025]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MainWindow/MainVBox/BottomBar/BottomBarMargin/BottomBarHBox/IntegrityPanel/IntegrityMargin/HBoxContainer" unique_id=1432244108]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "System Integrity:"
+vertical_alignment = 1
+
+[node name="IntegrityUI" parent="MainWindow/MainVBox/BottomBar/BottomBarMargin/BottomBarHBox/IntegrityPanel/IntegrityMargin/HBoxContainer" unique_id=1043091255 instance=ExtResource("2_ud1h4")]
+layout_mode = 2
+size_flags_horizontal = 6
+
+[node name="TimePanel" type="TextureRect" parent="MainWindow/MainVBox/BottomBar/BottomBarMargin/BottomBarHBox" unique_id=285876294]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("18_mejtc")
+stretch_mode = 5
+
+[node name="TimeMargin" type="MarginContainer" parent="MainWindow/MainVBox/BottomBar/BottomBarMargin/BottomBarHBox/TimePanel" unique_id=1634985651]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 18.0
+offset_right = 95.0
+offset_bottom = 84.0
+size_flags_horizontal = 10
+
+[node name="TimeVBox" type="VBoxContainer" parent="MainWindow/MainVBox/BottomBar/BottomBarMargin/BottomBarHBox/TimePanel/TimeMargin" unique_id=1746047708]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="DayLabel" type="Label" parent="MainWindow/MainVBox/BottomBar/BottomBarMargin/BottomBarHBox/TimePanel/TimeMargin/TimeVBox" unique_id=1079304744]
+layout_mode = 2
+text = "Day 1"
+
+[node name="TimeLabel" type="Label" parent="MainWindow/MainVBox/BottomBar/BottomBarMargin/BottomBarHBox/TimePanel/TimeMargin/TimeVBox" unique_id=75472536]
+layout_mode = 2
+text = "3:00 PM"
+
+[node name="SpawnTimer" type="Timer" parent="." unique_id=430207106]
+
+[node name="HitSound" type="AudioStreamPlayer2D" parent="." unique_id=987071824]
+stream = ExtResource("25_cepvy")
+volume_db = -8.537
+
+[node name="CorrectSound" type="AudioStreamPlayer2D" parent="." unique_id=300037114]
+stream = ExtResource("26_v5uti")
+volume_db = -8.537
+
+[node name="Textbox" parent="." unique_id=1298141367 instance=ExtResource("27_motaj")]
+offset = Vector2(450, 450)
+scale = Vector2(0.67, 0.67)
+transform = Transform2D(0.67, 0, 0, 0.67, 450, 450)
+
+[node name="Notepad" parent="." unique_id=2025402526 instance=ExtResource("28_gxrcw")]
+visible = false
+
+[connection signal="pressed" from="MainWindow/MainVBox/Content/ContentHBox/WidgetSidebarPanel/WidgetSidebarMargin/WidgetSidebarVBox/HomeButton" to="MainWindow/MainVBox/Content/ContentHBox/WidgetSidebarPanel/WidgetSidebarMargin/WidgetSidebarVBox/HomeButton" method="_on_pressed"]
+[connection signal="pressed" from="MainWindow/MainVBox/Content/ContentHBox/WidgetSidebarPanel/WidgetSidebarMargin/WidgetSidebarVBox/ShopWidget" to="MainWindow/MainVBox/Content/ContentHBox/WidgetSidebarPanel/WidgetSidebarMargin/WidgetSidebarVBox/ShopWidget" method="_on_pressed"]

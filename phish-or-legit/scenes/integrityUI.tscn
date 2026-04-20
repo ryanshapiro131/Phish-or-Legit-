@@ -2,6 +2,22 @@
 
 [ext_resource type="Script" uid="uid://vn31b1aqtjil" path="res://scripts/integrityUI.gd" id="1_le0mg"]
 [ext_resource type="FontFile" uid="uid://dc52606rwa2qd" path="res://assets/PixelOperator.ttf" id="2_4j5t6"]
+[ext_resource type="Texture2D" uid="uid://styu0xpo4qnn" path="res://assets/EmailDesktopAssets/IntegBarSprites.png" id="2_72plh"]
+[ext_resource type="Texture2D" uid="uid://3lr5s7liod4m" path="res://assets/EmailDesktopAssets/IntegBarSprites-sheet.png" id="2_lross"]
+[ext_resource type="Texture2D" uid="uid://0euxwl0bkvdx" path="res://assets/EmailDesktopAssets/IntegrityBarProgress.png" id="4_2addc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wg0af"]
+atlas = ExtResource("2_lross")
+region = Rect2(0, 0, 516, 54)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lross"]
+atlas = ExtResource("2_72plh")
+region = Rect2(0, 60, 516, 54)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lq0cv"]
+atlas = ExtResource("4_2addc")
+region = Rect2(0, 0, 492, 30)
+margin = Rect2(12, 12, 24, 24)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_le0mg"]
 content_margin_left = 3.0
@@ -108,29 +124,43 @@ _data = {
 
 [node name="IntegrityUI" type="Control" unique_id=1043091255]
 layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -10.0
+offset_right = 150.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_le0mg")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="." unique_id=1461281898]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_le0mg")
-
-[node name="SystemIntegrityLabel" type="Label" parent="." unique_id=1429689797]
-layout_mode = 0
-offset_left = 15.0
-offset_top = 465.0
-offset_right = 507.0
-offset_bottom = 556.0
-theme_override_fonts/font = ExtResource("2_4j5t6")
-theme_override_font_sizes/font_size = 48
-text = "System Integrity:"
+size_flags_horizontal = 3
+value = 100.0
+stretch_margin_left = 8
+stretch_margin_top = 8
+stretch_margin_right = 8
+stretch_margin_bottom = 8
+texture_under = SubResource("AtlasTexture_wg0af")
+texture_over = SubResource("AtlasTexture_lross")
+texture_progress = SubResource("AtlasTexture_lq0cv")
 
 [node name="IntegrityBar" type="ProgressBar" parent="." unique_id=1855588939]
-layout_mode = 0
-offset_left = 13.0
-offset_top = 540.0
-offset_right = 656.0
-offset_bottom = 634.0
+visible = false
+layout_mode = 1
+offset_right = 643.0
+offset_bottom = 94.0
 theme_override_fonts/font = ExtResource("2_4j5t6")
 theme_override_font_sizes/font_size = 48
 theme_override_styles/background = SubResource("StyleBoxFlat_le0mg")
@@ -139,7 +169,6 @@ step = 1.0
 value = 100.0
 
 [node name="DamageFlash" type="ColorRect" parent="." unique_id=297492583]
-visible = false
 layout_mode = 0
 offset_left = -22.0
 offset_top = -23.0

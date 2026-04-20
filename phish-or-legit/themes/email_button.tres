@@ -1,0 +1,25 @@
+[gd_resource type="Theme" format=3 uid="uid://bw5y7v8qdlh80"]
+
+[ext_resource type="FontFile" uid="uid://dc52606rwa2qd" path="res://assets/PixelOperator.ttf" id="1_ew4g2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_80n8e"]
+bg_color = Color(0.5096349, 0.5442721, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u4aqv"]
+bg_color = Color(0, 0.16634968, 0.35819906, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4hlsu"]
+bg_color = Color(0.55685854, 0.6954193, 1, 1)
+
+[resource]
+default_font = ExtResource("1_ew4g2")
+default_font_size = 32
+Button/colors/font_color = Color(0.8718111, 0.8441092, 0, 1)
+Button/colors/font_focus_color = Color(0.95, 0.95, 0.95, 1)
+Button/colors/icon_normal_color = Color(0.38743624, 0.4382861, 0.54928, 1)
+Button/colors/icon_pressed_color = Color(1, 1, 1, 1)
+Button/constants/h_separation = 0
+Button/fonts/font = ExtResource("1_ew4g2")
+Button/styles/hover = SubResource("StyleBoxFlat_80n8e")
+Button/styles/normal = SubResource("StyleBoxFlat_u4aqv")
+Button/styles/pressed = SubResource("StyleBoxFlat_4hlsu")

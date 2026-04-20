@@ -1,8 +1,7 @@
 extends Control
  
-@onready var integrity_bar: ProgressBar = $IntegrityBar
+@onready var integrity_bar: TextureProgressBar = $TextureProgressBar
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
-@onready var percent_label: Label = $SystemIntegrityLabel
  
 func _ready():
 	_sync_from_game_manager()
@@ -10,13 +9,11 @@ func _ready():
 # Call this any time you need the UI to reflect the current GameManager value
 func _sync_from_game_manager():
 	integrity_bar.value = GameManager.system_integrity
-	percent_label.text = "System Integrity:"
 	update_bar_color()
  
 func lose_integrity(amount: int):
 	GameManager.lose_integrity(amount)
 	integrity_bar.value = GameManager.system_integrity
-	percent_label.text = str(GameManager.system_integrity) + "%"
 	update_bar_color()
 	animation_player.play("integrity_hit")
  

@@ -4,8 +4,11 @@
 [ext_resource type="AudioStream" uid="uid://cpp8isdv7glje" path="res://assets/time_for_adventure.mp3" id="1_u05yr"]
 
 [node name="GameManager" type="Node" unique_id=27876761]
+process_mode = 3
 script = ExtResource("1_qppyr")
 
 [node name="BGMusic" type="AudioStreamPlayer2D" parent="." unique_id=676263933]
+process_mode = 3
 stream = ExtResource("1_u05yr")
 autoplay = true
+parameters/looping = true

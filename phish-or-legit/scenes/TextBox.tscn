@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://c0hy1rnkdl0b8" path="res://scripts/text_box.gd" id="1_jxvgk"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3fk4r"]
-bg_color = Color(0, 0, 0, 0.6784314)
+bg_color = Color(0, 0, 0, 0.83137256)
 border_width_left = 5
 border_width_top = 5
 border_width_right = 5
@@ -12,9 +12,10 @@ border_width_bottom = 5
 border_color = Color(1, 1, 1, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2g6gp"]
-bg_color = Color(0.47058824, 0.47058824, 0.47058824, 0.2509804)
+bg_color = Color(0.47058824, 0.47058824, 0.47058824, 0)
 
 [node name="Textbox" type="CanvasLayer" unique_id=1298141367]
+process_mode = 3
 script = ExtResource("1_jxvgk")
 
 [node name="TextboxContainer" type="MarginContainer" parent="." unique_id=1961087648]

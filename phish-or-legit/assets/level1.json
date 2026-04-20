@@ -1,0 +1,78 @@
+{
+  "level": 1,
+  "quota": 5,
+  "emails": [
+    {
+      "sender": "boss@fbi.gov",
+      "subject": "Team Meeting",
+      "body": "Reminder: we have our weekly 3PM team meeting today in conference room B. Please bring your status update.",
+      "is_phishing": false,
+      "damage": 0,
+      "reward": 15,
+      "difficulty": 1
+    },
+    {
+      "sender": "hr@fbi.gov",
+      "subject": "Updated Holiday Schedule",
+      "body": "Please find the updated holiday schedule for Q2 attached. No action required.",
+      "is_phishing": false,
+      "damage": 0,
+      "reward": 15,
+      "difficulty": 1
+    },
+    {
+      "sender": "it@fbi.gov",
+      "subject": "Scheduled Maintenance Tonight",
+      "body": "Systems will be down from 11PM to 1AM for routine maintenance. No action required.",
+      "is_phishing": false,
+      "damage": 0,
+      "reward": 15,
+      "difficulty": 1
+    },
+    {
+      "sender": "admin-secure@fb1.com",
+      "subject": "Account Suspended",
+      "body": "Your account has been SUSPENDED. Click immediately to restore access or lose your data forever!!!",
+      "is_phishing": true,
+      "damage": 20,
+      "reward": 0,
+      "difficulty": 1
+    },
+    {
+      "sender": "support@paypai.com",
+      "subject": "Unusual Activity Detected",
+      "body": "We have locked your account due to suspicious login. Verify your identity IMMEDIATELY or lose access permanently.",
+      "is_phishing": true,
+      "damage": 20,
+      "reward": 0,
+      "difficulty": 1
+    },
+    {
+      "sender": "noreply@amaz0n-support.com",
+      "subject": "Your Order Has Been Cancelled",
+      "body": "Your recent order was flagged for fraud. Click here NOW to confirm your payment details and avoid account closure.",
+      "is_phishing": true,
+      "damage": 20,
+      "reward": 0,
+      "difficulty": 1
+    },
+    {
+      "sender": "newsletter@techdigest.com",
+      "subject": "Your Weekly Tech Digest",
+      "body": "This week in tech: AI developments, new hardware releases, and cybersecurity updates.",
+      "is_phishing": false,
+      "damage": 0,
+      "reward": 10,
+      "difficulty": 1
+    },
+    {
+      "sender": "payroll@fbi.gov",
+      "subject": "Your Pay Stub is Ready",
+      "body": "Your latest pay stub is available in the employee portal at portal.fbi.gov. Log in to view it.",
+      "is_phishing": false,
+      "damage": 0,
+      "reward": 10,
+      "difficulty": 1
+    }
+  ]
+}
