@@ -13,7 +13,7 @@ signal powerups_changed
 var system_integrity: int = 100
 var max_system_integrity: int = BASE_MAX_INTEGRITY
 
-var salary: int = 0
+var salary: int = 10000
 var tutorial_shown: bool = false
 var tutorial_wrong_choice: bool = false
 
@@ -23,7 +23,10 @@ var incorrect_emails: int = 0
 var current_quota: int = 5
 
 var notepad_text: String = ""
-
+var feedback_true_positive_shown: bool = false
+var feedback_false_positive_shown: bool = false
+var feedback_true_negative_shown: bool = false
+var feedback_false_negative_shown: bool = false
 # Upgrades are one-time purchases; power-ups can be rebought.
 var has_spam_filter_upgrade: bool = false
 var grant_tier: int = 0

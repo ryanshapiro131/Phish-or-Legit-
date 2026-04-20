@@ -321,8 +321,6 @@ func _handle_wrong_answer(damage: int):
 	integrity_ui.lose_integrity(damage)
 	_fire_trigger("on_first_wrong")
 	hit_sound.play()
-	$MainWindow/MainVBox/BottomBar/BottomBarMargin/BottomBarHBox/IntegrityPanel/IntegrityMargin/HBoxContainer/IntegrityUI/AnimationPlayer.play("integrity_hit")
-	
 
 
 # -----------------------------------------

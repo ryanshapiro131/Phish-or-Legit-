@@ -422,6 +422,8 @@ stream = ExtResource("16_j14q8")
 volume_db = -8.537
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1258885894]
+position = Vector2(241.715, 176.455)
+zoom = Vector2(0.67, 0.67)
 
 [connection signal="pressed" from="EmailButton" to="EmailButton" method="_on_pressed"]
 [connection signal="pressed" from="HomeButton" to="HomeButton" method="_on_pressed"]
