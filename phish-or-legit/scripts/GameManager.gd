@@ -13,7 +13,7 @@ signal powerups_changed
 var system_integrity: int = 100
 var max_system_integrity: int = BASE_MAX_INTEGRITY
 
-var salary: int = 10000
+var salary: int = 0
 var tutorial_shown: bool = false
 var tutorial_wrong_choice: bool = false
 
@@ -158,8 +158,7 @@ func try_purchase_grant() -> bool:
 
 func try_purchase_encrypted_storage() -> bool:
 	encrypted_storage_tier += 1
-	max_system_integrity += ENCRYPTED_STORAGE_BONUS
-	system_integrity = min(system_integrity + ENCRYPTED_STORAGE_BONUS, max_system_integrity)
+	system_integrity = mini(system_integrity + ENCRYPTED_STORAGE_BONUS, BASE_MAX_INTEGRITY)
 	integrity_changed.emit()
 	powerups_changed.emit()
 	return true

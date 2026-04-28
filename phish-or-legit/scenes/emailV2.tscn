@@ -134,6 +134,22 @@ region = Rect2(432, 0, 216, 78)
 atlas = ExtResource("15_fh72i")
 region = Rect2(216, 0, 216, 84)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_inv_opaque"]
+bg_color = Color(0.12, 0.14, 0.22, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+corner_detail = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_inv_divider"]
+bg_color = Color(0.42, 0.46, 0.58, 1)
+
 [node name="EmailUI" type="Control" unique_id=1737163360]
 layout_mode = 3
 anchors_preset = 15
@@ -665,6 +681,72 @@ scale = Vector2(0.67, 0.67)
 transform = Transform2D(0.67, 0, 0, 0.67, 450, 450)
 
 [node name="Notepad" parent="." unique_id=2025402526 instance=ExtResource("28_gxrcw")]
+
+[node name="InventoryPopup" type="PopupPanel" parent="." unique_id=1716712160]
+unique_name_in_owner = true
+transparent_bg = false
+oversampling_override = 1.0
+title = "Inventory"
+size = Vector2i(420, 320)
+transparent = false
+theme_override_styles/panel = SubResource("StyleBoxFlat_inv_opaque")
+
+[node name="MarginContainer" type="MarginContainer" parent="InventoryPopup" unique_id=1147573506]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 418.0
+offset_bottom = 318.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="VBox" type="VBoxContainer" parent="InventoryPopup/MarginContainer" unique_id=158054489]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="UpgradesInventoryRichText" type="RichTextLabel" parent="InventoryPopup/MarginContainer/VBox" unique_id=1612057925]
+custom_minimum_size = Vector2(50, 80)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/normal_font = ExtResource("2_n6buh")
+theme_override_fonts/bold_font = ExtResource("2_n6buh")
+theme_override_fonts/bold_italics_font = ExtResource("2_n6buh")
+theme_override_fonts/italics_font = ExtResource("2_n6buh")
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+fit_content = false
+scroll_active = true
+
+[node name="InventoryDivider" type="Panel" parent="InventoryPopup/MarginContainer/VBox" unique_id=1612057926]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_inv_divider")
+
+[node name="PowerUpsInventoryRichText" type="RichTextLabel" parent="InventoryPopup/MarginContainer/VBox" unique_id=1612057927]
+custom_minimum_size = Vector2(50, 80)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/normal_font = ExtResource("2_n6buh")
+theme_override_fonts/bold_font = ExtResource("2_n6buh")
+theme_override_fonts/bold_italics_font = ExtResource("2_n6buh")
+theme_override_fonts/italics_font = ExtResource("2_n6buh")
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+fit_content = false
+scroll_active = true
+
+[node name="CloseButton" type="Button" parent="InventoryPopup/MarginContainer/VBox" unique_id=344259729]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_n6buh")
+theme_override_font_sizes/font_size = 26
+text = "Close"
 
 [connection signal="pressed" from="MainWindow/MainVBox/Content/ContentHBox/WidgetSidebarPanel/WidgetSidebarMargin/WidgetSidebarVBox/HomeButton" to="MainWindow/MainVBox/Content/ContentHBox/WidgetSidebarPanel/WidgetSidebarMargin/WidgetSidebarVBox/HomeButton" method="_on_pressed"]
 [connection signal="pressed" from="MainWindow/MainVBox/Content/ContentHBox/WidgetSidebarPanel/WidgetSidebarMargin/WidgetSidebarVBox/ShopWidget" to="MainWindow/MainVBox/Content/ContentHBox/WidgetSidebarPanel/WidgetSidebarMargin/WidgetSidebarVBox/ShopWidget" method="_on_pressed"]

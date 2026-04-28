@@ -70,10 +70,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -1180.0
-offset_top = -635.0
-offset_right = 1663.0
-offset_bottom = 967.0
+offset_left = -1231.0
+offset_top = -807.0
+offset_right = 1699.0
+offset_bottom = 1148.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_gobkm")
@@ -203,9 +203,9 @@ text = "$100"
 
 [node name="Cost4" type="Label" parent="." unique_id=576246810]
 layout_mode = 0
-offset_left = 1124.0
+offset_left = 1164.0
 offset_top = 470.0
-offset_right = 1268.0
+offset_right = 1308.0
 offset_bottom = 546.0
 theme_override_fonts/font = ExtResource("4_fgaav")
 theme_override_font_sizes/font_size = 75
@@ -256,7 +256,7 @@ custom_minimum_size = Vector2(1, 1)
 layout_mode = 0
 offset_left = -1030.0
 offset_top = -495.0
-offset_right = 1486.0
+offset_right = 1497.0
 offset_bottom = -479.0
 texture = ExtResource("3_blqjs")
 expand_mode = 1
@@ -265,7 +265,7 @@ expand_mode = 1
 layout_mode = 0
 offset_left = 221.0
 offset_top = -125.0
-offset_right = 1486.0
+offset_right = 1496.0
 offset_bottom = -109.0
 texture = ExtResource("3_blqjs")
 expand_mode = 1
@@ -274,7 +274,7 @@ expand_mode = 1
 layout_mode = 0
 offset_left = 206.0
 offset_top = 125.0
-offset_right = 1486.0
+offset_right = 1498.0
 offset_bottom = 141.0
 texture = ExtResource("3_blqjs")
 expand_mode = 1
@@ -283,7 +283,7 @@ expand_mode = 1
 layout_mode = 0
 offset_left = 205.0
 offset_top = 348.0
-offset_right = 1486.0
+offset_right = 1497.0
 offset_bottom = 364.0
 texture = ExtResource("3_blqjs")
 expand_mode = 1
@@ -300,7 +300,7 @@ expand_mode = 1
 [node name="Divider6" type="TextureRect" parent="." unique_id=255924487]
 layout_mode = 0
 offset_left = 205.0
-offset_top = -631.0
+offset_top = -612.0
 offset_right = 221.0
 offset_bottom = 713.0
 texture = ExtResource("3_blqjs")
@@ -311,7 +311,7 @@ custom_minimum_size = Vector2(1, 1)
 layout_mode = 0
 offset_left = -1030.0
 offset_top = 700.0
-offset_right = 1486.0
+offset_right = 1498.0
 offset_bottom = 716.0
 texture = ExtResource("3_blqjs")
 expand_mode = 1
@@ -354,9 +354,9 @@ script = ExtResource("8_5u241")
 
 [node name="Grant Button" type="Button" parent="." unique_id=929528521]
 layout_mode = 0
-offset_left = 1251.0
+offset_left = 1275.0
 offset_top = 447.0
-offset_right = 1441.0
+offset_right = 1465.0
 offset_bottom = 549.0
 theme_override_fonts/font = ExtResource("4_fgaav")
 theme_override_font_sizes/font_size = 55
@@ -410,12 +410,11 @@ texture_normal = SubResource("AtlasTexture_m4ofw")
 script = ExtResource("7_ajxib")
 
 [node name="IntegrityUI" parent="." unique_id=1043091255 instance=ExtResource("8_y6sft")]
-visible = false
 layout_mode = 1
-offset_left = -725.0
-offset_top = 1317.0
-offset_right = -488.0
-offset_bottom = 1525.0
+offset_left = -845.0
+offset_top = 755.0
+offset_right = -608.0
+offset_bottom = 963.0
 
 [node name="BuySound" type="AudioStreamPlayer2D" parent="." unique_id=1958106485]
 stream = ExtResource("16_j14q8")
@@ -423,7 +422,6 @@ volume_db = -8.537
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1258885894]
 position = Vector2(241.715, 176.455)
-zoom = Vector2(0.67, 0.67)
 
 [connection signal="pressed" from="EmailButton" to="EmailButton" method="_on_pressed"]
 [connection signal="pressed" from="HomeButton" to="HomeButton" method="_on_pressed"]

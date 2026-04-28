@@ -9,6 +9,7 @@ const RED_PROGRESS = preload("uid://bn1sht7ywn5ra")
 
 
 func _ready():
+	GameManager.integrity_changed.connect(_sync_from_game_manager)
 	_sync_from_game_manager()
  
 # Call this any time you need the UI to reflect the current GameManager value

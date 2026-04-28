@@ -52,16 +52,27 @@ var triggers_fired: Dictionary = {
 @onready var correct_sound        = $CorrectSound
 @onready var textbox              = $Textbox
 @onready var notepad: CanvasLayer = $Notepad
+@onready var inventory_widget: BaseButton = $MainWindow/MainVBox/Content/ContentHBox/WidgetSidebarPanel/WidgetSidebarMargin/WidgetSidebarVBox/InventoryWidget
+@onready var folder_sidebar_vbox: VBoxContainer = $MainWindow/MainVBox/Content/ContentHBox/FolderSidebarPanel/FolderSidebarMargin/FolderSidebarVBox
+@onready var inventory_popup: PopupPanel = $InventoryPopup
+@onready var inventory_upgrades_richtext: RichTextLabel = $InventoryPopup/MarginContainer/VBox/UpgradesInventoryRichText
+@onready var inventory_powerups_richtext: RichTextLabel = $InventoryPopup/MarginContainer/VBox/PowerUpsInventoryRichText
+@onready var time_label: Label = $MainWindow/MainVBox/BottomBar/BottomBarMargin/BottomBarHBox/TimePanel/TimeMargin/TimeHBox/TimeVBox/TimeLabel
 
 
 # -----------------------------------------
 # READY
 # -----------------------------------------
 func _ready():
+	body_text.bbcode_enabled = true
 	connect_buttons()
 	_load_level(GameManager.current_level)
 	_seed_initial_emails()
 	populate_email_list()
+	GameManager.powerups_changed.connect(_refresh_inventory_text)
+	inventory_widget.pressed.connect(_on_inventory_widget_pressed)
+	$InventoryPopup/MarginContainer/VBox/CloseButton.pressed.connect(_on_inventory_close_pressed)
+	_refresh_inventory_text()
 
 	spawn_timer.wait_time = EMAIL_SPAWN_INTERVAL
 	spawn_timer.timeout.connect(_on_spawn_timer)
@@ -92,7 +103,11 @@ func _ready():
 
 
 func _process(_delta):
+	GameManager.tick_hyperlink_analyzer(_delta)
 	score.text = "Correct Emails: " + str(GameManager.correct_emails) + "/" + str(level_quota)
+	_update_hyperlink_countdown_label()
+	if inventory_popup.visible:
+		_refresh_inventory_text()
 
 
 # -----------------------------------------
@@ -223,7 +238,7 @@ func open_email(email: EmailData):
 	current_email = email
 	sender_label.text = "From: " + email.sender
 	subject_label.text = "Subject: " + email.subject
-	body_text.text = email.body
+	body_text.text = _apply_spam_highlights(email.body)
 	sender_icon.texture = load("res://assets/icons/" + email.icon)
 
 
@@ -256,7 +271,7 @@ func on_accept_pressed():
 	else:
 		GameManager.correct_emails += 1
 		correct_sound.play()
-		GameManager.add_salary(current_email.reward)
+		GameManager.add_salary_for_correct_answer(current_email.reward)
 		_update_money_label()
 		_fire_trigger("on_first_correct")
 		_check_quota()
@@ -288,7 +303,7 @@ func on_deny_pressed():
 	else:
 		correct_sound.play()
 		GameManager.correct_emails += 1
-		GameManager.add_salary(current_email.reward)
+		GameManager.add_salary_for_correct_answer(current_email.reward)
 		_update_money_label()
 		_fire_trigger("on_first_correct")
 		_check_quota()
@@ -318,7 +333,11 @@ func on_ignore_pressed():
 # -----------------------------------------
 func _handle_wrong_answer(damage: int):
 	GameManager.incorrect_emails += 1
-	integrity_ui.lose_integrity(damage)
+	if GameManager.consume_ai_firewall():
+		print("AI Firewall blocked damage!")
+	else:
+		integrity_ui.lose_integrity(damage)
+	GameManager.disable_grant()
 	_fire_trigger("on_first_wrong")
 	hit_sound.play()
 
@@ -340,6 +359,74 @@ func _check_quota():
 # -----------------------------------------
 func _update_money_label():
 	money_label.text = "Salary: $" + str(GameManager.salary)
+
+func _update_hyperlink_countdown_label() -> void:
+	if GameManager.is_hyperlink_analyzer_active():
+		var sec := int(ceil(GameManager.get_hyperlink_time_remaining()))
+		var mm := sec / 60
+		var ss := sec % 60
+		time_label.text = "Analyzer %02d:%02d" % [mm, ss]
+	else:
+		time_label.text = "3:00 PM"
+
+func _on_inventory_widget_pressed() -> void:
+	_refresh_inventory_text()
+	await get_tree().process_frame
+	var gr := folder_sidebar_vbox.get_global_rect()
+	var r := Rect2i(int(gr.position.x), int(gr.position.y), int(gr.size.x), int(gr.size.y))
+	inventory_popup.popup(r)
+
+func _on_inventory_close_pressed() -> void:
+	inventory_popup.hide()
+
+func _join_inventory_lines(lines: PackedStringArray) -> String:
+	var out := ""
+	for i in range(lines.size()):
+		if i > 0:
+			out += "\n"
+		out += lines[i]
+	return out
+
+func _refresh_inventory_text() -> void:
+	var upgrade_lines: PackedStringArray = []
+	if GameManager.has_spam_filter_upgrade:
+		upgrade_lines.append("[b]Spam Filter[/b] — keyword highlights")
+	if GameManager.has_encrypted_backup_upgrade:
+		if GameManager.encrypted_backup_charges > 0:
+			upgrade_lines.append("[b]Encrypted Backup[/b] — one restore available if integrity hits 0")
+		else:
+			upgrade_lines.append("[b]Encrypted Backup[/b] — already used this run")
+	if upgrade_lines.is_empty():
+		upgrade_lines.append("[i]No upgrades yet — buy from the shop on the desktop.[/i]")
+
+	var powerup_lines: PackedStringArray = []
+	if GameManager.grant_tier > 0:
+		powerup_lines.append("[b]Grant[/b] — active; streak bonus +$5, +$10, +$15, then +$20 max until you miss one")
+	if GameManager.encrypted_storage_tier > 0:
+		powerup_lines.append("[b]Encrypted Storage[/b] ×%d — Regain 30 health" % GameManager.encrypted_storage_tier)
+	if GameManager.ai_firewall_charges > 0:
+		powerup_lines.append("[b]AI Firewall[/b] — %d charge(s)" % GameManager.ai_firewall_charges)
+	if GameManager.is_hyperlink_analyzer_active():
+		powerup_lines.append("[b]Hyperlink Analyzer[/b] — active %ds left; counts down only while in email view" % int(ceil(GameManager.get_hyperlink_time_remaining())))
+	else:
+		powerup_lines.append("[color=#aaaaaa]Hyperlink Analyzer — inactive (90s timed buff from shop; timer runs only on email screen)[/color]")
+	if powerup_lines.is_empty():
+		powerup_lines.append("[i]No power-ups active.[/i]")
+
+	inventory_upgrades_richtext.text = _join_inventory_lines(upgrade_lines)
+	inventory_powerups_richtext.text = _join_inventory_lines(powerup_lines)
+
+func _apply_spam_highlights(text: String) -> String:
+	if not GameManager.has_spam_filter_upgrade:
+		return text
+	var out := text
+	var keywords := ["urgent", "account suspended", "verify", "password", "click here", "immediately"]
+	for key in keywords:
+		var pattern: String = "(?i)\\b" + String(key).replace(" ", "\\s+") + "\\b"
+		var regex := RegEx.new()
+		if regex.compile(pattern) == OK:
+			out = regex.sub(out, "[color=#ffd24d]$0[/color]", true)
+	return out
 
 func remove_current_email():
 	sender_label.text = ""
