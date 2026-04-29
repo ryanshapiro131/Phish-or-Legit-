@@ -1,96 +1,160 @@
 {
   "level": 3,
-  "quota": 10,
+  "quota": 8,
   "emails": [
 	{
-	  "sender": "hr@fbi.gov.hr-portal.com",
-	  "subject": "Open Enrollment Reminder",
-	  "body": "This is your reminder to complete benefits open enrollment by end of week. Log in at the HR portal link below.",
-	  "is_phishing": true,
-	  "damage": 30,
+	  "sender": "boss@fbi.gov",
+	  "subject": "Morning Champ!!",
+	  "body": "Hey!!\n\nDay three!! Can you believe it?! Feels like you've been here forever already in the best way possible!!\n\nThings are a little tense around the office today if I'm being honest. The Hargrove case audit is getting a lot of attention from upstairs and everyone is a bit on edge. Nothing for you to worry about though — just keep doing what you're doing and we'll all be fine!!\n\nAlso, if anyone asks you about anything related to the Hargrove case — just direct them to me, okay? I'm handling all communications on that one personally.\n\nBob\nDirector, Cyber Division",
+	  "is_phishing": false,
+	  "damage": 0,
 	  "reward": 0,
-	  "difficulty": 3
-	},
-	{
-	  "sender": "payroll@fbi.gov.payroll-update.com",
-	  "subject": "Direct Deposit Update Required",
-	  "body": "Please verify your direct deposit information for the upcoming pay period. No changes will result in a delayed payment.",
-	  "is_phishing": true,
-	  "damage": 30,
-	  "reward": 0,
-	  "difficulty": 3
+	  "difficulty": 3,
+	  "icon": "boss.png",
+	  "trigger": "on_start"
 	},
 	{
 	  "sender": "it@fbi.gov",
-	  "subject": "System Update Complete",
-	  "body": "The scheduled system update has been completed successfully. No action is required on your part.",
+	  "subject": "Network Traffic Update — This Is Concerning",
+	  "body": "Hey,\n\nSo I've been digging into that outbound traffic from two nights ago and I'm not going to sugarcoat it — it's weird.\n\nThe data packets are small and irregular, which usually means someone is trying to avoid detection. The traffic is routing through an internal machine, which means either someone on our network is doing this intentionally or we have a serious compromise.\n\nI've flagged it with my supervisor but haven't heard back yet. In the meantime, be extra careful about what you're approving today. Something is off.\n\nAlex\nIT Department, FBI",
 	  "is_phishing": false,
 	  "damage": 0,
-	  "reward": 15,
-	  "difficulty": 3
+	  "reward": 0,
+	  "difficulty": 3,
+	  "icon": "it.png",
+	  "trigger": "on_start"
+	},
+	{
+	  "sender": "anonymous",
+	  "subject": "You Need to See This",
+	  "body": "I can't tell you who I am.\n\nCheck who requested the Hargrove case files on Tuesday night at 11:14 PM. Then check who was still in the building.\n\nDon't forward this email. Don't reply. Just look into it.\n\nAnd be very careful about what you approve today.",
+	  "is_phishing": false,
+	  "damage": 0,
+	  "reward": 0,
+	  "difficulty": 3,
+	  "icon": "unknown.png",
+	  "trigger": "on_start"
+	},
+	{
+	  "sender": "boss@fbi.gov",
+	  "subject": "Keep It Up!!",
+	  "body": "Hey champ!!\n\nSeriously, your work this week has been outstanding. I've been bragging about you to the whole floor!!\n\nHey quick thing — if you get any emails today asking about network logs or internal access records, just go ahead and ignore those. IT has been sending some automated alerts that are causing confusion and I've already asked them to stop. No need to action any of that!!\n\nKeep crushing it!!\n\nBob\nDirector, Cyber Division",
+	  "is_phishing": false,
+	  "damage": 0,
+	  "reward": 10,
+	  "difficulty": 3,
+	  "icon": "boss.png",
+	  "trigger": "on_first_correct"
+	},
+	{
+	  "sender": "hr@fbi.gov",
+	  "subject": "Checking In",
+	  "body": "Hello,\n\nI hope you don't mind me reaching out directly. I wanted to check in and see how things are going for you this week.\n\nI know it can be a lot, especially with everything that's been going on around the office. Between us — I've noticed Bob has been acting strangely lately. Staying very late, seems distracted, a little snappy in meetings. It's probably just the pressure of the audit but I just wanted to flag it.\n\nAnyway. If you ever need to talk, my door is always open. Literally, unlike some people.\n\nTake care of yourself.\n\nAmelia\nHR Department, FBI",
+	  "is_phishing": false,
+	  "damage": 0,
+	  "reward": 10,
+	  "difficulty": 3,
+	  "icon": "hr.png",
+	  "trigger": "on_first_wrong"
+	},
+	{
+	  "sender": "it@fbi.gov",
+	  "subject": "I Think I Know Where It's Coming From",
+	  "body": "Hey,\n\nI need to keep this brief because I don't want to put anything sensitive in writing until I'm sure.\n\nThe traffic is originating from a machine on the executive floor. I can't narrow it down further without physical access to the logs and I've been told to stand down by my supervisor — which is unusual.\n\nJust... be careful today. Really careful.\n\nAlex\nIT Department, FBI",
+	  "is_phishing": false,
+	  "damage": 0,
+	  "reward": 10,
+	  "difficulty": 3,
+	  "icon": "it.png",
+	  "trigger": "on_quota_half"
+	},
+	{
+	  "sender": "boss@fbi.gov",
+	  "subject": "Urgent File Transfer — Need Your Help",
+	  "body": "Hey,\n\nSorry for the informal email but I need a favour and I need it quickly.\n\nI need you to approve a file transfer request that's going to come through the system in the next few minutes. It's related to the Hargrove case and it's time sensitive. I'd do it myself but I'm stuck in a meeting and can't access my terminal.\n\nDon't go through the normal approval channel on this one — just use the direct transfer link I'm attaching. It'll be faster and we really can't afford a delay on this.\n\nThanks champ, I owe you one.\n\nBob",
+	  "is_phishing": true,
+	  "damage": 35,
+	  "reward": 0,
+	  "difficulty": 3,
+	  "icon": "boss.png",
+	  "trigger": "none"
 	},
 	{
 	  "sender": "security@fbi.gov",
 	  "subject": "Routine Password Audit",
-	  "body": "As part of our quarterly audit, please confirm your current password meets policy requirements via the internal portal.",
+	  "body": "Hello,\n\nAs part of our quarterly security audit, we are reminding all staff to ensure their passwords meet current FBI policy requirements.\n\nPasswords must be at least 12 characters, include one uppercase letter, one number, and one special character. You can update your password at any time through the internal IT portal at it.fbi.gov.\n\nDo not reply to this email with your password. If you need assistance, contact the help desk directly at extension 5500.\n\nSecurity Team\nFBI",
 	  "is_phishing": false,
 	  "damage": 0,
 	  "reward": 15,
-	  "difficulty": 3
+	  "difficulty": 3,
+	  "icon": "it.png",
+	  "trigger": "none"
 	},
 	{
-	  "sender": "security@fbi-gov.net",
-	  "subject": "Urgent: Account Access Review",
-	  "body": "We have detected irregular access patterns on your account. Please confirm your credentials immediately to avoid suspension.",
+	  "sender": "hr@fbi.gov.hr-portal.com",
+	  "subject": "Open Enrollment Reminder",
+	  "body": "Hello,\n\nThis is a reminder that the benefits open enrollment window closes at the end of this week. All employees are required to log in and confirm their selections, even if no changes are being made.\n\nPlease use the link below to access the HR portal and complete your enrollment before the deadline. Failure to confirm by Friday will result in your current benefits being dropped until the next enrollment period.\n\nHR Department\nFBI",
 	  "is_phishing": true,
 	  "damage": 30,
 	  "reward": 0,
-	  "difficulty": 3
+	  "difficulty": 3,
+	  "icon": "hr.png",
+	  "trigger": "none"
 	},
 	{
 	  "sender": "it@fbi.gov",
 	  "subject": "New Remote Access Tool",
-	  "body": "IT has deployed a new remote access tool. Please download and install it from the link below before your next remote session.",
+	  "body": "Hello,\n\nIT has finished rolling out our new remote access solution to replace the legacy VPN client. All staff who work remotely are required to install this tool before their next remote session.\n\nPlease download the installer from the link below and follow the on-screen instructions. The installation takes approximately 5 minutes and does not require a system restart.\n\nIf you encounter any issues during installation, contact the help desk at extension 5500.\n\nIT Department\nFBI",
 	  "is_phishing": true,
 	  "damage": 30,
 	  "reward": 0,
-	  "difficulty": 3
+	  "difficulty": 3,
+	  "icon": "unknown.png",
+	  "trigger": "none"
 	},
 	{
-	  "sender": "boss@fbi.gov",
-	  "subject": "Budget Report Due Friday",
-	  "body": "Just a reminder the Q2 budget report is due Friday COB. Please upload it to the shared drive when ready.",
-	  "is_phishing": false,
-	  "damage": 0,
-	  "reward": 15,
-	  "difficulty": 3
-	},
-	{
-	  "sender": "hr@fbi.gov",
-	  "subject": "Performance Review Scheduled",
-	  "body": "Your annual performance review has been scheduled for next Tuesday at 2PM. Please come prepared with your self-assessment.",
-	  "is_phishing": false,
-	  "damage": 0,
-	  "reward": 15,
-	  "difficulty": 3
+	  "sender": "payroll@fbi.gov.payroll-update.com",
+	  "subject": "Direct Deposit Update Required",
+	  "body": "Hello,\n\nAs part of our annual banking verification process, all employees are required to confirm their direct deposit information before the end of the pay period.\n\nThis is a mandatory step to ensure there are no delays in your upcoming payment. Please follow the link below to log in to the payroll portal and verify your details.\n\nIf no action is taken, your payment may be held until verification is complete.\n\nPayroll Department\nFBI",
+	  "is_phishing": true,
+	  "damage": 30,
+	  "reward": 0,
+	  "difficulty": 3,
+	  "icon": "unknown.png",
+	  "trigger": "none"
 	},
 	{
 	  "sender": "compliance@fbi.gov.compliance-check.com",
 	  "subject": "Compliance Certification Required",
-	  "body": "Your annual compliance certification is overdue. Please complete it immediately using the secure link below.",
+	  "body": "Dear Employee,\n\nOur records indicate that your annual compliance certification has not yet been completed and is now overdue.\n\nAll FBI personnel are required to hold a current compliance certification as a condition of employment. Failure to complete this certification within 48 hours may result in restricted system access until the requirement is fulfilled.\n\nPlease click the secure link below to complete your certification. The process takes approximately 10 minutes.\n\nDo not forward this email. This link is unique to your account.\n\nCompliance Department\nFBI",
 	  "is_phishing": true,
 	  "damage": 30,
 	  "reward": 0,
-	  "difficulty": 3
+	  "difficulty": 3,
+	  "icon": "unknown.png",
+	  "trigger": "none"
+	},
+	{
+	  "sender": "boss@fbi.gov",
+	  "subject": "Forget That Last Email",
+	  "body": "Hey,\n\nIgnore that last email I sent about the file transfer. I was able to handle it myself.\n\nSorry for the confusion. Stressful day.\n\nBob",
+	  "is_phishing": false,
+	  "damage": 0,
+	  "reward": 10,
+	  "difficulty": 3,
+	  "icon": "boss.png",
+	  "trigger": "none"
 	},
 	{
 	  "sender": "it@fbi.gov",
 	  "subject": "VPN Maintenance Window",
-	  "body": "VPN access will be unavailable this Saturday from 2AM to 6AM for scheduled maintenance.",
+	  "body": "Hello,\n\nPlease be aware that VPN access will be unavailable this Saturday from 2AM to 6AM due to scheduled infrastructure maintenance.\n\nIf you plan to work remotely during this window, please ensure your work is saved and connections are closed before 2AM. Access will be restored automatically once maintenance is complete.\n\nNo action is required. Contact the help desk at extension 5500 if you experience any issues after the maintenance window.\n\nIT Department\nFBI",
 	  "is_phishing": false,
 	  "damage": 0,
 	  "reward": 10,
-	  "difficulty": 3
+	  "difficulty": 3,
+	  "icon": "it.png",
+	  "trigger": "none"
 	}
   ]
 }

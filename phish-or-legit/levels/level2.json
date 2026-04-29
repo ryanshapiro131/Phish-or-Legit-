@@ -3,6 +3,7 @@
   "quota": 7,
   "emails": [
 	{
+<<<<<<< Updated upstream
 	"sender": "it-support@fbi.gov",
 	"subject": "Mandatory Security Update",
 	"body": "Hello,\n\nOur security team has identified a critical vulnerability in your workstation. Please download and run the attached patch file immediately to remain compliant with FBI security standards.\n\nFailure to install within 24 hours will result in your workstation being remotely disabled until the patch is applied.\n\nIT Security Team\nFBI Internal Systems",
@@ -10,6 +11,104 @@
 	"damage": 25,
 	"reward": 0,
 	"difficulty": 2
+=======
+	  "sender": "boss@fbi.gov",
+	  "subject": "Welcome Back, Champ!!",
+	  "body": "Hey hey hey!!\n\nDay two already, time flies when you're protecting national security!! Hope you got some rest because things are picking up around here!!\n\nJust a heads up — I've been in back to back meetings about the Hargrove case all morning. Big stuff. Can't say much but just know that your work here matters more than you know right now!!\n\nKeep those eyes sharp today. You're doing great!!\n\nBob\nDirector, Cyber Division",
+	  "is_phishing": false,
+	  "damage": 0, "reward": 0,
+	  "difficulty": 2,
+	  "icon": "boss.png",
+	  "trigger": "on_start"
+	},
+	{
+	  "sender": "it@fbi.gov",
+	  "subject": "Unusual Outbound Traffic — FYI",
+	  "body": "Hey,\n\nJust flagging something minor. Our monitoring tools picked up some unusual outbound traffic on the network late last night around 11PM. Volume was low so it's probably nothing — maybe someone left a sync running or forgot to close a connection.\n\nI've logged it and I'm keeping an eye on it. If you notice anything weird on your end, let me know.\n\nNot trying to alarm anyone, just being thorough.\n\nAlex\nIT Department, FBI",
+	  "is_phishing": false,
+	  "damage": 0,
+	  "reward": 10,
+	  "difficulty": 2,
+	  "icon": "it.png",
+	  "trigger": "on_start"
+	},
+	{
+	  "sender": "payroll@fbi.gov",
+	  "subject": "Quick Question About the Hargrove File",
+	  "body": "Hi,\n\nThis is a little awkward but — did someone from your department already request the Hargrove payroll file earlier today? I got a request this morning that I assumed was routine, but now I'm second guessing myself because it came through an odd channel.\n\nI went ahead and sent it over but wanted to check in with you just in case. Probably nothing! Just want to make sure I'm not losing my mind over here.\n\nTrevor Woodyard\nPayroll Department, FBI",
+	  "is_phishing": false,
+	  "damage": 0,
+	  "reward": 10,
+	  "difficulty": 2,
+	  "icon": "unknown.png",
+	  "trigger": "on_start"
+	},
+	{
+	  "sender": "boss@fbi.gov",
+	  "subject": "Nice Hustle Out There!!",
+	  "body": "Hey champ!!\n\nJust saw your numbers from this morning — not bad at all!! That kind of focus is exactly what this division needs right now!!\n\nBetween you and me, the higher ups are paying close attention to how we handle things this week. Something to do with the Hargrove case audit. No pressure though!! Just keep doing what you're doing!!\n\nGrab yourself a coffee, you've earned it!!\n\nBob\nDirector, Cyber Division",
+	  "is_phishing": false,
+	  "damage": 0,
+	  "reward": 10,
+	  "difficulty": 2,
+	  "icon": "boss.png",
+	  "trigger": "on_first_correct"
+	},
+	{
+	  "sender": "hr@fbi.gov",
+	  "subject": "A Note on Recent Phishing Attempts",
+	  "body": "Hello everyone,\n\nWe have been made aware of an increase in targeted phishing attempts across several departments this week. These are more sophisticated than usual and in some cases appear to come from legitimate internal addresses.\n\nPlease remain vigilant. If you receive any email asking you to verify credentials, download files, or take urgent action outside of normal procedures — even if it appears to be from a colleague — please flag it immediately.\n\nStay safe out there.\n\nAmelia\nHR Department, FBI",
+	  "is_phishing": false,
+	  "damage": 0,
+	  "reward": 10,
+	  "difficulty": 2,
+	  "icon": "hr.png",
+	  "trigger": "on_first_wrong"
+	},
+	{
+	  "sender": "it@fbi.gov",
+	  "subject": "Halfway There — Quick Reminder",
+	  "body": "Hey,\n\nStill keeping an eye on that network traffic from last night. Still inconclusive but the pattern is a little strange for an accidental sync.\n\nAnyway — reminder that if anything suspicious lands in your inbox today, forward it to security@fbi.gov before taking any action. Better safe than sorry.\n\nAlex\nIT Department, FBI",
+	  "is_phishing": false,
+	  "damage": 0,
+	  "reward": 10,
+	  "difficulty": 2,
+	  "icon": "it.png",
+	  "trigger": "on_quota_half"
+	},
+	{
+	  "sender": "it-support@fbi.gov",
+	  "subject": "Mandatory Security Patch",
+	  "body": "Hello,\n\nOur security team has identified a critical vulnerability affecting all workstations in the cyber division. A patch has been prepared and must be installed immediately.\n\nPlease download and run the attached installer at your earliest convenience. Workstations that are not patched by end of day will be remotely disabled as a precautionary measure.\n\nThis is time sensitive. Do not delay.\n\nIT Security\nFBI Internal Systems",
+	  "is_phishing": true,
+	  "damage": 25,
+	  "reward": 0,
+	  "difficulty": 2,
+	  "icon": "unknown.png",
+	  "trigger": "none"
+	},
+	{
+	  "sender": "security@fbi-gov.net",
+	  "subject": "Account Access Review — Action Required",
+	  "body": "Dear Employee,\n\nWe have detected irregular login activity associated with your FBI network account over the past 24 hours.\n\nAs part of our standard security protocol, we require you to verify your credentials immediately using the secure form linked below. Please do not discuss this review with colleagues as it is part of an active internal investigation.\n\nYour cooperation is required within 2 hours to prevent account suspension.\n\nhttp://fbi-gov.net/account-verify\n\nSecurity Operations\nFBI Cyber Division",
+	  "is_phishing": true,
+	  "damage": 25,
+	  "reward": 0,
+	  "difficulty": 2,
+	  "icon": "unknown.png",
+	  "trigger": "none"
+	},
+	{
+	  "sender": "billing@fbi-vendor-services.com",
+	  "subject": "Invoice #84821 — Immediate Payment Required",
+	  "body": "Hello,\n\nPlease find attached invoice #84821 for services rendered last quarter. Payment of $4,200 is now overdue and must be processed within 48 hours to avoid a service interruption.\n\nClick the link below to submit payment securely:\nhttp://fbi-vendor-pay.net/invoice84821\n\nThank you for your prompt attention to this matter.\n\nAccounts Receivable\nFBI Vendor Services",
+	  "is_phishing": true,
+	  "damage": 20,
+	  "reward": 0,
+	  "difficulty": 2,
+	  "icon": "unknown.png",
+	  "trigger": "none"
+>>>>>>> Stashed changes
 	},
 	{
 	  "sender": "trevorwoodyard@fbi.gov",
@@ -18,7 +117,13 @@
 	  "is_phishing": false,
 	  "damage": 0,
 	  "reward": 15,
+<<<<<<< Updated upstream
 	  "difficulty": 2
+=======
+	  "difficulty": 2,
+	  "icon": "unknown.png",
+	  "trigger": "none"
+>>>>>>> Stashed changes
 	},
 	{
 	"sender": "billing@fbi-vendor-services.com",
@@ -54,7 +159,24 @@
 	  "is_phishing": true,
 	  "damage": 25,
 	  "reward": 0,
+<<<<<<< Updated upstream
 	  "difficulty": 2
+=======
+	  "difficulty": 2,
+	  "icon": "unknown.png",
+	  "trigger": "none"
+	},
+	{
+	  "sender": "hr@fbi.gov",
+	  "subject": "Updated Benefits Enrollment",
+	  "body": "Hello,\n\nThis is a reminder that the annual benefits enrollment window closes at the end of this month. Please log in to the HR portal at hr.fbi.gov to review and update your selections.\n\nNo credentials or personal information should be submitted via email. If you have questions, contact HR directly at extension 4400.\n\nHR Department\nFBI",
+	  "is_phishing": false,
+	  "damage": 0,
+	  "reward": 15,
+	  "difficulty": 2,
+	  "icon": "hr.png",
+	  "trigger": "none"
+>>>>>>> Stashed changes
 	},
 	{
 	  "sender": "no-reply@linkedln.com",
@@ -63,6 +185,7 @@
 	  "is_phishing": true,
 	  "damage": 20,
 	  "reward": 0,
+<<<<<<< Updated upstream
 	  "difficulty": 2
 	},
 	{
@@ -83,5 +206,11 @@
 	"reward": 0,
 	"difficulty": 2
 },
+=======
+	  "difficulty": 2,
+	  "icon": "unknown.png",
+	  "trigger": "none"
+	}
+>>>>>>> Stashed changes
   ]
 }

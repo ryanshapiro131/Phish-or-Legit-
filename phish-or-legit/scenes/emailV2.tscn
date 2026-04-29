@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cgh1cmi4hjgmc" path="res://assets/DesktopBG.png" id="1_n6buh"]
 [ext_resource type="FontFile" uid="uid://dc52606rwa2qd" path="res://assets/PixelOperator.ttf" id="2_n6buh"]
 [ext_resource type="PackedScene" uid="uid://byciyheqruofd" path="res://scenes/integrityUI.tscn" id="2_ud1h4"]
+<<<<<<< Updated upstream
 [ext_resource type="Texture2D" uid="uid://ch2qxl2yql2sw" path="res://assets/FBISeal.png" id="3_pp4y5"]
 [ext_resource type="Texture2D" uid="uid://dl4vvjq5xue2r" path="res://assets/itchio-pxl-retro-computer-icons-set-110/separated-items/itchio-pxl-retro-computer-icons-set-110-item1.png" id="5_pc7up"]
 [ext_resource type="AudioStream" uid="uid://bfy0ku1ybo2hm" path="res://assets/kakaist-glitch-sfx-312910.mp3" id="5_u4aqv"]
@@ -19,6 +20,41 @@
 [ext_resource type="PackedScene" uid="uid://wy7aqp6f13bv" path="res://scenes/notepad.tscn" id="13_cy1xv"]
 [ext_resource type="Script" uid="uid://msc1p48uhiut" path="res://scripts/salary.gd" id="14_mejtc"]
 [ext_resource type="AudioStream" uid="uid://bjmba6kce1he8" path="res://assets/freesound_community-correct-choice-43861.mp3" id="17_xfk65"]
+=======
+[ext_resource type="Texture2D" uid="uid://dy4386vs7oiej" path="res://assets/EmailDesktopAssets/HeaderPanel.png" id="3_4hlsu"]
+[ext_resource type="Theme" uid="uid://dqcef7afk7pf5" path="res://themes/defaultfont.tres" id="3_n6buh"]
+[ext_resource type="Texture2D" uid="uid://c6hqu4lucrd0o" path="res://assets/EmailDesktopAssets/Logo.png" id="4_80n8e"]
+[ext_resource type="Texture2D" uid="uid://de7acj1rmqqva" path="res://assets/EmailDesktopAssets/ExitButtonSprites.png" id="6_80n8e"]
+[ext_resource type="Texture2D" uid="uid://bkl20722le3ci" path="res://assets/EmailDesktopAssets/ContentPanel.png" id="7_b6i5y"]
+[ext_resource type="Texture2D" uid="uid://ct5sqp23e5qtx" path="res://assets/EmailDesktopAssets/WidgetPanel.png" id="7_flayh"]
+[ext_resource type="Script" uid="uid://pyne58td1kwm" path="res://scenes/exit_button.gd" id="8_4ku52"]
+[ext_resource type="Texture2D" uid="uid://bln8jow48pp7v" path="res://assets/EmailDesktopAssets/FolderListPanel.png" id="8_s8qli"]
+[ext_resource type="Texture2D" uid="uid://dx0074bhp0jvo" path="res://assets/EmailDesktopAssets/HomeWidget.png" id="10_avh5d"]
+[ext_resource type="Texture2D" uid="uid://b0rsc0s834xdc" path="res://assets/EmailDesktopAssets/EmailListPanel.png" id="10_mejtc"]
+[ext_resource type="Script" uid="uid://bdygreuvussja" path="res://scripts/EmailLabelStats.gd" id="11_dnybs"]
+[ext_resource type="Script" uid="uid://dglmkg3uu36xn" path="res://scenes/home_widget.gd" id="11_lt0qg"]
+[ext_resource type="Texture2D" uid="uid://ieikttgqtctc" path="res://assets/EmailDesktopAssets/EmailViewPanel.png" id="11_xfk65"]
+[ext_resource type="Texture2D" uid="uid://dqvdxep1bqc72" path="res://assets/EmailDesktopAssets/InventWidget.png" id="12_lt0qg"]
+[ext_resource type="Texture2D" uid="uid://bqg4s8ruspvmp" path="res://assets/EmailDesktopAssets/ActionBarPanel.png" id="12_oqf7v"]
+[ext_resource type="Texture2D" uid="uid://u8vdfnb4jvvy" path="res://assets/EmailDesktopAssets/ShopWidget.png" id="13_4ku52"]
+[ext_resource type="Texture2D" uid="uid://l3waqutisip" path="res://assets/EmailDesktopAssets/AcceptButtonSprites.png" id="13_b6i5y"]
+[ext_resource type="Texture2D" uid="uid://3ythn5ryg2sr" path="res://assets/EmailDesktopAssets/BottomPanel.png" id="13_p4o1y"]
+[ext_resource type="Script" uid="uid://cypko5bqexrem" path="res://scenes/shop_widget.gd" id="14_6kg3f"]
+[ext_resource type="Texture2D" uid="uid://bsxyakwtrdipl" path="res://assets/EmailDesktopAssets/SalaryPanel.png" id="14_b6i5y"]
+[ext_resource type="Texture2D" uid="uid://6ak8tfdmi8s3" path="res://assets/EmailDesktopAssets/DenyButtonSprites.png" id="14_dnybs"]
+[ext_resource type="Theme" uid="uid://bw5y7v8qdlh80" path="res://themes/email_button.tres" id="14_motaj"]
+[ext_resource type="Texture2D" uid="uid://gtd5h0nfar6b" path="res://assets/EmailDesktopAssets/IgnoreButtonSprites.png" id="15_fh72i"]
+[ext_resource type="Texture2D" uid="uid://b6vkmixthpyum" path="res://assets/EmailDesktopAssets/NoteWidget.png" id="15_hdtas"]
+[ext_resource type="Theme" uid="uid://cjw8pt46pmyd" path="res://themes/email.tres" id="15_v5uti"]
+[ext_resource type="Texture2D" uid="uid://br1sd43yy1tgy" path="res://assets/EmailDesktopAssets/IntegrityBarPanel.png" id="16_fh72i"]
+[ext_resource type="Texture2D" uid="uid://wgvg258nv2qu" path="res://assets/EmailDesktopAssets/TimePanel.png" id="18_mejtc"]
+[ext_resource type="AudioStream" uid="uid://bfy0ku1ybo2hm" path="res://assets/kakaist-glitch-sfx-312910.mp3" id="25_cepvy"]
+[ext_resource type="AudioStream" uid="uid://bjmba6kce1he8" path="res://assets/freesound_community-correct-choice-43861.mp3" id="26_v5uti"]
+[ext_resource type="PackedScene" uid="uid://delr3h13ecgfi" path="res://scenes/TextBox.tscn" id="27_motaj"]
+[ext_resource type="PackedScene" uid="uid://wy7aqp6f13bv" path="res://scenes/notepad.tscn" id="28_gxrcw"]
+[ext_resource type="Texture2D" uid="uid://cyk3tnp7br84p" path="res://assets/EmailDesktopAssets/MoneyIcon.png" id="29_avh5d"]
+[ext_resource type="Texture2D" uid="uid://d08trr0bckxo4" path="res://assets/EmailDesktopAssets/TimeIcon.png" id="33_lt0qg"]
+>>>>>>> Stashed changes
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_80n8e"]
 bg_color = Color(0.5096349, 0.5442721, 1, 1)
@@ -132,10 +168,18 @@ size_flags_vertical = 0
 [node name="ExitButton" type="Button" parent="MainVBox/Header/HeaderMargin/HeaderHBox/ExitButtonArea" unique_id=873680678]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
+<<<<<<< Updated upstream
 theme_override_fonts/font = ExtResource("2_n6buh")
 theme_override_font_sizes/font_size = 32
 text = "X"
 script = ExtResource("8_dd6fd")
+=======
+texture_normal = SubResource("AtlasTexture_flayh")
+texture_pressed = SubResource("AtlasTexture_oxsar")
+texture_hover = SubResource("AtlasTexture_dd6fd")
+stretch_mode = 5
+script = ExtResource("8_4ku52")
+>>>>>>> Stashed changes
 
 [node name="Content" type="HBoxContainer" parent="MainVBox" unique_id=1072803660]
 layout_mode = 2
@@ -427,7 +471,76 @@ transform = Transform2D(0.67, 0, 0, 0.67, 450, 450)
 [node name="Notepad" parent="." unique_id=2025402526 instance=ExtResource("13_cy1xv")]
 visible = false
 
+<<<<<<< Updated upstream
 [connection signal="pressed" from="MainVBox/Header/HeaderMargin/HeaderHBox/ExitButtonArea/ExitButton" to="MainVBox/Header/HeaderMargin/HeaderHBox/ExitButtonArea/ExitButton" method="_on_pressed"]
 [connection signal="pressed" from="MainVBox/Content/WidgetSidebarPanel/WidgetSidebarMargin/WidgetSidebarVBox/HomeButton" to="MainVBox/Content/WidgetSidebarPanel/WidgetSidebarMargin/WidgetSidebarVBox/HomeButton" method="_on_pressed"]
 [connection signal="pressed" from="MainVBox/Content/WidgetSidebarPanel/WidgetSidebarMargin/WidgetSidebarVBox/ShopWidget" to="MainVBox/Content/WidgetSidebarPanel/WidgetSidebarMargin/WidgetSidebarVBox/ShopWidget" method="_on_pressed"]
 [connection signal="pressed" from="MainVBox/Content/WidgetSidebarPanel/WidgetSidebarMargin/WidgetSidebarVBox/NotepadButton" to="Notepad" method="_on_notepad_button_pressed"]
+=======
+[node name="InventoryPopup" type="PopupPanel" parent="." unique_id=1716712160]
+unique_name_in_owner = true
+transparent_bg = false
+oversampling_override = 1.0
+title = "Inventory"
+size = Vector2i(420, 320)
+transparent = false
+theme_override_styles/panel = SubResource("StyleBoxFlat_inv_opaque")
+
+[node name="MarginContainer" type="MarginContainer" parent="InventoryPopup" unique_id=1147573506]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 418.0
+offset_bottom = 318.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="VBox" type="VBoxContainer" parent="InventoryPopup/MarginContainer" unique_id=158054489]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="UpgradesInventoryRichText" type="RichTextLabel" parent="InventoryPopup/MarginContainer/VBox" unique_id=1612057925]
+custom_minimum_size = Vector2(50, 80)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/normal_font = ExtResource("2_n6buh")
+theme_override_fonts/bold_font = ExtResource("2_n6buh")
+theme_override_fonts/bold_italics_font = ExtResource("2_n6buh")
+theme_override_fonts/italics_font = ExtResource("2_n6buh")
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+
+[node name="InventoryDivider" type="Panel" parent="InventoryPopup/MarginContainer/VBox" unique_id=1612057926]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_inv_divider")
+
+[node name="PowerUpsInventoryRichText" type="RichTextLabel" parent="InventoryPopup/MarginContainer/VBox" unique_id=1612057927]
+custom_minimum_size = Vector2(50, 80)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/normal_font = ExtResource("2_n6buh")
+theme_override_fonts/bold_font = ExtResource("2_n6buh")
+theme_override_fonts/bold_italics_font = ExtResource("2_n6buh")
+theme_override_fonts/italics_font = ExtResource("2_n6buh")
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+
+[node name="CloseButton" type="Button" parent="InventoryPopup/MarginContainer/VBox" unique_id=344259729]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_n6buh")
+theme_override_font_sizes/font_size = 26
+text = "Close"
+
+[connection signal="pressed" from="MainWindow/MainVBox/Header/HeaderMargin/HeaderHBox/ExitButtonArea/ExitButton" to="MainWindow/MainVBox/Header/HeaderMargin/HeaderHBox/ExitButtonArea/ExitButton" method="_on_pressed"]
+[connection signal="pressed" from="MainWindow/MainVBox/Content/ContentHBox/WidgetSidebarPanel/WidgetSidebarMargin/WidgetSidebarVBox/HomeButton" to="MainWindow/MainVBox/Content/ContentHBox/WidgetSidebarPanel/WidgetSidebarMargin/WidgetSidebarVBox/HomeButton" method="_on_pressed"]
+[connection signal="pressed" from="MainWindow/MainVBox/Content/ContentHBox/WidgetSidebarPanel/WidgetSidebarMargin/WidgetSidebarVBox/ShopWidget" to="MainWindow/MainVBox/Content/ContentHBox/WidgetSidebarPanel/WidgetSidebarMargin/WidgetSidebarVBox/ShopWidget" method="_on_pressed"]
+[connection signal="pressed" from="MainWindow/MainVBox/Content/ContentHBox/WidgetSidebarPanel/WidgetSidebarMargin/WidgetSidebarVBox/NotepadButton" to="." method="_on_notepad_button_pressed"]
+>>>>>>> Stashed changes

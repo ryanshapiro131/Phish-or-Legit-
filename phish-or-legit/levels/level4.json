@@ -1,0 +1,160 @@
+{
+  "level": 4,
+  "quota": 10,
+  "emails": [
+	{
+	  "sender": "it@fbi.gov",
+	  "subject": "I Found It",
+	  "body": "I need you to read this carefully.\n\nLast night I pulled the full access logs for the Hargrove case files going back two weeks. There was an access event at 2:14 AM on Tuesday — after hours, no scheduled maintenance, no logged reason.\n\nThe credentials used belonged to a senior staff member. I can't put the name in writing. But there are only four people on this floor with that level of clearance.\n\nI've sent everything to internal affairs. My supervisor has told me to drop it again. I'm not dropping it.\n\nWatch what you approve today. Especially anything that comes from the top floor.\n\nAlex\nIT Department, FBI",
+	  "is_phishing": false,
+	  "damage": 0,
+	  "reward": 0,
+	  "difficulty": 4,
+	  "icon": "it.png",
+	  "trigger": "on_start"
+	},
+	{
+	  "sender": "hr@fbi.gov",
+	  "subject": "This Is Between Us",
+	  "body": "Hello,\n\nI want to be upfront with you — I've filed a report with internal affairs this morning regarding some concerns I have about conduct at the senior level. I can't say more than that in writing.\n\nWhat I will say is this: if you receive any requests today that feel unusual — especially anything asking you to bypass normal procedures, approve transfers outside of regular channels, or keep something quiet — please do not action them without checking with me or IT first.\n\nI know this is a lot for someone who just started. I'm sorry you're caught in the middle of this. You've done really good work this week.\n\nAmelia\nHR Department, FBI",
+	  "is_phishing": false,
+	  "damage": 0,
+	  "reward": 0,
+	  "difficulty": 4,
+	  "icon": "hr.png",
+	  "trigger": "on_start"
+	},
+	{
+	  "sender": "boss@fbi.gov",
+	  "subject": "Good Morning!!",
+	  "body": "Morning!!\n\nJust checking in!! Hope you slept well!! Big day today, lots to get through!!\n\nLet me know if you need anything at all. Door is always closed but you know what I mean!! Ha!!\n\nBob\nDirector, Cyber Division",
+	  "is_phishing": false,
+	  "damage": 0,
+	  "reward": 0,
+	  "difficulty": 4,
+	  "icon": "boss.png",
+	  "trigger": "on_start"
+	},
+	{
+	  "sender": "boss@fbi.gov",
+	  "subject": "Everything Okay Over There?",
+	  "body": "Hey champ,\n\nHaven't heard from you much today. Everything going okay?\n\nI know things feel a little weird around the office right now. There's a lot of rumour and speculation flying around and I want you to know that you can always come to me directly if you have questions or concerns.\n\nWe're a team. That's what matters.\n\nBob\nDirector, Cyber Division",
+	  "is_phishing": false,
+	  "damage": 0,
+	  "reward": 10,
+	  "difficulty": 4,
+	  "icon": "boss.png",
+	  "trigger": "on_first_correct"
+	},
+	{
+	  "sender": "hr@fbi.gov",
+	  "subject": "Stay Focused",
+	  "body": "Hello,\n\nI know today has been a lot. I just wanted to check in.\n\nInternal affairs has acknowledged my report. They are looking into it. In the meantime the best thing you can do is keep doing your job well and trust your instincts.\n\nIf something feels wrong, it probably is. You have good judgment. Use it.\n\nAmelia\nHR Department, FBI",
+	  "is_phishing": false,
+	  "damage": 0,
+	  "reward": 10,
+	  "difficulty": 4,
+	  "icon": "hr.png",
+	  "trigger": "on_first_wrong"
+	},
+	{
+	  "sender": "it@fbi.gov",
+	  "subject": "They Know I Know",
+	  "body": "Hey,\n\nI'm going to keep this very short.\n\nSomeone accessed my workstation remotely while I was away from my desk this afternoon. Files related to my investigation were moved. I have backups but whoever did this knows I'm looking.\n\nI've escalated directly to internal affairs, bypassing my supervisor entirely. Should have done that from the start.\n\nDo not approve anything unusual today. Anything at all.\n\nAlex",
+	  "is_phishing": false,
+	  "damage": 0,
+	  "reward": 10,
+	  "difficulty": 4,
+	  "icon": "it.png",
+	  "trigger": "on_quota_half"
+	},
+	{
+	  "sender": "boss@fbi.gov",
+	  "subject": "One More Thing — Quick Favour",
+	  "body": "Hey,\n\nSorry to bother you with this but I need you to approve one final transfer before end of day. It's routine Hargrove case admin, just needs a second sign off since I'm flagged as the primary on the file right now.\n\nI know it looks a little unusual but I promise it's completely above board. Just use the link below — it bypasses the standard queue because we're up against a deadline.\n\nDon't mention it to anyone until after it's done, just to keep the paperwork clean.\n\nThanks champ. I really appreciate you.\n\nBob",
+	  "is_phishing": true,
+	  "damage": 40,
+	  "reward": 0,
+	  "difficulty": 4,
+	  "icon": "boss.png",
+	  "trigger": "none"
+	},
+	{
+	  "sender": "boss@fbi.gov",
+	  "subject": "Disregard My Previous Email",
+	  "body": "Hi,\n\nPlease ignore the email I just sent about the transfer. It was sent in error — wrong recipient chain.\n\nSorry for the confusion.\n\nBob",
+	  "is_phishing": false,
+	  "damage": 0,
+	  "reward": 10,
+	  "difficulty": 4,
+	  "icon": "boss.png",
+	  "trigger": "none"
+	},
+	{
+	  "sender": "security@fbi.gov",
+	  "subject": "Routine Access Review",
+	  "body": "Hello,\n\nAs part of our ongoing quarterly review, we are auditing access permissions across all divisions.\n\nNo action is required from you at this time. If your access level changes as a result of this review, you will be notified directly by the IT department.\n\nThank you for your patience.\n\nSecurity Team\nFBI",
+	  "is_phishing": false,
+	  "damage": 0,
+	  "reward": 15,
+	  "difficulty": 4,
+	  "icon": "it.png",
+	  "trigger": "none"
+	},
+	{
+	  "sender": "boss@fbi.gov",
+	  "subject": "Need This Done Now — No Time to Explain",
+	  "body": "I know this looks strange but I need you to trust me.\n\nApprove the transfer request that's about to hit your queue. Do not run it through standard review. Do not talk to Amelia or Alex about it first.\n\nI will explain everything later. Just do this one thing for me.\n\nBob",
+	  "is_phishing": true,
+	  "damage": 40,
+	  "reward": 0,
+	  "difficulty": 4,
+	  "icon": "boss.png",
+	  "trigger": "none"
+	},
+	{
+	  "sender": "payroll@fbi.gov",
+	  "subject": "Your Pay Stub is Ready",
+	  "body": "Hello,\n\nYour pay stub for the current pay period is now available.\n\nPlease log in to the employee portal at portal.fbi.gov to view it. If you have any payroll questions, contact the payroll department at extension 3300.\n\nPayroll Department\nFBI",
+	  "is_phishing": false,
+	  "damage": 0,
+	  "reward": 10,
+	  "difficulty": 4,
+	  "icon": "unknown.png",
+	  "trigger": "none"
+	},
+	{
+	  "sender": "security@fbi-gov.net",
+	  "subject": "Emergency Access Suspension Notice",
+	  "body": "Dear Employee,\n\nDue to an active internal security investigation, your network access permissions are being temporarily reviewed.\n\nTo ensure continuity of your work during this period, please verify your credentials using the secure link below. This will prevent any interruption to your access while the review is ongoing.\n\nThis notice is confidential. Please do not discuss it with colleagues.\n\nhttp://fbi-gov.net/emergency-verify\n\nSecurity Operations\nFBI",
+	  "is_phishing": true,
+	  "damage": 30,
+	  "reward": 0,
+	  "difficulty": 4,
+	  "icon": "unknown.png",
+	  "trigger": "none"
+	},
+	{
+	  "sender": "it@fbi.gov",
+	  "subject": "System Update Complete",
+	  "body": "Hello,\n\nThis is a notification to confirm that the scheduled system update completed successfully overnight.\n\nAll services are fully operational. No action is required.\n\nAlex\nIT Department, FBI",
+	  "is_phishing": false,
+	  "damage": 0,
+	  "reward": 10,
+	  "difficulty": 4,
+	  "icon": "it.png",
+	  "trigger": "none"
+	},
+	{
+	  "sender": "compliance@fbi.gov.compliance-check.com",
+	  "subject": "Urgent Compliance Review — Your Account",
+	  "body": "Dear Employee,\n\nAs part of an expedited compliance review currently underway across the cyber division, your account has been flagged for immediate verification.\n\nThis review is related to an active internal investigation and must be completed before end of business today. Please use the link below to confirm your access credentials and current clearance level.\n\nDo not forward this email. Do not discuss this review with your supervisor.\n\nhttp://compliance-check.com/fbi-review\n\nCompliance Department\nFBI",
+	  "is_phishing": true,
+	  "damage": 35,
+	  "reward": 0,
+	  "difficulty": 4,
+	  "icon": "unknown.png",
+	  "trigger": "none"
+	}
+  ]
+}

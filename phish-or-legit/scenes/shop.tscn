@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dh0y6w4gveau2"]
 
-[ext_resource type="Texture2D" uid="uid://cgh1cmi4hjgmc" path="res://assets/DesktopBG.png" id="1_gobkm"]
+[ext_resource type="Texture2D" uid="uid://v1m65l6wkdr0" path="res://assets/EmailDesktopAssets/MonitorBG.png" id="1_gobkm"]
 [ext_resource type="Texture2D" uid="uid://did4w0iaeeaes" path="res://assets/GodotYellow.jpg" id="3_blqjs"]
 [ext_resource type="Script" uid="uid://msc1p48uhiut" path="res://scripts/salary.gd" id="3_m4ofw"]
 [ext_resource type="Texture2D" uid="uid://xo3mwe7163b0" path="res://assets/GodotGreenjpg.jpg" id="4_6lah5"]
@@ -31,14 +31,15 @@ region = Rect2(75.67096, 64.35982, 123.451294, 130.62871)
 [node name="shop" type="Control" unique_id=416955090]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 852.0
+offset_left = 882.0
 offset_top = 524.0
-offset_right = 852.0
+offset_right = 882.0
 offset_bottom = 524.0
 metadata/_edit_use_anchors_ = true
 
 [node name="TextureRect2" type="TextureRect" parent="." unique_id=138664142]
 layout_mode = 1
+<<<<<<< Updated upstream
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -46,9 +47,16 @@ offset_left = -880.0
 offset_top = -550.0
 offset_right = 1724.0
 offset_bottom = 962.0
+=======
+offset_left = -1231.0
+offset_top = -807.0
+offset_right = 1699.0
+offset_bottom = 1148.0
+>>>>>>> Stashed changes
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_gobkm")
+metadata/_edit_use_anchors_ = true
 
 [node name="Hyper-Link" type="Label" parent="." unique_id=2126347830]
 layout_mode = 0
@@ -333,10 +341,17 @@ script = ExtResource("11_aa4hd")
 
 [node name="EmailButton" type="TextureButton" parent="." unique_id=78432841]
 layout_mode = 0
+<<<<<<< Updated upstream
 offset_left = 235.0
 offset_top = 634.0
 offset_right = 388.0
 offset_bottom = 751.0
+=======
+offset_left = 31.0
+offset_top = 721.0
+offset_right = 184.0
+offset_bottom = 838.0
+>>>>>>> Stashed changes
 texture_normal = SubResource("AtlasTexture_y6sft")
 script = ExtResource("6_ajxib")
 
@@ -350,15 +365,30 @@ texture_normal = SubResource("AtlasTexture_m4ofw")
 script = ExtResource("7_ajxib")
 
 [node name="IntegrityUI" parent="." unique_id=1043091255 instance=ExtResource("8_y6sft")]
+visibility_layer = 4
 layout_mode = 1
+<<<<<<< Updated upstream
 offset_left = 239.0
 offset_top = 1138.0
 offset_right = 711.0
 offset_bottom = 1476.0
+=======
+offset_left = 1149.0
+offset_top = 747.0
+offset_right = 1386.0
+offset_bottom = 955.0
+>>>>>>> Stashed changes
 
 [node name="BuySound" type="AudioStreamPlayer2D" parent="." unique_id=1958106485]
 stream = ExtResource("16_j14q8")
 volume_db = -8.537
 
+<<<<<<< Updated upstream
+=======
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1258885894]
+position = Vector2(218.00003, 181.99998)
+zoom = Vector2(0.715, 0.715)
+
+>>>>>>> Stashed changes
 [connection signal="pressed" from="EmailButton" to="EmailButton" method="_on_pressed"]
 [connection signal="pressed" from="HomeButton" to="HomeButton" method="_on_pressed"]
